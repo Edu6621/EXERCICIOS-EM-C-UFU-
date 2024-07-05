@@ -1,0 +1,22 @@
+/* 8. Escreva um programa que leia 10 numeros e escreva o menor valor lido e o maior valor
+lido. */
+#include <stdio.h>
+int main (){
+    int numero;
+    int maior, menor;
+    int quantidade = 1;
+    while (quantidade <= 10){
+        printf ("insira o número %i : ", quantidade);
+        scanf ("%i", &numero);
+        if (quantidade==1){
+            maior=numero;
+            menor=numero;
+        }
+        else if (numero<menor){
+            menor=numero;
+        }
+        else if (numero>maior){
+            maior=numero;
+        }quantidade++;
+    }printf ("o maior número é %i \no menor número é %i", maior, menor);
+}
