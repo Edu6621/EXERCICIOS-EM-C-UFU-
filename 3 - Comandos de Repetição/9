@@ -1,0 +1,16 @@
+/* 9. Faça um programa que leia um numero inteiro N e depois imprima os N primeiros
+numeros naturais ímpares. */
+#include <stdio.h>
+int main () {
+    int numero;
+    int a = 1;
+    int i = 1;
+    printf ("insira um número : ");
+    scanf("%i", &numero);
+    while (i<=numero){
+        printf ("%i\n", a);
+        a=a+2;
+        i++;
+    }
+    return 0;
+}
