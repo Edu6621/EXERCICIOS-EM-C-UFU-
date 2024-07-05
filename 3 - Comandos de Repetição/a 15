@@ -1,0 +1,16 @@
+/*15. Faça um programa que leia um numero inteiro positivo ımpar N e imprima todos os
+numeros ımpares de 1 ate N em ordem crescente. */
+#include <stdio.h>
+int main () {
+    int n;
+    int quantidade = 1;
+    printf ("informe um número positivo ímpar : ");
+    scanf ("%i", &n);
+    if (n<0){
+        return 0;
+    }
+    while (quantidade>=1 && quantidade <= n){
+        printf ("%i ", quantidade);
+        quantidade=quantidade+2;
+    }
+}
