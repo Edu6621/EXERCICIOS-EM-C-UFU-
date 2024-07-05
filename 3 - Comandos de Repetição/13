@@ -1,0 +1,13 @@
+/* 13. Faça um programa que leia um numero inteiro positivo par N e imprima todos os numeros
+pares de 0 ate N em ordem crescente. */
+#include <stdio.h>
+int main () {
+    int n;
+    int quantidade = 0;
+    printf ("insira um número inteiro positivo : ");
+    scanf ("%i", &n);
+    while (quantidade>=0 && quantidade <= n){
+        printf ("%i ", quantidade);
+        quantidade+=2;
+    }
+}
