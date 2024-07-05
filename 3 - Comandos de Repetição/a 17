@@ -1,0 +1,17 @@
+/* 17. Faca um programa que leia um numero inteiro positivo n e calcule a soma dos n primeiros
+numeros naturais. */
+#include <stdio.h>
+int main () {
+    int n;
+    int nat = 1;
+    int soma = 0;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n<0){
+        return 0;
+    }
+    while (nat>=1 && nat <= n){
+        soma=soma+nat;
+        nat++;
+    }printf ("%i", soma);
+}
