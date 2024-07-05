@@ -1,0 +1,13 @@
+/* 12. Faça um programa que leia um numero inteiro positivo N e imprima todos os numeros
+naturais de 0 ate N em ordem decrescente. */
+#include <stdio.h>
+int main () {
+    int n;
+    int quantidade = 1;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    while (quantidade <= n && quantidade >= 0){
+        printf ("%i ", n);
+        n=n-1;
+    }
+}
