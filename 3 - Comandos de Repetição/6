@@ -1,0 +1,15 @@
+// 6. Faça um programa que leia 10 inteiros e imprima sua media.
+#include <stdio.h>
+int main (){
+    int numeros;
+    int soma = 0;
+    int quantidade = 1;
+    int media;
+    while (quantidade <=10){
+        printf ("insira o número %i : ", quantidade);
+        scanf ("%i", &numeros);
+        soma=soma+numeros;
+        quantidade++;
+    }media=soma/10;
+    printf ("a média é %i", media);
+}
