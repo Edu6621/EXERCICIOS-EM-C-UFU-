@@ -1,0 +1,19 @@
+/* 7. Faça um programa que leia 10 inteiros positivos, ignorando nao positivos, e imprima sua
+media. */
+#include <stdio.h>
+int main () {
+    int numeros, media;
+    int soma = 0;
+    int quantidade = 1;
+    while (quantidade <=10){
+        printf ("insira o número %i : ", quantidade);
+        scanf ("%i", &numeros);
+        if (numeros>=0){
+            soma=numeros+soma;
+            quantidade++;
+        }
+    }media=soma/10;
+    printf ("a media desses números é : %i", media);
+
+    return 0;
+}
