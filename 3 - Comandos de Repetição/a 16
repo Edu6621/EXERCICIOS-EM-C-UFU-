@@ -1,0 +1,20 @@
+/* 16. Faça um programa que leia um numero inteiro positivo ımpar N e imprima todos os
+numeros ımpares de 1 ate N em ordem decrescente */
+#include <stdio.h>
+int main () {
+    int n;
+    int quantidade = 1;
+    printf ("informe um número ímpar positivo : ");
+    scanf ("%i", &n);
+    if (n<0){
+        return 0;
+    }
+    while (quantidade >=1 && quantidade <= n){
+        if (n%2 != 0){
+            printf ("%i ", n);
+            n=n-2;
+        }else{
+            n=n-1;
+        }
+    }
+}
