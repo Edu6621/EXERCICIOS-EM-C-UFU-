@@ -1,0 +1,19 @@
+/*19. Escreva um algoritmo que leia um numero inteiro entre 100 e 999 e imprima na saıda
+cada um dos algarismos que compoem o numero */
+#include <stdio.h>
+int main () {
+    int numero, n1, n2, n3;
+    printf ("insira um número inteiro entre 100 e 999 : ");
+    scanf ("%i", &numero);
+    if (numero >=100 && numero <=999){
+        n1=numero/100;
+        printf ("%i \n", n1);
+        n2=numero%100;
+        n2=n2/10;
+        printf ("%.i \n", n2);
+        n3=numero%10;
+        printf ("%i \n", n3);
+    }else{
+        printf ("ERRO");
+    }return 0;
+}
