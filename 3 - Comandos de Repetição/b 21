@@ -1,0 +1,33 @@
+/* 21. Faca um programa que receba dois numeros. Calcule e mostre:
+• a soma dos numeros pares desse intervalo de numeros, incluindo os numeros digi-
+tados;
+• a multiplicacao dos numeros ımpares desse intervalo, incluindo os digitados; */
+#include <stdio.h>
+int main () {
+    
+    int a, par = 0; 
+    int impar = 1;
+    int contador = 1;
+    
+    while (contador>=1 && contador<=2){
+        printf ("\ninforme o número %i : ", contador);
+        scanf ("%i", &a);
+        if (a%2==0){
+            par=par+a;
+            if (contador ==2 ){
+                if (impar != 1){
+                    return 0;
+                }
+                printf ("a soma dos números é %i", par);
+            }
+        }else{
+            impar=impar*a;
+            if (contador ==2 ){
+                if (par!=0){
+                    return 0;
+                }
+                printf ("a multiplicação dos números é %i", impar);
+        }
+        }contador++;
+    }    
+}
