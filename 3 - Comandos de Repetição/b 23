@@ -1,0 +1,21 @@
+//23. Faca um algoritmo que leia um numero positivo e imprima seus divisores
+#include <stdio.h>
+#include <math.h>
+int main () {
+    int contador = 1;
+    int numero = 0;
+    int sobra;
+    int result;
+    printf ("informe um número positivo : ");
+    scanf ("%i", &numero);
+    if (numero<0){
+        return 0;
+    }
+    while (contador>=1 && contador<=numero){
+        if (numero%contador==0){
+            result=numero/contador;
+            printf ("%i ", result);
+        }
+        contador++;
+    }
+}
