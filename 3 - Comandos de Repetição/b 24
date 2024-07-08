@@ -1,0 +1,25 @@
+/*24. Escreva um programa que leia um numero inteiro e calcule a soma de todos os divisores
+desse numero, com exceçao dele proprio. Ex: a soma dos divisores do numero 66 e
+1 + 2 + 3 + 6 + 11 + 22 + 33 = 78
+*/
+#include <stdio.h>
+int main () {
+    int contador = 2;
+    int numero = 0;
+    int result;
+    int soma = 0;
+    printf ("informe um número positivo : ");
+    scanf ("%i", &numero);
+    if (numero<0){
+        return 0;
+    }
+    while (contador>=2 && contador<=numero){
+        if (numero%contador==0){
+            result=numero/contador;
+            printf ("%i ", result);
+            soma=soma+result;        
+            
+        }
+        contador++;
+    }printf ("\na soma deles é : %i", soma);
+}
