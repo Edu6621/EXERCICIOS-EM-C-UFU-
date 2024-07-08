@@ -1,0 +1,30 @@
+/*26. Faca um algoritmo que encontre o primeiro multiplo de 11, 13 ou 17 apos um numero
+dado.*/
+#include <stdio.h>
+int main (){
+    int numero;
+    int contador;
+    printf ("insira um número : ");
+    scanf ("%i", &numero);
+    contador=numero+1;
+    while (contador>=numero){
+        if (contador%11==0){
+            printf ("11 ) %i\n", contador);
+            break;
+        }contador++;
+    }
+    contador=numero+1;
+    while (contador>=numero){
+        if (contador%13==0){
+            printf ("13 ) %i\n", contador);
+            break;
+        }contador++;
+    }
+    contador=numero+1;
+    while (contador>=numero){
+        if (contador%17==0){
+            printf ("17 ) %i\n", contador);
+            break;
+        }contador++; 
+    }contador=numero+1;
+}    
