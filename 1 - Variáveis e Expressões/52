@@ -1,0 +1,22 @@
+/* Tres amigos jogaram na loteria. Caso eles ganhem, o premio deve ser repartido pro
+   porcionalmente ao valor que cada deu para a realizacao da aposta. Faca um programa
+   que leia quanto cada apostador investiu, o valor do premio, e imprima quanto cada um
+   ganharia do premio com base no valor investido.                                       */
+#include <stdio.h>
+int main () {
+    float a, b, c, x, m;
+    printf ("insira quanto o primeiro investiu : ");
+    scanf ("%f", &a);
+    printf ("insira o quanto o segundo investiu : ");
+    scanf ("%f", &b);
+    printf ("insira o quanto o terceiro investiu : ");
+    scanf ("%f", &c);
+    printf ("insira o valor do prêmio : ");
+    scanf ("%f", &x);
+    m=x/(a+b+c);
+    a=m*a;
+    b=m*b;
+    c=m*c;
+    printf ("o valor que cada um vai ganhar, respectivamente, é de \n %.2f \n %.2f \n %.2f", a, b, c);
+    return 0;
+}
