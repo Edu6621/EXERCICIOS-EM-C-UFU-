@@ -1,0 +1,50 @@
+/* Usando switch, escreva um programa que leia um inteiro entre 1 e 12 e imprima o mes
+   correspondente a este numero. Isto e, janeiro se 1, fevereiro se 2, e assim por diante. */
+#include <stdio.h>
+    int main () {
+        int a;
+    printf ("insira um número de 1 a 12 ");
+    scanf ("%i", &a);
+    switch (a)
+    {
+        case 1 :
+        printf ("janeiro");
+    break;
+    case 2 :
+        printf ("fevereiro");
+    break;
+    case 3 :
+        printf ("março");
+    break;
+    case 4 :
+        printf ("abril");
+    break;
+    case 5 :
+        printf ("maio");
+    break;
+    case 6 :
+        printf ("junho");
+    break;
+    case 7 :
+        printf ("julho");
+    break;
+    case 8 :
+        printf ("agosto");
+    break;
+    case 9 :
+        printf ("setembro");
+    break;
+    case 10 :
+        printf ("outubro");
+    break;
+    case 11 :
+        printf ("novembro");
+    break;
+    case 12 :
+        printf ("dezembro");
+    break;
+    default :
+        printf ("número inválido !!");
+    break;
+    }
+    }
