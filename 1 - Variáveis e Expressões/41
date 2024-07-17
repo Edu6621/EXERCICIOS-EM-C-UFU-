@@ -1,0 +1,15 @@
+/*  Faca um programa que leia o valor da hora de trabalho (em reais) e numero de horas
+    trabalhadas no mes. Imprima o valor a ser pago ao funcionario, adicionando 10% sobre
+    o valor calculado.                                                                */
+    
+    #include <stdio.h>
+    void main () {
+        float hora, numero,semimposto, imposto;
+        printf ("informe o valor da hora trabalhada : ");
+        scanf ("%f", &hora);
+        printf ("informe o número de horas trabalhadas no mês : ");
+        scanf ("%f", &numero);
+        semimposto=hora*numero;
+        imposto=semimposto*1.10;
+        printf ("o valor a ser pago ao funcionario é : %.2f", imposto);
+    }
