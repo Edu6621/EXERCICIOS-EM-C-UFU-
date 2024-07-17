@@ -1,0 +1,31 @@
+/*  Leia a idade e o tempo de servico de um trabalhador e escreva se ele pode ou nao se
+    aposentar. As condicoes para aposentadoria sao
+
+• Ter pelo menos 65 anos,
+
+• Ou ter trabalhado pelo menos 30 anos,
+
+• Ou ter pelo menos 60 anos e trabalhado pelo menos 25 anos. */
+#include <stdio.h>
+int main () {
+    int idade;
+    float tempo;
+    printf ("insira sua idade : ");
+    scanf ("%i", &idade);
+    printf ("insira o tempo de serviço (em anos)");
+    scanf ("%f", &tempo);
+    while (idade>=65){
+        printf ("você pode se aposentar !!");
+        return 0;
+    }
+    while (tempo>=30){
+        printf ("você pode se aposentar !!");
+        return 0;
+    }
+    while ((idade>=60) && (tempo>=25)){
+        printf ("você pode se aposentar");
+        return 0;
+    }
+    printf ("você não pode se aposentar !!");
+    return 0;
+}
