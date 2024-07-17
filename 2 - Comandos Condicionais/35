@@ -1,0 +1,162 @@
+/*Leia uma data e determine se ela e valida. Ou seja, verifique se o mes esta entre 1 e 12,
+  e se o dia existe naquele mes. Note que Fevereiro tem 29 dias em anos bissextos, e 28 
+  dias em anos nao bissextos. */
+#include <stdio.h>
+int main () {
+    int valor, dia;
+    printf ("insira um número de 1 a 12, sendo :\n1 = Janeiro\n2 = Fevereiro\n3 = Março\n4 = Abril\n5 = Maio\n6 = Junho\n7 = Julho\n8 = Agosto\n9 = Setembro\n10 = Outubro\n11 = Novembro\n12 = Dezembro\n ");
+    scanf ("%i", &valor);
+    switch (valor)
+    {
+        case 1 :
+            printf ("Janeiro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 2 :
+            printf ("Fevereiro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia>=1) && (dia<=28)){
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }if (dia==29){
+                printf ("ESSA DATA SÓ É VÁLIDA SE FOR ANO BISSEXTO !!");
+                return 0;
+            }else{
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 3 :
+            printf ("Março \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 4 :
+            printf ("Abril \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>30)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 5 :
+            printf ("Maio \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 6 :
+            printf ("Junho \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>30)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 7 :
+            printf ("Julho \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 8 :
+            printf ("Agosto \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 9 :
+            printf ("Setembro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>30)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 10 :
+            printf ("Outubro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 11 :
+            printf ("Novembro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>30)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        case 12 :
+            printf ("Dezembro \n");
+            printf ("insira um dia : ");
+            scanf ("%i", &dia);
+            if ((dia<1) || (dia>31)){
+                printf ("ESSA DATA NÃO É VALIDA !!!");
+                return 0;
+            }else{
+                printf ("ESSA DATA É VALIDA !!!");
+                return 0;
+            }
+        break;
+        default :
+            printf ("número inválido !!!");
+        return 0;
+    }
+}
