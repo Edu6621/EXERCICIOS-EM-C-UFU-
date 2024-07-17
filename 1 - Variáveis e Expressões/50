@@ -1,0 +1,24 @@
+/*  Implemente um programa que calcule o ano de nascimento de uma pessoa a partir de
+    sua idade e do ano atual                                                        */
+#include <stdio.h>
+int main () {
+    int nascimento, idade, atual, a;
+    printf ("informe sua idade : ");
+    scanf ("%i", &idade);
+    printf ("em que ano estamos : ");
+    scanf ("%i", &atual);
+    printf ("você já fez aniversário esse ano ? (pressione 1 para sim e 0 para não) ");
+    scanf ("%i", &a);
+        while (a>1){
+            printf ("tente novamente !!");
+            return 0;
+        }
+        if (a>0 && a<2){
+            nascimento=atual-idade;
+        }
+        else{
+            nascimento=atual-idade+1;
+        }
+    printf ("o seu ano de nascimento é : %i", nascimento);
+    return 0;
+}
