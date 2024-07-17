@@ -1,0 +1,41 @@
+/*. Um produto vai sofrer aumento de acordo com a tabela abaixo. Leia o preco antigo,
+calcule e escreva o preco novo, e escreva uma mensagem em funcao do preco novo (de
+acordo com a segunda tabela).
+PRECO ANTIGO                     PERCENTUAL DE AUMENTO
+ate R$ 50                                  5%
+entre R$ 50 e R$ 100                      10%
+acima de R$ 100                           15% 
+
+PRECO NOVO                              MENSAGEM
+ate R$ 80                                Barato
+entre R$ 80 e R$ 120 (inclusive)         Normal
+entre R$ 120 e R$ 200 (inclusive)         Caro
+acima de R$ 200                        Muito caro        */
+#include <stdio.h>
+int main () {
+    float antigo, novo;
+    printf ("informe o valor antigo : ");
+    scanf ("%f", &antigo);
+    if (antigo<0){
+        printf ("erro");
+        return 0;
+    }if (antigo<50){
+        novo=antigo*1.05;
+        printf ("o valor novo é de : %.2f", novo);
+    }if ((antigo>=50) && (antigo<=100)){
+        novo=antigo*1.1;
+        printf ("o valor novo é de : %.2f", novo);
+    }if (antigo>100){
+        novo=antigo*1.15;
+        printf ("o valor novo é de : %.2f", novo);    
+    }if (novo<80){
+        printf (", barato");
+    }if ((novo>=80) && (novo<120)){
+        printf (", normal");
+    }if ((novo>=120) && (novo<200)){
+        printf (", caro");
+    }if (novo>200){
+        printf (", muito caro");
+    }
+    
+}
