@@ -1,0 +1,19 @@
+/*  Escreva um programa de ajuda para vendedores. A partir de um valor total lido, mostre:
+    • o total a pagar com desconto de 10%;
+    • o valor de cada parcela, no parcelamento de 3× sem juros;
+    • a comissao do vendedor, no caso da venda ser a vista (5% sobre o valor com desconto)
+    • a comissao do vendedor, no caso da venda ser parcelada (5% sobre o valor total)     */
+    #include <stdio.h>
+    void main () {
+        float a, desconto10, parcela3, comissaov, comissaop;
+        printf ("informe o valor total : R$ ");
+        scanf ("%f", &a);
+        desconto10=a*0.9;
+        printf ("o valor com desconto de 10% : R$ %.2f", desconto10);
+        parcela3=a/3;
+        printf ("\no valor de cada parcela em 3x sem juros é : R$ %.2f", parcela3);
+        comissaov=desconto10*1.05;
+        printf ("\na comissão do vendedor, no caso da venda ser a vista : R$ %.2f", comissaov);
+        comissaop=a*1.05;
+        printf ("\na comissão do vendedor, no casa da venda ser parcelada : R$ %.2f", comissaop);
+    }
