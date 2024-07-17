@@ -1,0 +1,11 @@
+/*. Leia um valor de comprimento em jardas e apresente-o convertido em metros. A formula 
+de conversao eh: M = 0, 91 ∗ J, sendo J o comprimento em jardas e M o comprimento
+em metros.*/
+#include <stdio.h>
+void main () {
+    float m, j;
+    printf ("informe o comprimento em jardas :\n ");
+    scanf ("%f", &j);
+    m=0.91*j;
+    printf ("o comprimento em metros eh :\n %.2f", m);
+}
