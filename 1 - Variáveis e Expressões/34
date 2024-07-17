@@ -1,0 +1,11 @@
+/*Leia o valor do raio de um cırculo e calcule e imprima a area do cırculo correspondente.
+A area do circulo e´ π ∗ raio^2, considere π = 3.141592.*/
+#include <stdio.h>
+void main () {
+    float r, a, pi;
+    pi=3.141592;
+    printf ("insira o valor do raio\n");
+    scanf ("%f", &r);
+    a=pi*r*r;
+    printf ("a area do circulo eh :%.2f\n ", a);
+}
