@@ -1,0 +1,125 @@
+/* As tarifas de certo parque de estacionamento sao as seguintes:
+  • 1a e 2a hora - R$ 1,00 cada
+  • 3a e 4a hora - R$ 1,40 cada
+  • 5a hora e seguintes - R$ 2,00 cada
+O numero de horas a pagar e sempre inteiro e arredondado por excesso. Deste modo,
+quem estacionar durante 61 minutos pagara por duas horas,que e o mesmo que pagariase
+tivesse permanecido 120 minutos.
+
+Os momentos de chegada ao parque e partidadeste sao apresentados na forma de pares de inteiros,
+representando horas e minutos.
+
+Por exemplo, o par 12 50 representara “dez para a uma da tarde”. Pretende-se criar um
+programa que, lidos pelo teclado os momentos de chegada e de partida, escreva na tela
+o preco cobrado pelo estacionamento.
+
+Admite-se que a chegada e a partida se dao comintervalo nao superior a 24 horas.
+Portanto, se uma dada hora de chegada for superiora da partida, isso nao e uma situacao
+de erro, antes significara que a partida ocorreu nodia seguinte ao da chegada */
+#include <stdio.h>
+int main () {
+    int h, m, x, h1, m1, y, a;
+    float d;
+    printf ("informe a hora que você chegou : ");
+    scanf ("%i", &h);
+    while ((h<0) || (h>24)){
+        printf ("erro !!");
+        return 0;
+    }
+    printf ("informe o minuto que você chegou : ");
+    scanf ("%i", &m);
+    while ((m<0) || (h>60)){
+        printf ("erro !!");
+        return 0;
+    }
+    x=m+(h*60);
+    printf ("informe a hora que você saiu : ");
+    scanf ("%i", &h1);
+    while ((h1<0) || (h1>24)){
+        printf ("erro !!");
+        return 0;
+        }
+    printf ("informe o minuto que você saiu : ");
+    scanf ("%i", &m1);
+    while ((m1<0) || (h1>60)){
+        printf ("erro !!");
+        return 0;
+    }
+    y=m1+(h1*60);
+    d=y-x;
+    if ((d>=0) && (d<=60)){
+        printf ("o custo é de : R$ 1,00");
+    }if ((d>60) && (d<=120)){
+        printf ("o custo é de : R$ 2,00");    
+    }if ((d>120) && (d<180)){
+        printf ("o custo é de : R$ 4,20");
+    }if ((d>180) && (d<=240)){
+        printf ("o custo é de : R$ 5,60");
+    }if ((d>240) && (d<=1440)){
+        a=d/60;
+        switch (a)
+    {
+            case 5 :
+            printf ("o custo é de : R$ 10,00");
+        break;
+        case 6 :
+            printf ("o custo é de : R$ 12,00");
+        break;
+        case 7 :
+            printf ("o custo é de : R$ 14,00");
+        break;
+        case 8 :
+            printf ("o custo é de : R$ 16,00");
+        break;
+        case 9 :
+            printf ("o custo é de : R$ 18,00");
+        break;
+        case 10 :
+            printf ("o custo é de : R$ 20,00");
+        break;
+        case 11 :
+            printf ("o custo é de : R$ 22,00");
+        break;
+        case 12 :
+            printf ("o custo é de : R$ 24,00");
+        break;
+        case 13 :
+            printf ("o custo é de : R$ 26,00");
+        break;
+        case 14 :
+            printf ("o custo é de : R$ 28,00");
+        break;
+        case 15 :
+            printf ("o custo é de : R$ 30,00");
+        break;
+        case 16 :
+            printf ("o custo é de : R$ 32,00");
+        break;
+        case 17 :
+            printf ("o custo é de : R$ 34,00");
+        break;
+        case 18 :
+            printf ("o custo é de : R$ 36,00");
+        break;
+        case 19 :
+            printf ("o custo é de : R$ 38,00");
+        break;
+        case 20 :
+            printf ("o custo é de : R$ 40,00");
+        break;
+        case 21 :
+            printf ("o custo é de : R$ 42,00");
+        break;
+        case 22 :
+            printf ("o custo é de : R$ 44,00");
+        break;
+        case 23 :
+            printf ("o custo é de : R$ 46,00");
+        break;
+        case 24 :
+            printf ("o custo é de : R$ 48,00");
+        break;
+    }
+    }
+    
+}
