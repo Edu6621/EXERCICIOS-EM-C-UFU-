@@ -1,0 +1,21 @@
+/* Faca um programa que receba dois numeros e mostre qual deles e o maior. */
+#include <stdio.h>
+int main () {
+    float a, b;
+    printf ("digite um número : ");
+    scanf ("%f", &a);
+    printf ("digite outro número : ");
+    scanf ("%f", &b);
+    while (a==b){
+        printf ("os números são iguais !!!");
+        return 0;
+    }
+    if (a>b){
+        printf ("%.2f ", a);
+        printf ("é maior que %.2f", b);
+    }else{
+        printf ("%.2f ", b);
+        printf ("é maior que %.2f", a);
+    }
+    return 0;
+}
