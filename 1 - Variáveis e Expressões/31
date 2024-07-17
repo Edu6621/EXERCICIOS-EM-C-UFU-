@@ -1,0 +1,13 @@
+/*Leia um numero inteiro e imprima o seu antecessor e o seu sucessor.*/
+
+#include <stdio.h>
+void main () {
+    int a, b, c;
+    printf ("insira um numero inteiro ");
+    scanf ("%i", &a);
+    b=a-1;
+    c=a+1;
+    printf ("seu antecessor eh : %i \n", b);
+    printf ("seu sucessor eh : %i", c);
+}
+   
