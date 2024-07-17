@@ -1,0 +1,11 @@
+/*Leia um valor de area em hectares e apresente-o convertido em metros quadrados m2 .
+A formula de conversao eh: M = H ∗ 10000, sendo M a area em metros quadrados e H
+a area em hectares */
+#include <stdio.h>
+void main () {
+    float m, h;
+    printf ("insira a area em hectares : \n");
+    scanf ("%f", &h);
+    m=h*10000;
+    printf ("o valor da area em metros quadrados eh : %.2f \n", m);
+}
