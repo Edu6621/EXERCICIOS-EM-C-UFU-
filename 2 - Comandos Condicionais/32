@@ -1,0 +1,52 @@
+/*Escrever um programa que leia o codigo do produto escolhido do cardapio de uma lan- 
+chonete e a quantidade. O programa deve calcular o valor a ser pago por aquele lanche.
+Considere que a cada execucao somente sera calculado um pedido. O cardapio da lan- 
+chonete segue o padrao abaixo:
+Especificac ao      Codigo      Preco
+Cachorro Quente      100         1.20
+Bauru Simples        101         1.30
+Bauru com Ovo        102         1.50
+Hamburguer           103         1.20
+Cheeseburguer        104         1.70
+Suco                 105         2.20
+Refrigerante         106         1.00                                              */
+#include <stdio.h>
+int main () {
+    int c, q;
+    float f;
+    printf ("insira o código do produto : ");
+    scanf ("%i", &c);
+    printf ("insira a quantidade : ");
+    scanf ("%i", &q);
+    if (c==100){
+        f=1.20*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==101){
+        f=1.30*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==102){
+        f=1.50*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==103){
+        f=1.20*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==104){
+        f=1.70*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==105){
+        f=2.20*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }if (c==106){
+        f=1.00*q;
+        printf ("o valor a ser pago é : %.2f", f);
+        return 0;
+    }else{
+        printf ("ERRO");
+    }
+}
