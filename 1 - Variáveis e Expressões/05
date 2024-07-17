@@ -1,0 +1,10 @@
+//Leia um numero real e imprima a quinta parte deste numero
+#include <stdio.h>
+int main () {
+    float a, b;
+    printf ("apresente um numero :\n ");
+    scanf ("%f", &a);
+    b=a/5;
+    printf ("esse numero ao quadrado eh... \n %.2f", b);
+    return 0;
+}
