@@ -1,0 +1,9 @@
+/*Leia o tamanho do lado de um quadrado e imprima como resultado a sua area.*/
+#include <stdio.h>
+void main () {
+    float l, a;
+    printf ("insira um lado de um quadrado \n");
+    scanf ("%f", &l);
+    a=l*l;
+    printf ("a area do quadrado eh :%.2f\n ", a);
+}
