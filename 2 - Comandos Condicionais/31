@@ -1,0 +1,61 @@
+/*Faca um programa que receba a altura e o peso de uma pessoa. De acordo com a tabela
+a seguir, verifique e mostra qual a classificacao dessa pessoa.
+
+Altura                                             Peso
+                          Ate 60        Entre 60 e 90 (Inclusive)      Acima de 90
+Menor que 1,20              A                       D                        G
+De 1,20 a 1,70              B                       E                        H
+Maior que 1,70              C                       F                        I
+*/
+#include <stdio.h>
+int main () {
+    float altura, peso;
+    printf ("insira sua altura : ");
+    scanf ("%f", &altura);
+    if (altura<0){
+        printf ("ERRO");
+        return 0;
+    }
+    printf ("insira seu peso : ");
+    scanf ("%f", &peso);
+    if (altura<1.20){
+        if ((peso>=0) && (peso<60)){
+            printf ("CATEGORIA A");
+            return 0;
+        }if ((peso>=60) && (peso<=90)){
+            printf ("CATEGORIA D");
+            return 0;
+        }if (peso>90){
+            printf ("CATEGORIA G");
+            return 0;
+        }else{
+            printf ("ERRO");
+        }
+    }if ((altura>=1.20) && (altura<=1.70)){
+        if ((peso>=0) && (peso<60)){
+            printf ("CATEGORIA B");
+            return 0;
+        }if ((peso>=60) && (peso<=90)){
+            printf ("CATEGORIA E");
+            return 0;
+        }if (peso>90){
+            printf ("CATEGORIA H");
+            return 0;
+        }else{
+            printf ("ERRO");
+        }
+    }if (altura>1.70){
+        if ((peso>=0) && (peso<60)){
+            printf ("CATEGORIA C");
+            return 0;
+        }if ((peso>=60) && (peso<=90)){
+            printf ("CATEGORIA F");
+            return 0;
+        }if (peso>90){
+            printf ("CATEGORIA I");
+            return 0;
+        }else{
+            printf ("ERRO");
+        }
+    }
+}
