@@ -1,0 +1,14 @@
+/*   Receba a altura do degrau de uma escada e a altura que o usuario deseja alcancar
+     subindo a escada. Calcule e mostre quantos degraus o usuario devera subir para atingir
+     seu objetivo                                                                            */
+     #include <stdio.h>
+     void main () {
+        float altura, alcancar, degraus;
+        printf ("informe a altura do degrau de uma escada (em cm) : ");
+        scanf ("%f", &altura);
+        printf ("\ninforme a altura que você quer alcançar (em cm) : ");
+        scanf ("%f", &alcancar);
+        degraus=alcancar/altura;
+        printf ("\nvocê vai precisar subir %.2f ", degraus);
+        printf ("degraus");
+     }
