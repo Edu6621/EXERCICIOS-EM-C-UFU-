@@ -1,0 +1,26 @@
+/* Faca um programa que receba dois numeros e mostre o maior. Se por acaso, os dois
+numeros forem iguais, imprima a mensagem Numeros iguais. */
+#include <stdio.h>
+int main () {
+    int a, b, c;
+    printf ("insira um número : ");
+    scanf ("%i", &a);
+    printf ("insira outro número : ");
+    scanf ("%i", &b);
+    while (a==b){
+        printf ("os números são iguais !!!");
+        return 0;
+    }
+    if (a>b){
+        printf ("o número %i", a);
+        printf (" é maior que %i", b);
+        c=a-b;
+        printf ("\na diferença deles é de  : %i", c);
+    }else{
+        printf ("o número %i", b);
+        printf (" é maior que %i", a);
+        c=b-a;
+        printf ("a diferença entre eles é de : %i", c);
+    }
+    
+}
