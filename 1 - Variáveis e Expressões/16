@@ -1,0 +1,14 @@
+/*Leia um valor de comprimento em polegadas e apresente-o convertido em centımetros.
+A formula de conversao eh: C = P ∗ 2, 54, sendo C o comprimento em centımetros e P o
+comprimento em polegadas.*/
+#include <stdio.h>
+void main () {
+
+    float c, p;
+    printf ("insira o comprimento em polegadas : \n");
+    scanf ("%f", &p);
+    c=p*2.54;
+    printf ("o comprimento, em centimetros, eh :%.2f\n ", c);
+
+
+}
