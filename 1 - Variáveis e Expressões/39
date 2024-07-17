@@ -1,0 +1,18 @@
+/*  A importancia de R$ 780.000,00 ser a dividida entre tres ganhadores de um concurso.
+    Sendo que da quantia total:
+   • O primeiro ganhador recebera 46%;
+   • O segundo recebera 32%;
+   • O terceiro recebera o restante;
+ Calcule e imprima a quantia ganha por cada um dos ganhadores.  */
+ #include <stdio.h>
+ void main () {
+    float i, a, b, c;
+    i=780000;
+    a=0.46*780000;
+    b=0.32*780000;
+    c=0.22*780000;
+    printf (" se 780.000,00 é o numero inteiro \n");
+    printf (" o primeiro ganhador receberá : %.2f", a);
+    printf ("\n o segundo ganhador receberá : %.2f", b);
+    printf ("\n o terceiro ganhador receberá : %.2f", c);
+ }
