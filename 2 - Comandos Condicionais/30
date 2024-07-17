@@ -1,0 +1,30 @@
+/* Faca um programa que receba tres numeros e mostre-os em ordem crescente */
+#include <stdio.h>
+int main () {
+    float a, b, c;
+printf ("informe um número : ");
+scanf ("%f", &a);
+printf ("informe outro número : ");
+scanf ("%f", &b);
+printf ("informe outro número : ");
+scanf ("%f", &c);
+if ((a>=b) && (b>=c)){
+    printf ("%.2f %.2f %.2f", a,b,c);
+    return 0;
+}if ((a>=c) && (c>=b)){
+    printf ("%.2f %.2f %.2f", a,c,b);
+    return 0;
+}if ((b>=a) && (a>=c)){
+    printf ("%.2f %.2f %.2f", b,a,c);
+    return 0;
+}if ((b>=c) && (c>=a)){
+    printf ("%.2f %.2f %.2f", b,c,a);
+    return 0;
+}if ((c>=a) && (a>=b)){
+    printf ("%.2f %.2f %.2f", c,a,b);
+    return 0;
+}if ((c>=b) && (b>=c)){
+    printf ("%.2f %.2f %.2f", c,b,a);
+    return 0;
+}
+}
