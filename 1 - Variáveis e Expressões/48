@@ -1,0 +1,13 @@
+/* Leia um valor inteiro em segundos, e imprima-o em horas, minutos e segundos. */
+#include <stdio.h>
+void main () {
+    int s;
+    float h, m;
+    printf ("insira um valor em segundos : ");
+    scanf ("%i", &s);
+    m=s/60;
+    h=m/60;
+    printf ("horas : %.2f\n", h);
+    printf ("minutos : %.2f\n", m);
+    printf ("segundos : %i\n", s);
+}
