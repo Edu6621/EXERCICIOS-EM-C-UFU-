@@ -1,0 +1,19 @@
+/*Leia um numero inteiro de 4 dıgitos (de 1000 a 9999) e imprima 1 dıgito por linha. */
+#include <stdio.h>
+void main () {
+    int a, a1, a2, a3, a4;
+    printf ("informe um número inteiro de 4 digitos : ");
+    scanf ("%i", &a);
+    if ((a<1000) || (a>=10000)){
+        printf ("número não suportado !!!");
+    }else{
+        a1=(a/1000);
+        a2=(a/100)%10;
+        a3=(a/10)%10;
+        a4=(a)%10;
+        printf ("%i\n", a1);
+        printf ("%i\n", a2);
+        printf ("%i\n", a3);
+        printf ("%i\n", a4);
+    }
+}
