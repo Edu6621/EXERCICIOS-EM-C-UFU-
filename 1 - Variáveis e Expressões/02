@@ -1,0 +1,8 @@
+//Faça um programa que leia um numero real e o imprima.
+#include <stdio.h>
+    void main () {
+    float a;
+    printf ("insira um numero real :\n ");
+    scanf ("%f",&a);
+    printf ("seu numero eh %.2f",a);
+    }
