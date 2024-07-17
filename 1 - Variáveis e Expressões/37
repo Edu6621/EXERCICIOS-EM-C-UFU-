@@ -1,0 +1,10 @@
+/*Faca um programa que leia o valor de um produto e imprima o valor com desconto, tendo
+em vista que o desconto foi de 12% */
+#include <stdio.h>
+void main () {
+    float a, b;
+    printf ("insira o valor do produto : \n");
+    scanf ("%f", &a);
+    b=0.88*a;
+    printf ("o valor após o desconto, eh : %.2f\n", b);
+}
