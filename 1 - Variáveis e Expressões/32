@@ -1,0 +1,10 @@
+/*Leia um numero inteiro e imprima a soma do sucessor de seu triplo com o antecessor de
+seu dobro.*/
+#include <stdio.h>
+void main () {
+    int a, b;
+    printf ("insira um numero inteiro \n");
+    scanf ("%i", &a);
+    b=(a*3+1)+(a*2-1);
+    printf ("a soma do sucessor de seu triplo com o antecessor de seu dobro eh :%.2i\n ", b);
+}
