@@ -1,0 +1,21 @@
+/* Faca um programa que leia um numero inteiro positivo de tres dıgitos (de 100 a 999).
+   Gere outro numero formado pelos dıgitos invertidos do numero lido. Exemplo:
+   NumeroLido = 123
+   NumeroGerado = 321                                                                   */
+   #include <stdio.h>
+   void main () {
+        int a, b1, b2 ,b3;
+        printf ("informe um numero inteiro positivo de tres digitos : ");
+        scanf ("%i", &a);
+        if ((a>=100) && (a<=999));
+        {  
+            b1=((a/100));
+            b2=((a/10)%10);
+            b3=((a)%10);
+        }
+        if ((a<100) || (a>999)){
+        printf ("número não suportado !!");
+        }else{
+        printf ("%i%i%i", b3,b2,b1);
+        }
+   }
