@@ -1,0 +1,10 @@
+// Faça um programa que leia um numero inteiro e o imprima
+#include <stdio.h>
+
+int main () {
+    int a;
+    printf ("\ninsira um numero : ");
+    scanf ("%i",&a);
+    printf ("seu numero eh %i",a);
+    return 0;
+}
