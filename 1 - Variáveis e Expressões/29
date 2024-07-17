@@ -1,0 +1,10 @@
+/*Leia quatro notas, calcule a media aritmetica e imprima o resultado*/
+
+#include <stdio.h>
+void main () {
+    float a, b, c, d, m;
+    printf ("insira quatro notas :\n ");
+    scanf ("%f %f %f %f", &a, &b, &c, &d);
+    m=(a+b+c+d)/4;
+    printf ("a media aritmetica dos numeros eh : %.2f\n", m);
+}
