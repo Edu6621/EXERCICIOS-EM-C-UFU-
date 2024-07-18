@@ -1,0 +1,34 @@
+/* 40. O custo ao consumidor de um carro novo é a soma do custo de fabrica, da comissao
+do distribuidor, e dos impostos. A comissao e os impostos sao calculados sobre o custo
+de fabrica, de acordo com a tabela abaixo. Leia o custo de fabrica e escreva o custo ao
+consumidor.
+CUSTO DE FABRICA                    % DO DISTRIBUIDOR       % DOS IMPOSTOS
+ate R$12.000,00                     5                       isento
+entre R$12.000,00 e 25.000,00       10                      15
+acima de R$25.000,00                15                      20                      */
+#include <stdio.h>
+
+int main() {
+    float custoFabrica, custoConsumidor;
+    float comissaoDistribuidor, impostos;
+    printf("Digite o custo de fábrica do carro: ");
+    scanf("%f", &custoFabrica);
+    if (custoFabrica <= 12000.00) {
+        comissaoDistribuidor = 0.05 * custoFabrica;
+    } else if (custoFabrica > 12000.00 && custoFabrica <= 25000.00) {
+        comissaoDistribuidor = 0.10 * custoFabrica;
+    } else {
+        comissaoDistribuidor = 0.15 * custoFabrica;
+    }
+    if (custoFabrica <= 12000.00) {
+        impostos = 0;
+    } else if (custoFabrica > 12000.00 && custoFabrica <= 25000.00) {
+        impostos = 0.15 * custoFabrica;
+    } else {
+        impostos = 0.20 * custoFabrica;
+    }
+    custoConsumidor = custoFabrica + comissaoDistribuidor + impostos;
+    printf("O custo ao consumidor é: R$ %.2f\n", custoConsumidor);
+
+    return 0;
+}
