@@ -1,0 +1,52 @@
+/*39. Uma empresa decide dar um aumento aos seus funcionarios de acordo com uma tabela
+que considera o salario atual e o tempo de servico de cada funcionario. Os funcionarios
+com menor salario terao um aumento proporcionalmente maior do que os funcionarios
+com um salario maior, e conforme o tempo de servico na empresa, cada funcionario ira
+receber um bonus adicional de salario. Faca um programa que leia:
+• o valor do salario atual do funcionario;
+• o tempo de servic¸o desse funcionario na empresa (numero de anos de trabalho na
+empresa).
+Use as tabelas abaixo para calcular o salario reajustado deste funcionario e imprima o
+valor do salario final reajustado, ou uma mensagem caso o funcionario nao tenha direito
+a nenhum aumento.
+Salario Atual            Reajuste(%)            Tempo de Servico                Bonus 
+Ate 500,00               25%                    Abaixo de 1 ano                 Sem bonus 
+Ate 1000,00              20%                    De 1 a 3 anos                   100,00
+Ate 1500,00              15%                    De 4 a 6 anos                   200,00
+Ate 2000,00              10%                    De 7 a 10 anos                  300,00
+Acima de 2000,00         Sem reajuste           Mais de 10 anos                 500,00     */
+#include <stdio.h>
+int main () {
+    float salario;
+    int ano;
+    printf ("informe o seu salário atual : ");
+    scanf ("%f", &salario);
+    printf ("informe o tempo de serviço na empresa (em anos) : ");
+    scanf ("%i", &ano);
+    if (salario>=0 && salario<=500){
+        salario*=1.25;
+    }else if (salario<=1000){
+        salario*=1.2;
+    }else if (salario<=1500){
+        salario*=1.15;
+    }else if (salario<=2000){
+        salario*=1.1;
+    }else if (salario>2000){
+        salario=salario;
+    }else{
+        printf ("erro");
+        return 0;
+    }if (ano>=1 && ano <=3){
+        salario+=100;
+    }else if (ano>=4 && ano<=6){
+        salario+=200;
+    }else if (ano>=7 && ano<=10){
+        salario+=300;
+    }else if (ano>=10){
+        salario+=500;
+    }else{
+        salario=salario;
+    }
+    printf ("\no seu novo salário é de : %.2f", salario);
+    return 0;
+}
