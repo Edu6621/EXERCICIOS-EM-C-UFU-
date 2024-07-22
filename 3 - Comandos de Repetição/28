@@ -1,0 +1,21 @@
+28. Faca um programa que leia um valor N inteiro e positivo, calcule o mostre o valor E,
+conforme a formula a seguir
+E = 1 + 1/1! + 1/2! + 1/3! + ... + 1/N!
+#include <stdio.h>
+int main () {
+    int a, contador, m=1;
+    float final=1;
+    printf ("informe um número : ");
+    scanf ("%i", &a);
+    while (a>=1){    
+        for (contador=1; contador <=a; contador++){
+            m*=contador;
+            if(contador==a){
+                final+=1.0/m;
+                m=1;
+            }
+        }
+        a-=1;
+    }
+    printf ("%f", final);
+}
