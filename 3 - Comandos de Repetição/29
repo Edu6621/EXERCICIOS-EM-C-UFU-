@@ -1,0 +1,25 @@
+/* 29. Escreva um programa para calcular o valor da serie, para 5 termos.
+S = 0 + 1/2! + 2/4! + 3/6! + ...*/
+#include <stdio.h>
+int main () {
+    int fat, base, contador;
+    float total, total2=0, a1=0, a2=0;
+    for (contador=1; contador<=5; contador++){    
+        //de cima
+        a1+=1;
+        //de baixo
+        a2+=2;
+        base=a2;
+        fat=a2;
+        while (fat>1){
+            fat-=1;
+            a2*=fat;
+        }
+        //printf ("%i ", a2);
+        total=a1/a2;
+        total2+=total;
+        a2=base;
+    }
+    printf ("%f", total2);
+    return 0;
+}
