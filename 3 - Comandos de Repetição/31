@@ -1,0 +1,13 @@
+/*31. Faca um programa que calcule e escreva o valor de S
+S = 1 + 3 + 5 + 7 ... 99
+    1   2   3   4     50          */
+#include <stdio.h>
+int main () {
+    float cima=1, baixo, soma=0;
+    for (baixo=1; baixo<=50; baixo++){
+        soma+=cima/baixo;
+        cima+=2;
+    }
+    printf ("%f", soma);
+    return 0;
+}
