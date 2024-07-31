@@ -1,0 +1,26 @@
+/* 30. Faca programas para calcular as seguintes sequencias:
+   1 + 2 + 3 + 4 + 5 + ... + n
+   1 − 2 + 3 − 4 + 5 + ... + (2n − 1)
+   1 + 3 + 5 + 7 + ... + (2n − 1) */
+#include <stdio.h>
+int main () {
+    int n, a, i2=1, soma=0;
+    printf ("informe um número : ");
+    scanf ("%i", &n);
+    printf ("\nSEQUENCIA 1 :\n");
+    for (int i=1; i<=n; i++){
+        soma+=i;
+    }
+    printf ("%i\n\n", soma);
+    soma=0;
+    printf ("SEQUENCIA 2 :\n%i\n\n", n);
+    printf ("SEQUENCIA 3 :\n");
+    a=(2*n)-1;
+    for (int i=1; i<=a; i++){
+        soma+=i2;
+        i2+=2;
+    }    
+    printf ("%i", soma);
+    return 0;
+}
+    
