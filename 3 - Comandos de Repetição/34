@@ -1,0 +1,20 @@
+/* 34. Faca um programa que calcule o menor numero divisıvel por cada um dos numeros de 1
+a 20? Ex: 2520 e o menor numero que pode ser dividido por cada um dos numeros de 1
+a 10, sem sobrar resto. */
+#include <stdio.h>
+int main () {
+    int a=0, aux=0;
+    while (1){    
+        for (int i=1; i<=20; i++){
+            if (a%i==0){
+                aux++;
+            }
+        }
+        if (aux==020){
+            printf ("%i", a);
+            return 0;
+        }
+        aux=0;
+        a++;
+    }    
+}
