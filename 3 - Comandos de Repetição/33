@@ -1,0 +1,22 @@
+/* 33. Dados n e dois numeros inteiros positivos, i e j, diferentes de 0, imprimir em ordem
+crescente os n primeiros naturais que sao multiplos de i ou de j e ou de ambos. Exemplo:
+Para n = 6, i = 2 e j = 3 a sa´ıda devera ser: 0,2,3,4,6,8. */
+#include <stdio.h>
+int main () {
+    int a, i, j, aux=1, cont=1;
+    printf ("informe um número : ");
+    scanf ("%i", &a);
+    printf ("informe os 2 números : ");
+    scanf ("%i", &i);
+    scanf ("%i", &j);
+    printf ("0 ");
+    while (cont<a){
+        if (aux%i==0 || aux%j==0){
+            printf ("%i ", aux);
+            cont++;
+        }
+        aux++;
+        
+    }    
+    
+}
