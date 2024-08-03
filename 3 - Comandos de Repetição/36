@@ -1,0 +1,21 @@
+/*36. Faca um programa que calcule a diferenca entre a soma dos quadrados dos primeiros
+100 numeros naturais e o quadrado da soma. Ex: A soma dos quadrados dos dez primeiros
+numeros naturais e, 1^2 + 2^2 + ... + 10^2 = 385
+O quadrado da soma dos dez primeiros numeros naturais ´ e, ´
+(1 + 2 + ... + 10)^2 = 55^2 = 3025
+A diferenca entre a soma dos quadrados dos dez primeiros numeros naturais e o qua-
+drado da soma e 3025-385 = 2640. */
+#include <stdio.h>
+int main () {
+    int multi1=1, soma1=0, soma2=0, multi2=1, result;
+    for (int i=1; i<=100; i++){
+        multi1=i*i;
+        soma1+=multi1;
+    }
+    for (int j=1; j<=100; j++){
+        soma2+=j;
+    }
+    multi2=soma2*soma2;
+    result=multi2-soma1;
+    printf ("o resultado é : %i", result);
+}
