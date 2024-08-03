@@ -1,0 +1,28 @@
+/* 35. Faca um programa que some os numeros impares contidos em um intervalo definido
+pelo usuario. O usuario define o valor inicial do intervalo e o valor final deste intervalo
+e o programa deve somar todos os numeros ımpares contidos neste intervalo. Caso o
+usuario digite um intervalo invalido (comec¸ando por um valor maior que o valor final) deve
+ser escrito uma mensagem de erro na tela, “Intervalo de valores invalido” e o programa
+termina. Exemplo de tela de saıda: Digite o valor inicial e valor final: 5
+10
+Soma  ımpares neste intervalo: 21 */
+#include <stdio.h>
+int main () {
+    int i, a, soma=0;
+    printf ("informe um número inicial : ");
+    scanf ("%i", &i);
+    printf ("informe um número final : ");
+    scanf ("%i", &a);
+    if (a<i){
+        printf ("intervalo de valores invalido ");
+        return 0;
+    }
+    for (i; i<=a; i++){
+        if (i%2!=0){
+            printf ("%i + ", i);
+            soma+=i;
+        }
+    }
+    printf ("\na soma é %i", soma);
+    return 0;
+}
