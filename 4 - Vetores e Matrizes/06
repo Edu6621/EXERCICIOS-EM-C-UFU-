@@ -1,0 +1,20 @@
+/*6. Faca um programa que receba do usuario um vetor com 10 posicoes. Em seguida devera
+ser impresso o maior e o menor elemento do vetor. */
+#include <stdio.h>
+int main () {
+    int vet[10], maior, menor;
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um número : ", i+1);
+        scanf ("%i", &vet[i]);
+        if (i==0){
+            maior=vet[i];
+            menor=vet[i];
+        }
+        if (vet[i]>maior){
+            maior=vet[i];
+        }else if (vet[i]<menor){
+            menor=vet[i];
+        }
+    }
+    printf ("o maior número é %i e o menor número é %i", maior, menor);
+}
