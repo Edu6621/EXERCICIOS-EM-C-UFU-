@@ -1,0 +1,15 @@
+/*3. Ler um conjunto de numeros reais, armazenando-o em vetor e calcular o quadrado das
+componentes deste vetor, armazenando o resultado em outro vetor. Os conjuntos tem
+10 elementos cada. Imprimir todos os conjuntos. */
+#include <stdio.h>
+int main () {
+    float vet[10], vet2[10];
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um número real : ", i+1);
+        scanf ("%f", &vet[i]);
+        vet2[i]=vet[i]*vet[i];
+    }
+    for (int i=0; i<10; i++){
+        printf ("%.2f ", vet2[i]);
+    }
+}
