@@ -1,0 +1,17 @@
+/*4. Faca um programa que leia um vetor de 8 posicoes e, em seguida, leia tambem dois va-
+lores X e Y quaisquer correspondentes a duas posicoes no vetor. Ao final seu programa
+devera escrever a soma dos valores encontrados nas respectivas posicoes X e Y . */
+#include <stdio.h>
+int main () {
+    int vet[8], x, y, soma;
+    for (int i=0; i<8; i++){
+        printf ("%i ) informe um valor : ", i);
+        scanf ("%i", &vet[i]);
+    }
+    printf ("informe um valor X : ");
+    scanf ("%i", &x);
+    printf ("informe um valor Y : ");
+    scanf ("%i", &y);
+    soma=vet[x]+vet[y];
+    printf ("a soma é : %i", soma);
+}
