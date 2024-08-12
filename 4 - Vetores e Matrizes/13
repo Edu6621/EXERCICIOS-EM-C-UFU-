@@ -1,0 +1,22 @@
+//13. Fazer um programa para ler 5 valores e, em seguida, mostrar a posicao onde se encon-
+//tram o maior e o menor valor.
+#include <stdio.h>
+int main () {
+    int vet[5], maior, menor, posma, posme;
+    for (int i=0; i<5; i++){
+        printf ("%i ) insira um número : ", i);
+        scanf ("%i", &vet[i]);
+        if (i==0){
+            maior=vet[i];
+            menor=vet[i];
+        }
+        if (vet[i]>maior){
+            maior=vet[i];
+            posma=i;
+        }else if (vet[i]<menor){
+            menor=vet[i];
+            posme=i;
+        }
+    }
+    printf ("a posição do maior número é : %i\na posição do menor número é : %i", posma, posme);
+}
