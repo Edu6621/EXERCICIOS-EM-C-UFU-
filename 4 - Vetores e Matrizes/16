@@ -1,0 +1,43 @@
+/* 16. Faca um programa que leia um vetor de 5 posicoes para numeros reais e, depois, um
+codigo inteiro. Se o codigo for zero, finalize o programa; se for 1, mostre o vetor na ordem
+direta; se for 2, mostre o vetor na ordem inversa. Caso, o codigo for diferente de 1 e 2
+escreva uma mensagem informando que o codigo e invalido. */
+#include <stdio.h>
+void direto (float vet[]) {
+    for (int i=0; i<5; i++){
+        printf ("%.2f ", vet[i]);
+    }
+    printf ("\n");
+}
+void inverso (float vet[]){
+    for (int i=4; i>=0; i--){
+        printf ("%.2f ", vet[i]);
+    }
+    printf ("\n");
+}
+int main () {
+    float vet[5];
+    int a=1;
+    for (int i=0 ;i<5; i++){
+        printf ("%i ) informe um número real : ", i+1);
+        scanf ("%f", &vet[i]);
+    }
+    while (a!=0){
+        printf ("Digite um código :\n1 - ORDEM DIRETA\n2 - ORDEM INVERSA\n0 - FINALIZE O PROGRAMA\n");
+        scanf ("%i", &a);
+        switch (a){
+            case 1:
+            direto (vet);
+            break;
+            case 2:
+            inverso (vet);
+            break;
+            case 0:
+            printf ("programa finalizado !");
+            break;
+            default:
+            printf ("código inválido !\n");
+            break;
+        }    
+    }
+}
