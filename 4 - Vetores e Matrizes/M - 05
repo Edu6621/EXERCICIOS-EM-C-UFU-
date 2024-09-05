@@ -1,0 +1,39 @@
+/*5. Leia uma matriz 5 x 5. Leia tambem um valor X. O programa devera fazer uma busca
+desse valor na matriz e, ao final, escrever a localizacao (linha e coluna) ou uma mensa-
+gem de “nao encontrado”.*/
+#include <stdio.h>
+int main () {
+    int mat[5][5];
+    int n;
+    int cont=0;
+    
+    for (int i=0; i<5; i++){
+        for (int j=0; j<5; j++){
+            printf ("[%i][%i] Informe um número : ", i, j);
+            scanf ("%i", &mat[i][j]);
+        }
+    }
+    
+    printf ("informe um valor : ");
+    scanf ("%i", &n);
+    
+    for (int i=0; i<5; i++){
+        for (int j=0; j<5; j++){
+            printf ("%4i", mat[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    for (int i=0; i<5; i++){
+        for (int j=0; j<5; j++){
+            if (n == mat[i][j]){
+                printf ("número encontrado na posição [%i][%i]\n", i, j);
+                cont++;
+            }
+        }
+    }
+    if (cont==0){
+        printf ("número não encontrado");
+        return 0;
+    }
+}
