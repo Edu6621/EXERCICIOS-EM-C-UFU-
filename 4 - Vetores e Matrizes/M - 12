@@ -1,0 +1,27 @@
+// 12. Leia uma matriz de 3 x 3 elementos. Calcule e imprima a sua transposta.
+#include <stdio.h>
+int main () {
+    int mat[3][3], trans[3][3];
+    
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf ("[%i][%i] - Informe um número : ", i, j);
+            scanf ("%i", &mat[i][j]);
+            trans[j][i]=mat[i][j];
+        }
+    }
+    
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf ("%4i", mat[i][j]);
+        }
+        printf ("\n");
+    }
+    printf ("\n");
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf ("%4i", trans[i][j]);
+        }
+        printf ("\n");
+    }
+}
