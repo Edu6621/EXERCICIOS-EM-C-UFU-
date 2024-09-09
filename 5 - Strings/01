@@ -1,0 +1,9 @@
+// 1. Faca um programa que entao leia uma string e a imprima.
+#include <stdio.h>
+#include <string.h>
+int main () {
+    char string[50];
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    printf ("a sua string é : %s", string);
+}
