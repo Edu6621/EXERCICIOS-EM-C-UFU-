@@ -1,0 +1,23 @@
+//7. Crie um programa que compara duas strings (nao use a funcao strcmp). 
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+    int i=0;
+    char string[50];
+    char string2[50];
+    
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    printf ("informe outra string : ");
+    fgets (string2, sizeof(string2), stdin);
+    
+    while (string[i] != '\0' || string2[i] !='\0'){
+        if (string[i] != string2[i]){
+            printf ("elas não são iguais !");
+            return 0;
+        }
+        i++;
+    }
+    printf ("elas são iguais !");
+}
