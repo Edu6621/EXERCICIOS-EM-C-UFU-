@@ -1,0 +1,18 @@
+/*2. Crie um programa que calcula o
+comprimento de uma string (nao use a funcao strlen).*/
+#include <stdio.h>
+#include <string.h>
+int main (){
+    int i=0;
+    char string[50];
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    size_t len = strlen(string);
+        if (len > 0 && string[len - 1] == '\n') {
+            string[len - 1] = '\0';
+        }
+    while (string[i] != '\0'){
+        i++;
+    }
+    printf ("a string tem %i caracteres", i);
+}
