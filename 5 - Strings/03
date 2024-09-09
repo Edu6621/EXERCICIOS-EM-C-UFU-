@@ -1,0 +1,12 @@
+/* 3. Entre com um nome e imprima o nome somente se a primeira letra do nome for ‘a’
+(maiuscula ou minuscula).  */
+#include <stdio.h>
+#include <string.h>
+int main (){
+    char string[50];
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    if (string[0] == 'a' || string[0] == 'A'){
+        printf ("%s", string);
+    }
+}
