@@ -1,0 +1,17 @@
+//5. Digite um nome, calcule e retorne quantas letras tem esse nome.
+#include <stdio.h>
+#include <string.h>
+int main () {
+    int i=0;
+    int cont=0;
+    char string[50];
+    printf ("informe um nome : ");
+    fgets (string, sizeof(string), stdin);
+    while (string[i] != '\0'){
+        if (string[i] >= 65 && string[i] <= 90 || string[i] >=97 && string[i] <= 122){
+            cont++;
+        }
+        i++;
+    }
+    printf ("esse nome tem %i letras", cont);
+}
