@@ -1,0 +1,18 @@
+/*8. Faca um programa que conte o numero de 1’s que aparecem em um string. Exemplo:
+“0011001” -> 3 */
+#include <stdio.h>
+#include <string.h>
+int main () {
+    char num[50];
+    int i=0;
+    int cont=0;
+    printf ("informe uma string de números : ");
+    fgets (num, sizeof(num), stdin);
+    while (num[i] != '\0'){
+        if (num[i] == '1'){
+            cont++;
+        }
+        i++;
+    }
+    printf ("essa string tem %i números '1'", cont);
+}
