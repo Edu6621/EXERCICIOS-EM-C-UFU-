@@ -1,0 +1,23 @@
+/* 18. Fac¸a um programa em que troque todas as ocorrencias de uma letra L1 pela letra L2 em ˆ
+uma string. A string e as letras L1 e L2 devem ser fornecidas pelo usuario.  */
+#include <stdio.h>
+#include <string.h>
+int main () {
+    char string[50];
+    int i=0;
+    char a, b;
+    
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    printf ("informe a letra a ser trocada : ");
+    scanf (" %c", &a);
+    printf ("informe a letra nova : ");
+    scanf (" %c", &b);
+    while (string[i] != '\0'){
+        if (string[i] == a){
+            string[i] = b;
+        }
+        i++;
+    }
+    printf ("a nova string é : %s", string);
+}
