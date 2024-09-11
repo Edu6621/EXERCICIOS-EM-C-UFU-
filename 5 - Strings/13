@@ -1,0 +1,18 @@
+/* 13. Ler uma frase e contar quantos caracteres sao espacos em brancos. Lembre-se que
+uma frase e um conjunto de caracteres (vetor). */
+#include <stdio.h>
+#include <string.h>
+int main () {
+    char string[50];
+    int i=0, cont=0;
+    printf ("informe uma frase : ");
+    fgets (string, sizeof(string), stdin);
+    
+    while (string[i] != '\0'){
+        if (string[i] == ' '){
+            cont++;
+        }
+        i++;
+    }
+    printf ("nessa frase tem %i caracteres em branco", cont);
+}
