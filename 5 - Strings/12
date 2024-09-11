@@ -1,0 +1,38 @@
+/*12. Faca um programa que receba uma palavra e calcule quantas vogais (a, e, i, o, u) possui
+essa palavra. Entre com um caractere (vogal ou consoante) e substitua todas as vogais
+da palavra dada por esse caractere. */
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+    char string[50];
+    int i=0;
+    int cont=0;
+    char num;
+    printf ("informe uma palavra : ");
+    fgets (string, sizeof(string), stdin);
+    do {
+        printf ("informe a consoante para trocar pela vogal : ");
+        scanf (" %c", &num);
+    }while (num == 'a'
+        || num == 'e'
+        || num == 'i'
+        || num == 'o'
+        || num == 'u'
+        || num == 'A'
+        || num == 'E'
+        || num == 'I'
+        || num == 'O'
+        || num == 'U');
+        
+    while (string[i] != '\0'){
+        if (string[i] == 'a' || string[i] == 'e' || string[i] == 'i' || string[i] == 'o' || string[i] == 'u'
+         || string[i] == 'A' || string[i] == 'E' || string[i] == 'I' || string[i] == 'O' || string[i] == 'U'){
+            cont++;
+            string[i] = num;
+        }
+        i++;
+    }
+    printf ("tem %i vogais nessa palavra\n", cont);
+    printf ("%s", string);
+}
