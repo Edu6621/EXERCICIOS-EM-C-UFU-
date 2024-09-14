@@ -1,0 +1,15 @@
+/* 1. Crie uma funcao que recebe como parametro um numero inteiro e devolve o seu dobro. */
+#include <stdio.h>
+int dobrar(int num){
+    int num2 = num * 2;
+    return num2;
+}
+int main () {
+    int num;
+    int dobro;
+    printf ("informe um número : ");
+    scanf ("%i", &num);
+    dobro = dobrar(num);
+    printf ("o dobro é %i", dobro);
+    
+}
