@@ -1,0 +1,17 @@
+//10. Faca uma funcao que receba dois numeros e retorne qual deles e o maior. 
+#include <stdio.h>
+int calculo(int a, int b){
+    if (a>=b){
+        return a;
+    } else {
+        return b;
+    }
+}
+int main () {
+    int a, b;
+    printf ("informe um número : ");
+    scanf ("%i", &a);
+    printf ("informe outro número : ");
+    scanf ("%i", &b);
+    printf ("%i", calculo (a, b));
+}
