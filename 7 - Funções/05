@@ -1,0 +1,15 @@
+/* 5. Faca uma funcao e um programa de teste para o calculo do volume de uma esfera
+Sendo que o raio e passado por parametro. 
+V = 4/3 ∗ π ∗ R^3 */
+#include <stdio.h>
+float calculo_volume (float r){
+    float volume;
+    volume = 4/3 * 3.14 * r*r*r;
+    return volume;
+}
+int main (){
+    float raio;
+    printf ("informe o valor do raio : ");
+    scanf ("%f", &raio);
+    printf ("o volume é : %.2f", calculo_volume(raio));
+}
