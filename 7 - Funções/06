@@ -1,0 +1,31 @@
+//6. Faca uma func¸ao que receba 3 numeros inteiros como parametro, representando horas,
+//minutos e segundos, e os converta em segundos.
+#include <stdio.h>
+void calculo_segundos (int hora, int minuto, int segundo){
+    int soma;
+    minuto += hora*60;
+    segundo += minuto*60;
+    printf ("os segundos são : %i", segundo);
+}
+int main () {
+    int hora, minuto, segundo;
+    printf ("informe a hora : ");
+    scanf ("%i", &hora);
+    if (hora > 23 || hora < 0 ){
+        printf ("erro");
+        return 0;
+    }
+    printf ("informe o minuto : ");
+    scanf ("%i", &minuto);
+    if (minuto > 59 || minuto < 0 ){
+        printf ("erro");
+        return 0;
+    }
+    printf ("informe o segundo : ");
+    scanf ("%i", &segundo);
+    if (segundo > 59 || segundo < 0){
+        printf ("erro");
+        return 0;
+    }
+    calculo_segundos(hora, minuto, segundo);
+}
