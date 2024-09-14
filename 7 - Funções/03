@@ -1,0 +1,19 @@
+// 3. Faca uma func¸ao para verificar se um numero e positivo ou negativo. Sendo que o valor
+// de retorno sera 1 se positivo, -1 se negativo e 0 se for igual a 0
+#include <stdio.h>
+int teste(int num){
+    if (num>0){
+        return 1;
+    } else if (num<0){
+        return -1;
+    } else {
+        return 0;
+    }
+}
+int main () {
+    int num, result;
+    printf ("informe um número : ");
+    scanf ("%i", &num);
+    result = teste(num);
+    printf ("%i", result);
+}
