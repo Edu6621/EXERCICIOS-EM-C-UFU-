@@ -1,0 +1,40 @@
+/* 11. Elabore uma funcao que receba tres notas de um aluno como parametros e uma letra.
+Se a letra for A, a func¸ao devera calcular a media aritmetica das notas do aluno; se for P
+devera calcular a media ponderada, com pesos 5, 3 e 2. */
+#include <stdio.h>
+void media_aritmetica (float n1, float n2, float n3){
+    float media = (n1 + n2 + n3)/3.0;
+    printf ("A media aritmetica é %.2f", media);
+}
+
+void media_ponderada (float n1, float n2, float n3){
+    float media = ((n1 * 5) + (n2 * 3) + (n3 * 2)) / 10;
+    printf ("A media ponderada é %.2f", media);
+}
+int main () {
+    char opcao;
+    float n1, n2, n3;
+    printf ("informe uma nota : ");
+    scanf ("%f", &n1);
+    printf ("informe a segunda nota : ");
+    scanf ("%f", &n2);
+    printf ("informe a terceira nota : ");
+    scanf ("%f", &n3);
+    printf ("escolha uma opção :\n");
+    printf ("a - calcular media aritmetica\n");
+    printf ("p - calcular media ponderada\n");
+    scanf (" %c", &opcao);
+    
+    switch (opcao) {
+        case 'a':
+            media_aritmetica(n1, n2, n3);
+        break;
+        case 'p':
+            media_ponderada(n1, n2, n3);
+        break;
+        default:
+            printf ("Erro");
+        break;    
+    }
+    
+}
