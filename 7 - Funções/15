@@ -1,0 +1,57 @@
+/* 15. Crie um programa que receba tres valores (obrigatoriamente maiores que zero), repre-
+sentando as medidas dos tres lados de um triangulo. Elabore funcoes para:
+    
+    (a) Determinar se eles lados formam um triangulo, sabendo que:
+    • O comprimento de cada lado de um triangulo e menor do que a soma dos outros
+    dois lados.
+    
+    (b) Determinar e mostrar o tipo de triangulo, caso as medidas formem um triangulo.
+    Sendo que:
+    • Chama-se equilatero o triangulo que tem tres lados iguais.
+    • Denominam-se isosceles o triangulo que tem o comprimento de dois lados
+    iguais.
+    • Recebe o nome de escaleno o triangulo que tem os tres lados diferentes.  */
+#include <stdio.h>
+int teste_triangulo (int a, int b, int c){
+    if (a > b+c || b > a+c || c > a+b){
+        return 0;
+    }else {
+        return 1;
+    }
+}
+
+void tipo_triangulo (int a, int b, int c){
+    if (a==b && a==c){
+        printf ("esse triangulo é equilatero !! ");
+    }
+    else if (a!=b && a!=b && b!=c){
+        printf ("esse triangulo é escaleno !!");
+    }else{
+        printf ("esse triangulo é isósceles !!");
+    }
+}
+
+int main () {    
+    int a, b, c;
+    printf ("informe um lado do triangulo : ");
+    scanf ("%i", &a);
+    printf ("informe outro lado do triangulo : ");
+    scanf ("%i", &b);
+    printf ("informe outro lado do triangulo : ");
+    scanf ("%i", &c);
+    
+    if (a <= 0 || b <= 0 || c <= 0){
+        printf ("erro");
+        return 0;
+    }
+    
+    if (teste_triangulo(a, b, c) == 1){
+        printf ("isso pode ser um triangulo !\n");
+    }
+    else {
+        printf ("isso não pode ser um triangulo !");
+        return 0;
+    }
+    tipo_triangulo(a, b, c);
+}
+    
