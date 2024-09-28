@@ -1,0 +1,22 @@
+/* 18. Faca uma funcao que receba por parametro dois valores X e Z. Calcule e retorne o
+resultado de XZ para o programa principal. Atencao nao utilize nenhuma funcao pronta
+de exponenciac¸ao.  */
+#include <stdio.h>
+int potencia (int x, int z);
+int main () {
+    int x, z;
+    printf ("informe um número : ");
+    scanf ("%i", &x);
+    printf ("informe outro número : ");
+    scanf ("%i", &z);
+    printf ("o resultado da potenciacão é : %i", potencia(x, z));
+    return 0;
+}
+
+int potencia (int x, int z){
+    int mult=1;
+    for (int i=0; i<z; i++){
+        mult*=x;
+    }
+    return mult;
+}
