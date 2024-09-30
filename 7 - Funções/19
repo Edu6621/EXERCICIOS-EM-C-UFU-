@@ -1,0 +1,24 @@
+//19. Faca uma funcao que retorne o maior fator primo de um numero.
+#include <stdio.h>
+int fator_primo(int num) {
+    int primo;
+    for (int i = 2; i <= num; i++) {
+        int cont = 0; 
+        for (int j = 2; j <= i / 2; j++) { 
+            if (i % j == 0) {
+                cont++;
+            }
+        }
+        if (cont == 0) {
+            primo = i; 
+        }
+    }
+    return primo;
+}
+int main () {
+    int num;
+    
+    printf ("informe um número : ");
+    scanf ("%i", &num);
+    printf ("o maior fator primo de %i é : %i", num, fator_primo(num));
+}
