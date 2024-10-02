@@ -1,0 +1,25 @@
+//21. Escreva uma funcao para determinar a quantidade de numeros primos abaixo N.
+#include <stdio.h>
+void num_primos(int num){
+    int qtd=-1;
+    int cont=0;
+    for (int i=2; i<num; i++){
+        for (int j=2; j<i/2; j++){
+            if (i%j==0){
+                cont++;
+            }
+        }
+        if (cont==0){
+            qtd++;
+        }
+        cont=0;
+    }
+    printf ("tem %i números primos abaixo de %i", qtd, num);
+}
+int main () {
+    int num;
+    
+    printf ("informe um número : ");
+    scanf ("%i", &num);
+    num_primos(num);
+}
