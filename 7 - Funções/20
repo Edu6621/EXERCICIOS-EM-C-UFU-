@@ -1,0 +1,17 @@
+//20. Faca um algoritmo que receba um numero inteiro positivo n e calcule o seu fatorial, n!
+#include <stdio.h>
+void fatorial(int num){
+    int mult=1;
+    for (int i=1; i<=num; i++){
+        mult*=i;
+    }
+    printf ("o fatorial desse número é : %i", mult);
+}
+int main () {
+    int num;
+    
+    printf ("informe um número : ");
+    scanf ("%i", &num);
+    
+    fatorial(num);
+}
