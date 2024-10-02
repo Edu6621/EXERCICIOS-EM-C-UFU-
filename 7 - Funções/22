@@ -1,0 +1,22 @@
+/*22. Crie uma funcao que receba como parametro um valor inteiro e gere como saıda n linhas
+com pontos de exclamacao, conforme o exemplo abaixo (para n = 5):
+!
+!!
+!!!
+!!!!
+!!!!!     */
+#include <stdio.h>
+void exclamacao(int n){
+    for (int i=0; i<n; i++){
+        for (int j=0; j<=i; j++){
+            printf ("!");
+        }
+        printf ("\n");
+    }
+}
+int main () {
+    int n;
+    printf ("informe um número : ");
+    scanf ("%i", &n);
+    exclamacao(n);
+}
