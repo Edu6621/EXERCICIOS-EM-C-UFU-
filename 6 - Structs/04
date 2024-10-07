@@ -1,0 +1,77 @@
+/*4. Crie uma estrutura representando os alunos de um determinado curso. A estrutura deve
+conter a matrıcula do aluno, nome, nota da primeira prova, nota da segunda prova e nota
+da terceira prova.
+(a) Permita ao usuario entrar com os dados de 5 alunos
+(b) Encontre o aluno com maior nota da primeira prova.
+(c) Encontre o aluno com maior media geral
+(d) Encontre o aluno com menor media geral
+(e) Para cada aluno diga se ele foi aprovado ou reprovado, considerando o valor 6 para
+aprovacao. */
+#include <stdio.h>
+#include <string.h>
+
+struct alunos {
+    int matricula;
+    char nome[50];
+    float nota_prova1;
+    float nota_prova2;
+    float nota_prova3;
+}alu[5];
+
+int main () {
+    float nota;
+    float maior_nota1 = 0;
+    float maior_nota = 0;
+    float menor_nota = 101;
+    char aluno_maior_nota1[50];
+    char aluno_maior_nota[50];
+    char aluno_menor_nota[50];
+    int aprovado[5];
+    
+    for (int i=0; i<5; i++){
+        printf ("===== ALUNO %i =====\n", i+1);
+        printf ("informe o número de matricula : ");
+        scanf ("%i", &alu[i].matricula);
+        getchar();
+        printf ("informe o nome do aluno : ");
+        fgets (alu[i].nome, sizeof(alu[i].nome), stdin);
+        alu[i].nome[strcspn(alu[i].nome, "\n")] = '\0';
+        printf ("informe a nota da primeira prova : ");
+        scanf ("%f", &alu[i].nota_prova1);
+        printf ("informe a nota da segunda prova : ");
+        scanf ("%f", &alu[i].nota_prova2);
+        printf ("informe a nota da terceira prova : ");
+        scanf ("%f", &alu[i].nota_prova3);
+        
+        nota = (alu[i].nota_prova1 + alu[i].nota_prova2 + alu[i].nota_prova3) / 3;
+        if (nota > maior_nota) {
+            maior_nota = nota;
+            strcpy(aluno_maior_nota, alu[i].nome);
+        }
+        if (nota < menor_nota) {
+            menor_nota = nota;
+            strcpy(aluno_menor_nota, alu[i].nome);
+        }
+        if (nota>=6){
+            aprovado[i] = 1;
+        }else {
+            aprovado[i] = 0;
+        }
+        if (alu[i].nota_prova1 > maior_nota1){
+            maior_nota1 = alu[i].nota_prova1;
+            strcpy(aluno_maior_nota1, alu[i].nome);
+        }
+        
+    }
+    printf ("\n\n\n");
+    printf ("o aluno com maior nota na prova 1 é : %s, com %.2f\n", aluno_maior_nota1, maior_nota1);
+    printf ("o aluno com maior nota é : %s, com %.2f\n", aluno_maior_nota, maior_nota);
+    printf ("o aluno com menor nota é : %s, com %.2f\n", aluno_menor_nota, menor_nota);
+    for (int i=0; i<5; i++){
+        if (aprovado[i] == 1){
+            printf ("o aluno %i foi aprovado !\n", i+1);
+        }else {
+            printf ("o aluno %i foi reprovado !\n", i+1);
+        }
+    }
+}
