@@ -1,1 +1,60 @@
+/* 1. Escreva um trecho de codigo para fazer a criacao dos novos tipos de dados conforme
+solicitado abaixo:
+• Horario: composto de hora, minutos e segundos.
+• Data: composto de dia, mes e ano.
+• Compromisso: composto de uma data, horario e texto que descreve o compromisso. */
+#include <stdio.h>
+#include <string.h>
+struct horario{
+    int horas;
+    int minutos;
+    int segundos;
+}hor;
 
+struct data {
+    int dia;
+    int mes;
+    int ano;
+}dat;
+
+struct compromisso {
+    int data;
+    int horario;
+    char texto[100];
+}com;
+
+int main () {
+    printf ("informe a hora : ");
+    scanf ("%i", &hor.horas);
+    printf ("informe os minutos : ");
+    scanf ("%i", &hor.minutos);
+    printf ("informe os segundos : ");
+    scanf ("%i", &hor.segundos);
+    
+    printf ("informe o dia : ");
+    scanf ("%i", &dat.dia);
+    printf ("informe o mes : ");
+    scanf ("%i", &dat.mes);
+    printf ("informe o ano : ");
+    scanf ("%i", &dat.ano);
+    
+    printf ("informe a data do compromisso : ");
+    scanf ("%i", &com.data);
+    printf ("informe o horario do compromisso : ");
+    scanf (" %i", &com.horario);
+    getchar();
+    printf ("descreva o compromisso : ");
+    fgets (com.texto, sizeof(com.texto), stdin);
+    
+    printf ("%i:", hor.horas);
+    printf ("%i:", hor.minutos);
+    printf ("%i\n", hor.segundos);
+    
+    printf ("%i/", dat.dia);
+    printf ("%i/", dat.mes);
+    printf ("%i\n", dat.ano);
+    
+    printf ("%i, ", com.data);
+    printf ("%i, ", com.horario);
+    printf ("%s", com.texto);
+}
