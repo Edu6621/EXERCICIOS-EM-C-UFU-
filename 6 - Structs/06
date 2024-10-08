@@ -1,0 +1,47 @@
+/* 6. Faca um programa que realize a leitura dos seguintes dados relativos a um conjunto de
+alunos: Matricula, Nome, Codigo da Disciplina, Nota1 e Nota2. Considere uma turma de
+ate 10 alunos. Apos ler todos os dados digitados, e depois de armazena-los em um vetor
+de estrutura, exibir na tela a listagem final dos alunos com as suas respectivas medias
+finais (use uma media ponderada: Nota1 com peso=1.0 e Nota2 com peso=2.0).  */
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_ALUNOS 10
+
+struct alunos {
+    int matricula;
+    char nome[50];
+    int codigo_da_disciplina;
+    float nota1;
+    float nota2;
+    float media_ponderada;
+}alu[MAX_ALUNOS];
+
+int main () {
+    for (int i=0; i<MAX_ALUNOS; i++){
+        printf ("==========ALUNO %i==========\n", i+1);
+        printf ("informe o número da matricula : ");
+        scanf ("%i", &alu[i].matricula);
+        getchar();
+        printf ("informe o nome do aluno : ");
+        fgets (alu[i].nome, sizeof(alu[i].nome), stdin);
+        alu[i].nome[strcspn(alu[i].nome, "\n")] = '\0';
+        printf ("informe o codigo da disciplina : ");
+        scanf ("%i", &alu[i].codigo_da_disciplina);
+        printf ("informe a nota da primeira prova : ");
+        scanf ("%f", &alu[i].nota1);
+        printf ("informe a nota da segunda prova :");
+        scanf ("%f", &alu[i].nota2);
+        alu[i].media_ponderada = ((alu[i].nota1 * 1) + (alu[i].nota2 * 2)) / 3;
+    }
+    printf ("\n\n\n\n\n\n");
+    for (int i=0; i<MAX_ALUNOS ; i++){
+        printf ("==========ALUNO %i==========\n", i+1);
+        printf ("Número de matrícula : %i\n", alu[i].matricula);
+        printf ("Nome do aluno : %s\n", alu[i].nome);
+        printf ("Código da disciplina : %i\n", alu[i].codigo_da_disciplina);
+        printf ("Nota da primeira prova : %.2f\n", alu[i].nota1);
+        printf ("Nota da segunda prova : %.2f\n", alu[i].nota2);
+        printf ("Media ponderada : %.2f\n\n", alu[i].media_ponderada);
+    }
+}
