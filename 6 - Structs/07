@@ -1,0 +1,26 @@
+/*7. Faca um programa que converta coordenadas polares para cartesianas:
+• Crie e leia um ponto em coordenada polar, composto por raio (r) e argumento (a)
+em radianos.
+• Crie outro ponto, agora em coordenada cartesiana, composto por x e y, sabendo
+que x = r ∗ cos a e y = r ∗ sin a.*/
+#include <stdio.h>
+#include <math.h>
+
+struct polar {
+    float r;
+    float a;
+}pol;
+
+struct cartesiana {
+    float x;
+    float y;
+}cart;
+int main () {
+    printf ("informe a coordenada polar :\nRaio (r) : ");
+    scanf ("%f", &pol.r);
+    printf ("Argumento (a) : ");
+    scanf ("%f", &pol.a);
+    cart.x = pol.r * cos(pol.a);
+    cart.y = pol.r * sin(pol.a);
+    printf ("\na coordenada em cartesiano é :\nX: %.2f\nY: %.2f ", cart.x, cart.y);
+}
