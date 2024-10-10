@@ -1,0 +1,47 @@
+/*9. Faca um programa que faca operacoes simples de numeros complexos
+• Crie e leia dois numeros complexos z e w, compostos por parte real e parte imaginaria
+• Apresente a soma, subtracao e produto entre z e w, nessa ordem, bem como o
+modulo de ambos.  */
+#include <stdio.h>
+#include <math.h>
+
+typedef struct {
+    double real;
+    double imag;
+} Complexo;
+
+int main() {
+    Complexo z, w;
+    printf("Digite a parte real de z: ");
+    scanf("%lf", &z.real);
+    printf("Digite a parte imaginaria de z: ");
+    scanf("%lf", &z.imag);
+
+    printf("Digite a parte real de w: ");
+    scanf("%lf", &w.real);
+    printf("Digite a parte imaginaria de w: ");
+    scanf("%lf", &w.imag);
+    
+    Complexo soma;
+    soma.real = z.real + w.real;
+    soma.imag = z.imag + w.imag;
+
+    Complexo subtracao;
+    subtracao.real = z.real - w.real;
+    subtracao.imag = z.imag - w.imag;
+
+    Complexo multiplicacao;
+    multiplicacao.real = z.real * w.real - z.imag * w.imag;
+    multiplicacao.imag = z.real * w.imag + z.imag * w.real;
+
+    double modulo_z = sqrt(z.real * z.real + z.imag * z.imag);
+    double modulo_w = sqrt(w.real * w.real + w.imag * w.imag);
+
+    printf("Soma: %.2f + %.2fi\n", soma.real, soma.imag);
+    printf("Subtração: %.2f + %.2fi\n", subtracao.real, subtracao.imag);
+    printf("Multiplicação: %.2f + %.2fi\n", multiplicacao.real, multiplicacao.imag);
+    printf("Módulo de z: %.2f\n", modulo_z);
+    printf("Módulo de w: %.2f\n", modulo_w);
+
+    return 0;
+}
