@@ -1,0 +1,57 @@
+/*8. Faca um programa que armazene em um registro de dados (estrutura composta) os 
+dados de um funcionario de uma empresa, compostos de: Nome, Idade, Sexo (M/F), CPF,
+Data de Nascimento, Codigo do Setor onde trabalha (0-99), Cargo que ocupa (string de
+ate 30 caracteres) e Salario. Os dados devem ser digitados pelo usuario, armazenados
+na estrutura e exibidos na tela.  */
+#include <stdio.h>
+#include <string.h>
+
+struct funcionario {
+    char nome[50];
+    int idade;
+    char sexo[15];
+    char cpf[15];
+    int data_de_nascimento[3];
+    int setor;
+    char cargo[30];
+    float salario;
+}fun;
+
+int main () {
+    printf ("informe o nome do funcionario : ");
+    fgets (fun.nome, sizeof (fun.nome), stdin);
+    fun.nome[strcspn(fun.nome, "\n")] = '\0';
+    printf ("informe a idade do funcionario : ");
+    scanf ("%i", &fun.idade);
+    getchar();
+    printf ("informe o sexo do funcionario : ");
+    fgets (fun.sexo, sizeof(fun.sexo), stdin);
+    fun.sexo[strcspn(fun.sexo, "\n")] = '\0';
+    printf ("informe o cpf do funcionario : ");
+    fgets (fun.cpf, sizeof(fun.cpf), stdin);
+    fun.cpf[strcspn(fun.cpf, "\n")] = '\0';
+    printf ("informe a data de nascimento do funcionario:\nDia : ");
+    scanf ("%i", &fun.data_de_nascimento[0]);
+    printf ("Mês : ");
+    scanf ("%i", &fun.data_de_nascimento[1]);
+    printf ("Ano : ");
+    scanf ("%i", &fun.data_de_nascimento[2]);  
+    printf ("informe o setor do funcionario : ");
+    scanf ("%i", &fun.setor);
+    getchar();
+    printf ("informe o cargo do funcionario : ");
+    fgets (fun.cargo, sizeof(fun.cargo), stdin);
+    fun.cargo[strcspn(fun.cargo, "\n")] = '\0';
+    printf ("informe  o salário do funcionario : ");
+    scanf ("%f", &fun.salario);
+
+    printf ("======== FUNCIONÁRIO ========\n");
+    printf ("Nome : %s\n", fun.nome);
+    printf ("Idade : %i\n", fun.idade);
+    printf ("Sexo : %s\n", fun.sexo);
+    printf ("CPF : %s\n", fun.cpf);
+    printf ("Data de nascimento : %i/%i/%i\n", fun.data_de_nascimento[0], fun.data_de_nascimento[1], fun.data_de_nascimento[2]);
+    printf ("Setor : %i\n", fun.setor);
+    printf ("Cargo : %s\n", fun.cargo);
+    printf ("Salário : %.2f\n", fun.salario);
+}
