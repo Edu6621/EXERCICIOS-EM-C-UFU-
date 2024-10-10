@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+#define QTD 5  
+
+struct Pessoa {
+    char nome[50];
+    char endereco[100];
+    char telefone[15];  
+};
+
+void ordenarPessoas(struct Pessoa pes[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (strcmp(pes[j].nome, pes[j + 1].nome) > 0) {
+                struct Pessoa temp = pes[j];
+                pes[j] = pes[j + 1];
+                pes[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    struct Pessoa pes[QTD];
+
+    for (int i = 0; i < QTD; i++) {
+        printf("======== PESSOA %i ========\n", i + 1);
+        printf("Informe o nome da pessoa: ");
+        fgets(pes[i].nome, sizeof(pes[i].nome), stdin);
+        pes[i].nome[strcspn(pes[i].nome, "\n")] = '\0';  
+
+        printf("Informe o endereço da pessoa: ");
+        fgets(pes[i].endereco, sizeof(pes[i].endereco), stdin);
+        pes[i].endereco[strcspn(pes[i].endereco, "\n")] = '\0';  
+
+        printf("Informe o número do telefone da pessoa: ");
+        fgets(pes[i].telefone, sizeof(pes[i].telefone), stdin);
+        pes[i].telefone[strcspn(pes[i].telefone, "\n")] = '\0'; 
+    }
+
+    ordenarPessoas(pes, QTD);
+
+    printf("\n=== LISTA DE PESSOAS ===\n");
+    for (int i = 0; i < QTD; i++) {
+        printf("Nome: %s\n", pes[i].nome);
+        printf("Endereço: %s\n", pes[i].endereco);
+        printf("Telefone: %s\n\n", pes[i].telefone);
+    }
+
+    return 0;
+}
