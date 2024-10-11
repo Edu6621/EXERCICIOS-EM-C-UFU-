@@ -1,0 +1,22 @@
+// 7. Faca uma funcao recursiva que receba um numero inteiro positivo N e imprima todos os
+// numeros naturais de 0 ate N em ordem decrescente. 
+#include <stdio.h>
+
+void contagem (int n){
+    if (n < 0){
+        return;
+    }
+    printf ("%i ", n);
+    contagem(n-1);
+}
+
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n<0){
+        printf ("erro");
+        return 0;
+    }
+    contagem (n);
+}
