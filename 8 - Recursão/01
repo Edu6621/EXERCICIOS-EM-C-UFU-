@@ -1,0 +1,19 @@
+//1. Crie uma funcao recursiva que receba um numero inteiro positivo N e calcule o somatorio
+//dos numeros de 1 a N.
+#include <stdio.h>
+int somatorio (int n){
+    if (n==1){
+        return 1;
+    }
+    return n + somatorio (n - 1);
+}
+int main () {
+    int n;
+    printf ("informe um número positivo : ");
+    scanf ("%i", &n);
+    if (n<0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o somatorio de 1 até N é : %i", somatorio(n));
+}
