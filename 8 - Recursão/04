@@ -1,0 +1,26 @@
+//4. Crie uma funcao recursiva que receba dois inteiros positivos k e n e calcule k^n
+#include <stdio.h>
+
+int potencia (int k, int n){
+    if (n==0){
+        return 1;
+    }
+    return k * potencia (k, n-1);
+}
+
+int main () {
+    int k, n;
+    printf ("informe um número inteiro positivo (k) : ");
+    scanf ("%i", &k);
+    if (k<0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("informe um número inteiro positivo (n) : ");
+    scanf ("%i", &n);
+    if (n<0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o resultado é : %i", potencia(k, n));
+}
