@@ -1,0 +1,20 @@
+// 14. Escreva uma funcao recursiva ImprimeSerie(i,j,k). Esta funcao imprime na tela a serie
+// de valores do intervalo [i,j], com incremento k.
+#include <stdio.h>
+void ImprimeSerie (int i, int j, int k){
+    if (i > j){
+        return;
+    }
+    printf ("%i ", i);
+    ImprimeSerie (i + k, j, k);
+}
+int main () {
+    int i, j, k;
+    printf ("informe um valor (i) : ");
+    scanf ("%i", &i);
+    printf ("informe um valor (j) : ");
+    scanf ("%i", &j);
+    printf ("informe o valor a ser incrementado (k) : ");
+    scanf ("%i", &k);
+    ImprimeSerie(i, j, k);
+}
