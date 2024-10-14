@@ -1,0 +1,22 @@
+/* 11. Escreva uma funcao recursiva que exibe todos os elementos em um array de inteiros,
+separados por espaco. */
+#include <stdio.h>
+void array_elementos(int array[], int tamanho){
+    
+    if (tamanho==0){
+        return;
+    }
+    array_elementos(array, tamanho-1);
+    printf ("%i ", array[tamanho-1]);
+}
+int main () {
+    int tamanho=5;
+    int array[5];
+    printf ("informe 5 elementos :\n");
+    scanf ("%i", &array[0]);
+    scanf ("%i", &array[1]);
+    scanf ("%i", &array[2]);
+    scanf ("%i", &array[3]);
+    scanf ("%i", &array[4]);
+    array_elementos (array, tamanho);
+}
