@@ -1,0 +1,19 @@
+// 13. Escreva uma func¸ao recursiva SomaSerie(i,j,k). Esta funcao devolve a soma da serie de
+// valores do intervalo [i,j], com incremento k.
+#include <stdio.h>
+int soma_serie (int i, int j, int k){
+    if (i > j){
+        return 0;
+    }
+    return i + soma_serie (i + k, j, k);
+}
+int main () {
+    int i, j, k;
+    printf ("informe um valor (i) : ");
+    scanf ("%i", &i);
+    printf ("informe um valor (j) : ");
+    scanf ("%i", &j);
+    printf ("informe o valor a ser incrementado (k) : ");
+    scanf ("%i", &k);
+    printf ("a soma é : %i", soma_serie(i, j, k));
+}
