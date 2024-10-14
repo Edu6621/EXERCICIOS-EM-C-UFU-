@@ -1,0 +1,28 @@
+// 12. Crie um programa que contenha uma funcao recursiva para encontrar o menor elemento 
+// em um vetor
+#include <stdio.h>
+int menor_elemento (int vet[], int tamanho){
+    if (tamanho==1){
+        return vet[0];
+    }
+    int menor = menor_elemento (vet, tamanho-1);
+    
+    if (vet[tamanho-1] < menor){
+        return vet[tamanho-1];
+    }else {
+        return menor;
+    }
+    
+    
+}    
+int main () {
+    int tamanho=5;
+    int vet[5];
+    printf ("informe 5 elementos : \n");
+    scanf ("%i", &vet[0]);
+    scanf ("%i", &vet[1]);
+    scanf ("%i", &vet[2]);
+    scanf ("%i", &vet[3]);
+    scanf ("%i", &vet[4]);
+    printf ("o menor elemento é : %i", menor_elemento(vet, tamanho));
+}
