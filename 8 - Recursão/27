@@ -1,0 +1,25 @@
+/*27. Implemente a funcao h definida recursivamente por:
+h(m,n) = m+1 ,se n = 1
+h(m,n) = n+1 ,se m = 1
+h(m,n) = h(m,n-1)+h(m-1,n) ,se m>1,n>1*/
+#include <stdio.h>
+int H (int m, int n){
+    if (m == 1){
+        return n + 1;
+    }if (n == 1){
+        return m + 1;
+    }
+    return H(m, n-1) + H(m-1, n);
+}
+int main () {
+    int m, n;
+    printf ("informe um número inteiro positivo (m) : ");
+    scanf ("%i", &m);
+    printf ("informe um número inteiro positivo (n) : ");
+    scanf ("%i", &n);
+    if (n < 0 || m < 0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o resultado é : %i", H(m, n));
+}
