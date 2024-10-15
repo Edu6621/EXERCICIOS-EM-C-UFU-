@@ -1,0 +1,26 @@
+/*24. Fac¸a uma funcao recursiva que receba um numero N e retorne o N-esimo termo da
+sequencia de tribonacci. Os numeros tribonacci sao definidos pela seguinte recursao
+f(n) = 0 se n = 0
+f(n) = 0 se n = 1
+f(n) = 1 se n = 2
+f(n) = f(n-1)+f(n-2)+f(n-3) se n > 3 */
+#include <stdio.h>
+int Tribonacci (int n){
+    if (n == 0 || n == 1){
+        return 0;
+    }
+    if (n == 2){
+        return 1;
+    }
+    return Tribonacci(n-1) + Tribonacci (n-2) + Tribonacci (n-3);
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n < 0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o %i-ésimo número é : %i", n, Tribonacci(n));
+}
