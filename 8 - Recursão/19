@@ -1,0 +1,24 @@
+/*19. Faca uma funcao recursiva que receba um numero inteiro positivo N e retorne o hiperfa
+torial desse numero. O hiperfatorial de um numero N, escrito H(n), e definido por
+       n        
+H(n) = II k^k = 1^1 ∗ 2^2 ∗ 3^3 ...(n − 1)^n−1 ∗ n^n
+       k=1      */
+#include <stdio.h>
+
+int HiperFatorial(int n){
+    if (n == 1){
+        return 1;
+    }
+    return n * n * HiperFatorial (n - 1); 
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n < 1){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o resultado é : %i", HiperFatorial(n));
+    
+}
