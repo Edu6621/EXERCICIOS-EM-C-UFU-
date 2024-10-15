@@ -1,0 +1,24 @@
+/* 20. Faca uma funcao recursiva que receba um numero inteiro positivo N e retorne o fatorial
+exponencial desse numero. Um fatorial exponencial e um inteiro positivo N elevado a
+potencia de N-1, que por sua vez e elevado a potencia de N-2 e assim em diante. Ou
+seja,
+n ^ (n−1) ^ (n−2)...    */
+
+#include <stdio.h>
+#include <math.h>
+unsigned long long Fatorial_Exponencial (int n){
+    if (n == 1){
+        return 1;
+    }
+    return(unsigned long long) pow(n, Fatorial_Exponencial (n-1));
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n < 1){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o resultado é : %llu", Fatorial_Exponencial(n));
+}
