@@ -1,0 +1,24 @@
+/* 17. Faca uma funcao recursiva que receba um numero inteiro positivo N e retorne o fatorial
+quadruplo desse numero. O fatorial quadruplo de um numero N e dado por:
+((2n)!)/n!   */
+#include <stdio.h>
+unsigned long long Fatorial (int n){
+    if (n ==0 || n == 1){
+        return 1;
+    }
+    return n * Fatorial (n-1);
+}
+
+unsigned long long Fatorial_Quadruplo(int n){
+    return Fatorial(2 * n) / Fatorial (n);
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n<1){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o fatorial quadruplo de %i é : %llu", n, Fatorial_Quadruplo(n));
+}
