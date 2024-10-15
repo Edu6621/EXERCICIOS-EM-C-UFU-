@@ -1,0 +1,21 @@
+/*15. Faca uma funcao recursiva que calcule o valor da serie S descrita a seguir para um valor
+n > 0 a ser fornecido como parametro para a mesma.
+S = 2/1 + 5/2 + 10/3 + ... + (1+n^2)/n
+                     */
+#include <stdio.h>
+double Calculo_valor (int n){
+    if (n == 1){
+        return 2.0;
+    }
+    return ((1.0 + (n*n))/n) + Calculo_valor (n-1);
+}
+int main () {
+    int n;
+    printf ("informe um valor inteiro acima de 0 (n) : ");
+    scanf ("%i", &n);
+    if (n<1){
+        printf ("erro");
+        return 0;
+    }
+    printf ("o valor é : %.2f", Calculo_valor(n));
+}
