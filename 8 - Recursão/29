@@ -1,0 +1,23 @@
+/* 29. Faca uma funcao recursiva para calcular os numeros de Pell. Os numeros de Pell sao
+definidos pela seguinte recursao
+p(n) = 0 se n = 0
+p(n) = 1 se n = 1
+p(n) = 2p(n-1)+ p(n-2) se n > 1 */
+#include <stdio.h>
+int P(int n){
+    if (n == 0){
+        return 0;
+    }else if (n == 1){
+        return 1;
+    }return 2 * P(n-1) + P(n - 2);
+}
+int main () {
+    int n;
+    printf ("informe um número : ");
+    scanf ("%i", &n);
+    if (n < 0){
+        printf ("o número deve ser inteiro e positivo.");
+        return 0;
+    }
+    printf ("o número de pell é : %i", P(n));
+}
