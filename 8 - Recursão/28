@@ -1,0 +1,27 @@
+/*28. Faca uma funcao recursiva para computar a funcao de Ackerman. A funcao de Acherman
+e definida recursivamente nos numeros nao negativos como segue:
+A(m,n) = n+1 se m = 0
+A(m,n) = A(m-1,1) se m > 0 e n = 0
+A(m,n) = A(m-1,A(m,n-1)) se m > 0 e n > 0    */
+#include <stdio.h>
+int Ackerman (int m, int n){
+    if (m == 0){
+        return n+1;
+    }else if (m > 0 && n == 0){
+        return Ackerman(m-1, 1);
+    }else if (m > 0 && n > 0){
+        return Ackerman(m-1, Ackerman(m, n-1));
+    }
+}
+int main () {
+    int n, m;
+    printf ("informe um número (m) : ");
+    scanf ("%i", &m);
+    printf ("informe um número (n) : ");
+    scanf ("%i", &n);
+    if (n < 0 || m < 0){
+        printf ("o número deve ser positivo e inteiro !");
+        return 0;
+    }
+    printf ("a função de Ackerman é : %i", Ackerman(m, n));
+}
