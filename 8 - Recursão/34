@@ -1,0 +1,23 @@
+//34. Faca uma funcao recursiva que permita inverter um numero inteiro N. Ex: 123 - 321
+#include <stdio.h>
+void Inverter(int n){
+    if (n == 0){
+        return;
+    }
+    printf ("%i", n%10);
+    Inverter(n/10);
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro : ");
+    scanf ("%i", &n);
+    if (n<0){
+        n*=-1;
+        printf ("-");
+    }
+    if (n==0){
+        printf ("0");
+    }else{
+    Inverter(n);
+    }
+}
