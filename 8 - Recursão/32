@@ -1,0 +1,22 @@
+/* 32. Dado um numero n na base decimal, escreva uma funcao recursiva que converte este
+numero para binario. */
+#include <stdio.h>
+void Binario (int n){
+    if (n > 1){
+        Binario(n/2);
+    }
+    printf ("%i", n%2);
+}
+int main () {
+    int n;
+    printf ("informe um número inteiro positivo : ");
+    scanf ("%i", &n);
+    if (n < 0){
+        printf ("esse número é negativo !");
+        return 0;
+    }
+    if (n == 0){
+        printf ("0");
+    }
+    Binario(n);
+}
