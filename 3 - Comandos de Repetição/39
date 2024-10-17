@@ -1,0 +1,20 @@
+/* 39. Faca um programa que calcule a area de um triangulo, cuja base e altura sao fornecidas
+pelo usuario. Esse programa nao pode permitir a entrada de dados invalidos, ou seja,
+medidas menores ou iguais a 0.  */
+#include <stdio.h>
+int main (){
+    float b, h;
+    printf ("informe a base do triangulo : ");
+    scanf ("%f", &b);
+    if (b <= 0){
+        printf ("o número deve ser maior do que 0");
+        return 0;
+    }
+    printf ("informe a altura do triangulo : ");
+    scanf ("%f", &h);
+    if (h <= 0){
+        printf ("o número deve ser maior do que 0");
+        return 0;
+    }
+    printf ("a area do triangulo é : %.2f", b*h/2);
+}    
