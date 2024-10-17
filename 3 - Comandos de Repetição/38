@@ -1,0 +1,23 @@
+/*38. Faca um programa que calcule o terno pitagorico a, b, c, para o qual a+b+c = 1000. Um
+terno pitagorico e um conjunto de tres numeros naturais, a, b, c, para a qual,
+
+a^2 + b^2 = c^2
+Por exemplo,
+3^2 + 4^2 = 9 + 16 = 25 = 5^2    */
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    for (a = 1; a < 1000; a++) {
+        for (b = a + 1; b < 1000 - a; b++) {
+            c = 1000 - a - b;
+            if (a * a + b * b == c * c) {
+                printf("Terno pitagórico encontrado: a = %d, b = %d, c = %d\n", a, b, c);
+                printf("Produto a*b*c = %d\n", a * b * c);
+                return 0;
+            }
+        }
+    }
+    printf("Nenhum terno pitagórico encontrado.\n");
+    return 0;
+}
