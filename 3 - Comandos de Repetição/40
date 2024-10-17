@@ -1,0 +1,24 @@
+/*40. Elabore um programa que faca leitura de varios numeros inteiros, ate que se digite um
+numero negativo. O programa tem que retornar o maior e o menor numero lido. */
+#include <stdio.h>
+int main () {
+    int cont = 0;
+    int maior, menor;
+    int n;
+    do {
+        printf ("informe um número inteiro : ");
+        scanf ("%i", &n);
+        if (cont == 0){
+            menor = n;
+            menor = n;
+            cont++;
+        }else{
+            if (n > maior){
+                maior = n;
+            }else if (n < menor && n >= 0) { 
+                menor = n;
+            }    
+        }
+    } while (n >= 0);
+    printf ("o maior número é %i\no menor número é %i", maior, menor);
+}
