@@ -16,9 +16,11 @@ Exemplo: 27 * 82
              
              Soma = 2214                                                */
 #include <stdio.h>
+int soma=0;
 void Russa (int a, int b){
     if (a%2!=0){
         printf ("%10i%10i%10i\n", a, b, b);
+        soma+= b;
     }else{
         printf ("%10i%10i        -\n", a, b);
     }    
@@ -39,4 +41,5 @@ int main () {
     }
     printf ("         A         B       PARCELAS\n\n");
     Russa(a, b);
+    printf ("            SOMA = %i", soma);
 }
