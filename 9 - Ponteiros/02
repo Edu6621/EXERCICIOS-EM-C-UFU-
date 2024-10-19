@@ -1,0 +1,22 @@
+// 2. Escreva um programa que contenha duas variaveis inteiras. Compare seus enderecos e
+// exiba o maior endereco.
+#include <stdio.h>
+int main () {
+    int a, b;
+    printf ("informe (a) : ");
+    scanf ("%i", &a);
+    printf ("informe (b) : ");
+    scanf ("%i", &b);
+    int *ea = &a;
+    int *eb = &b;
+    
+    printf ("Endereço de (a) : %p\n", ea);
+    printf ("Endereço de (b) : %p\n", eb);
+    
+    if (ea > eb){
+        printf ("o maior endereço é (a) : %p", ea);
+    }else {
+        printf ("o maior enderaço é (b) : %p", eb);
+    }
+    
+}
