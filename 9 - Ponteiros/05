@@ -1,0 +1,26 @@
+/* 5. Faca um programa que leia dois valores inteiros e chame uma funcao que receba estes
+2 valores de entrada e retorne o maior valor na primeira variavel e o menor valor na
+segunda variavel. Escreva o conteudo das 2 variaveis na tela.  */
+#include <stdio.h>
+void Maior_Menor (int* a, int* b){
+    int aux1 = *a, aux2 = *b;
+    if (*a < *b){
+        *a = aux2;
+        *b = aux1;
+    }
+    
+}
+int main () {
+    int a, b;
+    printf ("informe o valor de (a) : ");
+    scanf ("%i", &a);
+    printf ("informe o valor de (b) : ");
+    scanf ("%i", &b);
+    
+    Maior_Menor(&a, &b);
+    
+    printf ("maior valor : %i\n", a);
+    printf ("menor valor : %i\n", b);
+
+    
+}
