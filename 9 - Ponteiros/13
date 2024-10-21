@@ -1,0 +1,45 @@
+/* 13. Elabore uma funcao que receba duas strings como parametros e verifique se a segunda 
+string ocorre dentro da primeira. Use aritmetica de ponteiros para acessar os caracteres
+das strings. */
+#include <stdio.h>
+#include <string.h>
+void Checar_String(char *string, char *string2) {
+    char *p1, *p2;
+    int encontrado = 0;
+    for (p1 = string; *p1 != '\0'; p1++) {
+        
+        if (*p1 == *string2) {
+            p2 = string2;
+            char *p_temp = p1;
+            
+            while (*p2 != '\0' && *p_temp == *p2) {
+                p_temp++;
+                p2++;
+            }
+
+            if (*p2 == '\0') {
+                encontrado = 1;
+                break;
+            }
+        }
+    }
+    if (encontrado) {
+        printf("A string '%s' ocorre dentro de '%s'.\n", string2, string);
+    } else {
+        printf("A string '%s' não ocorre dentro de '%s'.\n", string2, string);
+    }
+}    
+int main () {
+    char string[50];
+    char string2[50];
+    
+    printf ("informe uma string : ");
+    fgets (string, sizeof(string), stdin);
+    string[strcspn(string, "\n")] = 0;
+    
+    printf ("informe outra string : ");
+    fgets (string2, sizeof(string2), stdin);
+    string2[strcspn(string2, "\n")] = 0;
+    
+    Checar_String(string, string2);
+}
