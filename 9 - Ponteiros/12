@@ -1,0 +1,41 @@
+/*12. Faca um programa que leia tres valores inteiros e chame uma funcao que receba estes 3
+valores de entrada e retorne eles ordenados, ou seja, o menor valor na primeira variavel,
+o segundo menor valor na variavel do meio, e o maior valor na ultima variavel. A funcao
+deve retornar o valor 1 se os tres valores forem iguais e 0 se existirem valores diferentes. 
+Exibir os valores ordenados na tela.*/
+#include <stdio.h>
+int Ordenar (int* a, int* b, int* c){
+    if (*a == *b && *b == *c){
+        return 1;
+    }
+    if (*a > *b) {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+    if (*a > *c) {
+        int temp = *a;
+        *a = *c;
+        *c = temp;
+    }
+    if (*b > *c) {
+        int temp = *b;
+        *b = *c;
+        *c = temp;
+    }
+    return 0;
+}
+int main () {
+    int a, b, c;
+    printf ("informe 3 valores : \n");
+    scanf ("%i", &a);
+    scanf ("%i", &b);
+    scanf ("%i", &c);
+    int result = Ordenar (&a, &b, &c);
+    printf ("valores ordenados : %i, %i, %i\n", a, b, c);
+    if (result == 1){
+        printf ("os números são iguais !!");
+    }else{
+        printf ("os números são diferentes !!");
+    }
+}
