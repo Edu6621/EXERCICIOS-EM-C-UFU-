@@ -1,0 +1,18 @@
+/*17. Escreva uma func¸ao que dado um numero real passado como parametro, retorne a parte 
+inteira e a parte fracionaria deste numero. Escreva um programa que chama esta funcao
+Prototipo:
+void frac(float num, int* inteiro, float* frac); */
+#include <stdio.h>
+void frac (float n, int* inteiro, float* fracio){
+    *inteiro = (int)n;
+    *fracio = n - *inteiro;
+}
+int main () {
+    int inteiro;
+    float n, fracio;
+    printf ("informe um número : ");
+    scanf ("%f", &n);
+    frac (n, &inteiro, &fracio);
+    printf ("inteiro : %i\n", inteiro);
+    printf ("fracionaria : %f", fracio);
+}
