@@ -1,0 +1,52 @@
+/* 22. Crie uma funcao para somar dois arrays. Esta funcao deve receber dois arrays e retornar
+a soma em um terceiro array. Caso o tamanho do primeiro e segundo array seja diferente
+entao a funcao retornara ZERO (0). Caso a funcao seja concluıda com sucesso a mesma
+deve retornar o valor UM (1). Utilize aritmetica de ponteiros para manipulacao do array. */
+#include <stdio.h>
+int soma (int vet[], int vet2[], int tmn1, int tmn2, int vet3[]){
+    if (tmn1 != tmn2){
+        return 0;
+    }
+    for (int i=0; i<tmn1; i++){
+        vet3[i] = vet[i] + vet2[i];
+    }
+    return 1;
+    
+}
+int main () {
+    int tmn1, tmn2;
+    printf ("informe o tamanho de um array :");
+    scanf ("%i", &tmn1);
+    int vet[tmn1];
+
+    for (int i=0; i<tmn1; i++){
+        printf ("%i = ", i+1);
+        scanf ("%i", &*(vet+i));
+    }
+    
+    printf ("informe o tamanho de outro array :");
+    scanf ("%i", &tmn2);
+    int vet2[tmn2];
+    
+    for (int i=0; i<tmn2; i++){
+        printf ("%i = ", i+1);
+        scanf ("%i", &*(vet2+i));
+    }
+    
+    int vet3[tmn1];
+    if (soma (vet, vet2, tmn1, tmn2, vet3) == 1){
+        for (int i=0; i<tmn1; i++){
+            printf ("%i ", *(vet+i));
+        }
+        printf ("\n");
+        for (int i=0; i<tmn1; i++){
+            printf ("%i ", *(vet2+i));
+        }
+        printf ("\n");
+        for (int i=0; i<tmn1; i++){
+            printf ("%i ", *(vet3+i));
+        }
+    }else{
+        printf ("tamanhos diferentes !");
+    }
+}
