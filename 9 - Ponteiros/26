@@ -1,0 +1,51 @@
+/*Implemente uma função que calcule as raízes de uma equação do segundo grau do tipo 
+𝐴𝑥2+𝐵𝑥+𝐶=0
+Lembrando que:𝑋=−𝐵±√Δ
+                  2𝐴
+Δ=B^2 −4AC
+A variável 𝐴 deve ser diferente de zero. As condições para as raízes são as seguintes:
+Se Δ < 0, não existem raízes reais.
+Se Δ = 0, existe uma raiz real.
+Se Δ > 0, existem duas raízes reais distintas.
+A função deve obedecer ao seguinte protótipo:
+
+int raizes(float A, float B, float C, float *X1, float *X2);
+Essa função deve retornar o número de raízes reais e distintas da equação.
+Se houver raízes reais, seus valores devem ser armazenados nas variáveis apontadas por 
+𝑋1 e x2;*/
+#include <stdio.h>
+#include <math.h>
+void calc_delta (float a, float b, float c, float* delta){
+    *delta = (b * b) - 4 * a * c;
+}
+void bhaskara (float a, float b, float c, float* delta, float* x, float* x2){
+    *x = (-b+sqrt(*delta))/2.0*a;
+    *x2 = (-b-sqrt(*delta))/2.0*a;
+}
+int main () {
+    float a, b, c, delta;
+    float x, x2;
+    printf ("informe A : ");
+    scanf ("%f", &a);
+    if (a==0){
+        printf ("erro");
+        return 0;
+    }
+    printf ("informe B : ");
+    scanf ("%f", &b);
+    
+    printf ("informe C : ");
+    scanf ("%f", &c);
+    
+    calc_delta(a, b, c, &delta);
+    if (delta < 0){
+        printf ("não existe raizes reais !");
+        return 0;
+    }
+    bhaskara(a, b, c, &delta, &x, &x2);
+    printf ("x = %.2f\n", x);
+    if (delta != 0){
+        printf ("x2 = %.2f", x2);
+    }
+    
+}
