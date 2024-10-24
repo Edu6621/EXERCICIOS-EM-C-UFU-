@@ -1,0 +1,29 @@
+/* 20. Implemente uma funcao que receba como parametro um array de numeros reais de
+tamanho N e retorne quantos numeros negativos ha nesse array. Essa funcao deve
+obedecer ao prototipo:
+int negativos(float *vet, int N);*/
+#include <stdio.h>
+int negativos (float *vet, int n){
+    int cont=0;
+    for (int i=0; i<n; i++){
+        if (*(vet+i) < 0){
+            cont++;
+        }
+    }
+    return cont;
+}
+int main () {
+    int n;
+    printf ("informe o tamanho do array : ");
+    scanf ("%i", &n);
+    float vet[n];
+    
+    for (int i=0; i<n; i++){
+        printf ("%i ) informe um valor real : ", i+1);
+        scanf ("%f", &*(vet+i));
+    }
+    
+    int qtd = negativos(vet, n);
+    
+    printf ("têm %i números negativos nesse array ", qtd);
+}
