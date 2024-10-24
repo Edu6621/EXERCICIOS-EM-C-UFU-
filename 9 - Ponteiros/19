@@ -1,0 +1,33 @@
+/* 19. Escreva uma funcao que aceita como parametro um array de inteiros com N valores, e 
+determina o maior elemento do array e o numero de vezes que este elemento ocorreu
+no array. Por exemplo, para um array com os seguintes elementos: 5, 2, 15, 3, 7, 15,
+8, 6, 15, a funcao deve retorna para o programa que a chamou o valor 15 e o numero 3
+(indicando que o numero 15 ocorreu 3 vezes). A funcao deve ser do tipo void. */
+#include <stdio.h>
+void qtd_maior (int vet[], int* qtd, int n, int maior){
+    for (int i=0; i<n; i++){
+        if (*(vet+i) == maior){
+            (*qtd)++;
+        }
+    }
+}
+int main () {
+    int n, qtd=0;
+    int maior;
+    printf ("informe um tamanho para o Array : ");
+    scanf ("%i", &n);
+    int vet[n];
+    
+    for (int i=0; i<n; i++){
+        printf ("%i ) informe um número : ",i+1);
+        scanf ("%i", &*(vet+i));
+        if (i == 0){
+            maior = *(vet+i);
+        }if (*(vet+i)>maior){
+            maior = *(vet+i);
+        }
+    }
+    qtd_maior(vet, &qtd, n, maior);
+    printf ("o maior valor é %i\no número foi colocado %i vezes", maior, qtd);
+    
+}
