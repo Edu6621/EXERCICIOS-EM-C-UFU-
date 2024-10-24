@@ -1,0 +1,39 @@
+/* 23. Escreva uma funcao que retorna o maior valor de um array de tamanho N. Escreva um
+programa que leia N valores inteiros, imprima o array com k elementos por linha, e o
+maior elemento. O valor de k tambem deve ser fornecido pelo usuario. */
+#include <stdio.h>
+int Maior_Valor (int vet[], int n){
+    int maior;
+    for (int i=0; i<n; i++){
+        if (i==0){
+            maior = *(vet+i);
+        }if (*(vet+i) > maior){
+            maior = *(vet+i);
+        }
+    }
+    return maior;
+}
+void Valor_por_Linha (int k,int vet[],int n){
+    for (int i=0; i<n; i++){
+        printf ("%i ", *(vet+i));
+        if ((i+1)%k==0){
+            printf ("\n");
+        }
+    }
+}
+int main () {
+    int n, k;
+    printf ("informe o tamanho do array : ");
+    scanf ("%i", &n);
+    int vet[n];
+    
+    for (int i=0; i<n; i++){
+        printf ("%i ) ", i+1);
+        scanf ("%i", &*(vet+i));
+    }
+    printf ("informe quantos elementos por linhas você deseja : ");
+    scanf ("%i", &k);
+    printf ("o maior valor é : %i\n", Maior_Valor(vet, n));
+    Valor_por_Linha(k, vet, n);
+    
+}
