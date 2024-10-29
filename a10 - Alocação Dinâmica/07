@@ -1,0 +1,52 @@
+/* 7. Escreva um programa que leia primeiro os 6 numeros gerados pela loteria e depois os 6
+numeros do seu bilhete. O programa entao compara quantos numeros o jogador acertou.
+Em seguida, ele aloca espaco para um vetor de tamanho igual a quantidade de numeros
+corretos e guarda os numeros corretos nesse vetor. Finalmente, o programa exibe os
+numeros sorteados e os seus numeros corretos. */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int *corretos;
+    int *loteria = malloc (6 * sizeof(int));
+    int *bilhete = malloc (6 * sizeof(int));
+    int qtd=0;
+    
+    for (int i=0; i<6; i++){
+        printf ("%i ) informe os números sorteados : ", i+1);
+        scanf ("%i", &*(loteria+i));
+    }
+    
+    printf ("\n");
+    
+    for (int i=0; i<6; i++){
+        printf ("%i ) informe os números do seu bilhete : ", i+1);
+        scanf ("%i", &*(bilhete+i));
+        
+        for (int j=0; j<6; j++){
+            
+            if (*(bilhete+i) == *(loteria+j)){
+                qtd++;
+                corretos = realloc (corretos, qtd * sizeof(int));
+                *(corretos+i) = *(bilhete+i);
+            }    
+        }
+    }
+    
+    printf ("Valores sorteados :\n");
+    
+    for (int i=0; i<6; i++){
+        printf ("%i ", *(loteria+i));
+    }
+    
+    printf ("\n\nValores Acertados :\n");
+    
+    for (int i=0; i<qtd; i++){
+        printf ("%i ", *(corretos+i));
+    }
+    
+    free (loteria);
+    free (bilhete);
+    free (corretos);
+    return 0;
+}
