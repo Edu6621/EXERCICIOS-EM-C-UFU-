@@ -1,0 +1,37 @@
+/* 5. Faca um programa que leia um numero N e:
+• Crie dinamicamente e leia um vetor de inteiro de N posicoes;
+• Leia um numero inteiro X e conte e mostre os multiplos desse numero que existem
+no vetor. */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int *vet;
+    int tamanho, x;
+    printf ("Informe o tamanho de um vetor : ");
+    scanf ("%i", &tamanho);
+    
+    vet = malloc (tamanho * sizeof(int));
+    
+    if (vet == NULL){
+        printf ("erro na alocação !");
+        return 1;
+    }
+    
+    for (int i=0; i<tamanho; i++){
+        printf ("%i ) Informe um número : ", i+1);
+        scanf ("%i", &*(vet+i));
+    }
+    
+    printf ("informe um número : ");
+    scanf ("%i", &x);
+    
+    printf ("números multiplos de %i\n", x);
+    for (int i=0; i<tamanho; i++){
+        if (*(vet+i)%x == 0){
+            printf ("%i ", *(vet+i));
+        }
+    }
+    free (vet);
+    return 0;
+}
