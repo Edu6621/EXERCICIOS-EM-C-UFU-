@@ -1,0 +1,69 @@
+/* 6. Faca um programa que simule a memoria de um computador: o usuario ira especificar o
+tamanho da memoria, ou seja, quantos bytes serao alocados do tipo inteiro. Para tanto,
+a memoria solicitada deve ser um valor multiplo do tamanho do tipo inteiro. Em seguida,
+o usuario tera 2 opcoes: inserir um valor em uma determinada posicao ou consultar o
+valor contido em uma determinada posic¸ao. A memoria deve iniciar com todos os dados
+zerados. */
+#include <stdio.h>
+#include <stdlib.h>
+
+void inserir_valor(int* vet, int tmn_memoria){
+    int posicao, valor;
+    printf ("informe a posição do vetor (0 a %i) : ", tmn_memoria/4);
+    scanf ("%i", &posicao);
+    printf ("informe o valor : ");
+    scanf ("%i", &valor);
+    *(vet+posicao) = valor;
+}
+
+
+void consultar_valor (int* vet, int tmn_memoria){
+    int posicao;
+    printf ("informe a posição do vetor (0 a %i) : ", tmn_memoria/4);
+    scanf ("%i", &posicao);
+    printf ("%i\n\n", *(vet+posicao));
+}
+
+
+int main () {
+    int tmn_memoria=1;
+    int opcao=1;
+    
+    while (tmn_memoria % 4 != 0){    
+        printf ("informe o tamanho da memoria desejada : ");
+        scanf ("%i", &tmn_memoria);
+        if (tmn_memoria % 4 != 0){
+            printf ("número inválido !\n");
+        }
+    }
+    
+    printf ("esse vetor terá %i posições !\n", tmn_memoria/4);
+    
+    int *vet = calloc (1, tmn_memoria);
+    
+    while (opcao != 0){
+        
+        printf ("selecione uma opção :\n");
+        printf ("1 - Inserir um valor em uma determinada posição\n");
+        printf ("2 - Consultar o valor contido em uma determinada posição\n");
+        printf ("0 - Finalizar programa\n");
+        scanf ("%i", &opcao);
+        
+        switch (opcao){
+            case 1:
+                inserir_valor(vet, tmn_memoria);
+                break;
+            case 2:
+                consultar_valor(vet, tmn_memoria);
+                break;
+            case 0:
+               printf ("programa finalizado\n");
+               break;
+            default:
+                printf ("número inválido");
+                break;
+        }
+    }
+    free (vet);
+    return 0;
+}
