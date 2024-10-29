@@ -1,0 +1,35 @@
+/* 3. Faca um programa que leia do usuario o tamanho de um vetor a ser lido e faca a alocacao
+dinamica de memoria. Em seguida, leia do usuario seus valores e mostre quantos dos
+numeros sao pares e quantos sao ımpares. */
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main () {
+    int *vet;
+    int tamanho, par=0, impar=0;
+    
+    printf ("Informe o tamanho de um vetor : ");
+    scanf ("%i", &tamanho);
+    
+    vet = malloc (tamanho * sizeof(int));
+    
+    if (vet == NULL){
+        printf ("Erro na alocação !!");
+        return 1;
+    }
+    
+    for (int i=0; i<tamanho; i++){
+        printf ("%i ) Informe um valor : ", i+1);
+        scanf ("%i", &*(vet+i));
+        if (*(vet+i) % 2 == 0){
+            par++;
+        }else{
+            impar++;
+        }
+    }
+    printf ("Valores pares : %i\nValores impares : %i\n", par, impar);
+    
+    free (vet);
+    
+    return 0;
+}
