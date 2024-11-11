@@ -1,0 +1,26 @@
+/* 42. Faca um programa que leia um conjunto nao determinado de valores, um de cada vez, e
+escreva para cada um dos valores lidos, o quadrado, o cubo e a raiz quadrada. Finalize
+a entrada de dados com um valor negativo ou zero. */
+
+#include <stdio.h>
+#include <math.h>
+
+int main () {
+    int n, q, c;
+    float r;
+    while (1){
+        printf ("informe um valor : ");
+        scanf ("%i", &n);
+        if (n<=0){
+            break;
+        }
+        q = n*n;
+        c = n*n*n;
+        r = sqrt(n);
+        printf ("quadrado : %i\n", q);
+        printf ("cubo : %i\n", c);
+        printf ("raiz quadrada %.2f\n\n", r);
+    }
+    printf ("programa finalizado");
+    return 0;
+}
