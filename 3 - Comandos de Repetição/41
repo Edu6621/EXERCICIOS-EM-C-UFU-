@@ -1,0 +1,28 @@
+/* 41. Faca um programa que calcula a associacao em paralelo de dois resistores R1 e R2
+fornecidos pelo usuario via teclado. O programa fica pedindo estes valores e calculando
+ate que o usuario entre com um valor para resistencia igual a zero. 
+R = R1 ∗ R2
+    R1 + R2 */
+#include <stdio.h>
+int main () {
+    int r1, r2, r;
+    while (1){
+        printf ("informe o valor de R1 : ");
+        scanf ("%i", &r1);
+        
+        if (r1 == 0){
+            break;
+        }
+        printf ("informe o valor de R2 : ");
+        scanf ("%i", &r2);
+        
+        if (r2 == 0){
+            break;
+        }
+        r = (r1 * r2) / (r1 + r2);
+        
+        printf ("o resultado é : %i\n", r);
+    }
+    printf ("programa finalizado");
+    return 0;
+}
