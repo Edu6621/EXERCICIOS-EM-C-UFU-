@@ -1,0 +1,26 @@
+/* 44. Leia um numero positivo do usuario, entao, calcule e imprima a sequencia Fibonacci ate
+o primeiro numero superior ao numero lido. Exemplo: se o usuario informou o numero
+30, a sequencia a ser impressa sera 0 1 1 2 3 5 8 13 21 34. */
+#include <stdio.h>
+void Fibonacci (int n){
+    int a=0, b=1, c;
+    if (n==0){
+        printf ("0 ");
+    }
+    if (n>=1){
+        printf ("0 1 ");
+    }
+    
+    for (int i=0; i<n-1; i++){
+        c = a+b;
+        a = b;
+        b = c;
+        printf ("%i ", c);
+    }    
+}
+int main () {
+    int n;
+    printf ("informe um número : ");
+    scanf ("%i", &n);
+    Fibonacci(n);
+}
