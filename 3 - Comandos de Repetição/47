@@ -1,0 +1,50 @@
+/* 47. Faca um programa que apresente um menu de opcoes para o calculo das seguintes
+operacoes entre dois numeros: 
+• adicao (opcao 1) 
+• subtracao (opcao 2) 
+• multiplicacao (opcao 3) 
+• divisao (opcao 4). 
+• saıda (opcao 5) */
+#include <stdio.h>
+int main () {
+    float a, b, result;
+    int opcao=0;
+    
+    while (opcao != 5){
+        printf ("Informe um número : ");
+        scanf ("%f", &a);
+        printf ("informe outro número : ");
+        scanf ("%f", &b);
+        printf ("escolha uma opção :\n");
+        printf ("1 - Adição\n");
+        printf ("2 - Subtração\n");
+        printf ("3 - Multiplicação\n");
+        printf ("4 - Divisão\n");
+        printf ("5 - Sair\n");
+        scanf ("%i", &opcao);
+        
+        switch (opcao){
+            case 1:
+                result = a + b;
+                printf ("a soma é : %.2f\n", result);
+                break;
+            case 2:
+                result = a - b;
+                printf ("a subtração é : %.2f\n", result);
+                break;
+            case 3:
+                result = a * b;
+                printf ("a multiplicação é : %.2f\n", result);
+                break;
+            case 4:
+                result = a / b;
+                printf ("a divisão é : %.2f\n", result);
+                break;
+            case 5:
+                break;
+            default:
+                printf ("erro");
+                break;
+        }
+    }
+}
