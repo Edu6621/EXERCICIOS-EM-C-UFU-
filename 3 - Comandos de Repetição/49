@@ -1,0 +1,33 @@
+/* 49. O funcionario chamado Carlos tem um colega chamado Joao que recebe um salario que 
+equivale a um terco do seu salario. Carlos gosta de fazer aplicacoes na caderneta de 
+poupanca e vai aplicar seu salario integralmente nela, pois esta rendendo 2% ao mes. 
+Joao aplicara seu salario integralmente no fundo de renda fixa, que esta rendendo 5%
+ao mes. Construa um programa que dever a calcular e mostrar a quantidade de meses
+necessarios para que o valor pertencente a Joao iguale ou ultrapasse o valor pertencente
+a Carlos. Teste com outros valores para as taxas. */
+#include <stdio.h>
+
+int main() {
+    double salarioCarlos, salarioJoao;
+    double investimentoCarlos, investimentoJoao;
+    double taxaCarlos = 1.02;  
+    double taxaJoao = 1.05;    
+    int meses = 0;
+
+    printf("Informe o salário de Carlos: ");
+    scanf("%lf", &salarioCarlos);
+
+    salarioJoao = salarioCarlos / 3;
+    investimentoCarlos = salarioCarlos;
+    investimentoJoao = salarioJoao;
+    
+    while (investimentoJoao < investimentoCarlos) {
+        investimentoCarlos *= taxaCarlos;  
+        investimentoJoao *= taxaJoao;    
+        meses++;  
+    }
+
+    printf("João ultrapassará Carlos após %d meses.\n", meses);
+
+    return 0;
+}
