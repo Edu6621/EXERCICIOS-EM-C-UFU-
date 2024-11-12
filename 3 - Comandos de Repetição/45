@@ -1,0 +1,33 @@
+/* 45. Faca um algoritmo que converta uma velocidade expressa em km/h para m/s e vice
+versa. Voce deve criar um menu com as duas opcoes de conversao e com uma opcao
+para finalizar o programa. O usuario podera fazer quantas conversoes desejar, sendo
+que o programa so sera finalizado quando a opcao de finalizar for escolhida. */
+#include <stdio.h>
+int main () {
+    float n;
+    int velocidade;
+    float result;
+    while (1){
+        printf ("Qual é o tipo de velocidade :\n");
+        printf ("1 - Km/h\n2 - M/s\n0 - Finalizar Programa\n");
+        scanf ("%i", &velocidade);
+        if (velocidade == 0){
+            return 0;
+        }
+        printf ("Informe uma velocidade : ");
+        scanf ("%f", &n);
+        
+        switch (velocidade){
+            case 1:
+                result = n/3.6;
+                printf ("a velocidade em m/s é : %.2f\n\n", result);
+                break;
+            case 2:
+                result = n*3.6;
+                printf ("a velocidade em m/s é : %.2f\n\n", result);
+                break;
+            default:
+            break;
+        }
+    }
+}
