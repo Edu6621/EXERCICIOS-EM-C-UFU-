@@ -1,0 +1,20 @@
+// 54. Faca um programa que receba um numero inteiro maior do que 1, e verifique se o numero
+// fornecido e primo ou nao.
+#include <stdio.h>
+int main () {
+    int n;
+    printf ("informe um número : ");
+    scanf ("%i", &n);
+    if (n<1){
+        printf ("erro");
+        return 1;
+    }
+    for (int i=2; i<n/2; i++){
+        if (n%i == 0){
+            printf ("esse número não é primo");
+            return 0;
+        }
+    }
+    printf ("esse número é primo");
+    return 0;
+}
