@@ -1,0 +1,31 @@
+/* 46. Faca um programa que gera um numero aleatorio de 1 a 1000. O usuario deve tentar
+acertar qual o numero foi gerado, a cada tentativa o programa devera informar se o
+chute e menor ou maior que o numero gerado. O programa acaba quando o usuario
+acerta o numero gerado. O programa deve informar em quantas tentativas o numero foi
+descoberto. */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main () {
+    
+    srand (time(NULL));
+    
+    int num = rand () % 1000 + 1;
+    int n=-1, tentativas=0;
+    
+    printf ("\nJOGO DE ADIVINHAÇÃO : ENCONTRE O NÚMERO ENTRE 1 E 1000\n\n");
+    while (n!= num){
+        printf ("%i) Informe seu chute : ", tentativas+1);
+        scanf ("%i", &n);
+        tentativas++;
+        if (n > num){
+            printf ("\no número é menor que %i\n\n", n);
+        }else if (n < num){
+            printf ("\no número é maior que %i\n\n", n);
+        }else{
+            printf ("\n\nParabéns, você acertou o número !!\nnúmero de tentativas : %i\nnúmero sorteado : %i", tentativas, num);
+        }
+    }
+    return 0;
+}
