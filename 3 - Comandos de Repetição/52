@@ -1,0 +1,56 @@
+/* 52. Escreva um programa que receba como entrada o valor do saque realizado pelo cliente
+de um banco e retorne quantas notas de cada valor serao necessarias para atender ao
+saque com a menor quantidade de notas poss´ıvel. Serao utilizadas notas de 100, 50,
+20, 10, 5, 2 e 1 real. */
+#include <stdio.h>
+int main () {
+    float saque;
+    int cem=0, cinquenta=0, vinte=0, dez=0, cinco=0, dois=0, um=0;
+    printf ("informe o valor do saque : ");
+    scanf ("%f", &saque);
+    
+    while (saque >= 100){
+        cem++;
+        saque-=100;
+    }
+    while (saque >= 50){
+        cinquenta++;
+        saque-=50;
+    }
+    while (saque >= 20){
+        vinte++;
+        saque-=20;
+    }
+    while (saque >= 10){
+        dez++;
+        saque-=10;
+    }
+    while (saque >= 5){
+        cinco++;
+        saque -=5;
+    }
+    while (saque >= 2){
+        dois++;
+        saque-=2;
+    }
+    while (saque >= 1){
+        um++;
+        saque-=1;
+    }
+    printf ("serão necessárias\n");
+    if (cem>0){
+        printf ("%i notas de cem\n", cem);
+    }if (cinquenta>0){
+        printf ("%i notas de cinquenta\n", cinquenta);
+    }if (vinte>0){
+        printf ("%i notas de vinte\n", vinte);
+    }if (dez > 0){
+        printf ("%i notas de dez\n", dez);
+    }if (cinco > 0){
+        printf ("%i notas de cinco\n", cinco);
+    }if (dois > 0){
+        printf ("%i notas de dois\n", dois);
+    }if (um > 0){
+        printf ("e %i notas de um.\n", um);
+    }
+}
