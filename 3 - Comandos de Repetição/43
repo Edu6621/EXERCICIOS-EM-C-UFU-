@@ -1,0 +1,18 @@
+/* 43. Faca um programa que leia um numero indeterminado de idades de indivıduos (pare
+quando for informada a idade 0), e calcule a idade media desse grupo. */
+#include <stdio.h>
+int main () {
+    int soma=0, qtd=0, idade;
+    while (1){
+        printf ("informe uma idade : ");
+        scanf ("%i", &idade);    
+        if (idade == 0 ){
+            break;
+        }
+        soma+=idade;
+        qtd++;
+    }
+    float media = (float)soma/(float)qtd;
+    printf ("a media é : %.2f", media);
+    return 0;
+}
