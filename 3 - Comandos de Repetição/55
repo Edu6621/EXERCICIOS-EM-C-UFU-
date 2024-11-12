@@ -1,0 +1,33 @@
+// 55. Escreva um programa que leia um inteiro nao negativo n e imprima a soma dos n primeiros numeros primos.
+#include <stdio.h>
+#include <math.h>
+int main () {
+    int n, qtd=0;
+    int soma=0;
+    
+    int i=2;
+    printf ("informe um número n : ");
+    scanf ("%i", &n);
+    if (n<1){
+        printf ("erro");
+        return 1;
+    }
+    
+    
+    while (qtd<n){
+        int cont=0;
+        for (int j=2; j<=i/2; j++){
+            if (i%j==0){
+                cont++;
+                break;
+            }
+        }
+        if (cont==0){
+            qtd++;
+            soma+=i;
+        }
+        i++;
+    }    
+    printf ("a soma é %i", soma);
+    return 0;
+}
