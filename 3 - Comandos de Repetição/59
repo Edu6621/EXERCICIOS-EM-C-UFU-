@@ -1,0 +1,58 @@
+/* 59. Escreva um programa que leia o numero de habitantes de uma determinada cidade, o
+valor do kwh, e para cada habitante entre com os seguintes dados: consumo do mes
+e o codigo do consumidor (1-Residencial, 2-Comercial, 3-Industrial). No final imprima o
+maior, o menor e a media do consumo dos habitantes; e por fim o total do consumo de
+cada categoria de consumidor */
+#include <stdio.h>
+int main () {
+    int n_habitantes;
+    float valor_kwh;
+    
+    printf ("informe o número de habitantes : ");
+    scanf ("%i", &n_habitantes);
+    if (n_habitantes < 1){
+        printf ("erro");
+        return 1;
+    }
+    printf ("informe o valor do kwh : ");
+    scanf ("%f", &valor_kwh);
+    float residencial=0, comercial=0, industrial=0, consumo;
+    float maior=0, menor = -1, media=0, soma=0;
+    int codigo;
+    for (int i=0; i<n_habitantes; i++){
+        printf ("%i ) informe o consumo (em kwh) : ", i+1);
+        scanf ("%f", &consumo);
+        
+        printf ("informe o código do consumidor :\n1 - residencial\n2 - comercial\n3 - industrial\n");
+        scanf ("%i", &codigo);
+        
+        switch (codigo){
+            case 1:
+                residencial+=consumo;
+                break;
+            case 2:
+                comercial+=consumo;
+                break;
+            case 3:
+                industrial+=consumo;
+                break;
+            default:
+                printf ("número inválido, tente novamente");
+                i--;
+                continue;
+        }
+        if (consumo > maior){
+            maior = consumo;
+        }if (consumo < menor || menor == -1){
+            menor = consumo;
+        }soma += consumo;
+    }   
+    media = soma/n_habitantes;
+    printf("Maior consumo: %.2f kWh\n", maior);
+    printf("Menor consumo: %.2f kWh\n", menor);
+    printf("Média de consumo: %.2f kWh\n", media);
+    printf("Total de consumo Residencial: %.2f kWh\n", residencial);
+    printf("Total de consumo Comercial: %.2f kWh\n", comercial);
+    printf("Total de consumo Industrial: %.2f kWh\n", industrial);
+    return 0;
+}
