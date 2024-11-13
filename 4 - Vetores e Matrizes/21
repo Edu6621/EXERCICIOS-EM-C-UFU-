@@ -1,0 +1,20 @@
+/* 21. Faca um programa que receba do usuario dois vetores, A e B, com 10 numeros inteiros 
+cada. Crie um novo vetor denominado C calculando C = A - B. Mostre na tela os dados
+do vetor C. */
+#include <stdio.h>
+int main () {
+    int vet[10], vet2[10], vet3[10];
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um valor : ", i+1);
+        scanf ("%i", &*(vet+i));
+    }
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um valor : ", i+1);
+        scanf ("%i", &*(vet2+i));
+        vet3[i] = vet[i] - vet2[i];
+    }
+    for (int i=0; i<10; i++){
+        printf ("%i ", vet3[i]);
+    }
+    return 0;
+}
