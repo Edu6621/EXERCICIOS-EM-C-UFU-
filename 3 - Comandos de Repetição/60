@@ -1,0 +1,44 @@
+/* 60. Faca um programa que leia varios numeros, calcule e mostre:
+(a) A soma dos numeros digitados 
+(b) A quantidade de numeros digitados 
+(c) A media dos numeros digitados 
+(d) O maior numero digitado 
+(e) O menor numero digitado 
+(f) A media dos numeros pares */
+#include <stdio.h>
+int main () {
+    int qtd, n, soma_par=0, qtd_par=0;
+    int soma=0, maior=0, menor=-1;
+    float media, media_par;
+    
+    printf ("informe a quantidade de números  : ");
+    scanf ("%i", &qtd);
+    
+    for (int i=0; i<qtd; i++){
+        printf ("%i ) informe um número : ", i+1);
+        scanf ("%i", &n);
+        
+        soma+=n;
+        if (n > maior){
+            maior = n;
+        }if (n < menor || menor == -1){
+            menor = n;
+        }
+        
+        if (n%2 == 0){
+            qtd_par++;
+            soma_par+=n;
+        }
+    }
+    media = (float)soma / (float)qtd;
+    media_par = (float)soma_par / (float)qtd_par;
+    
+    
+    printf (" A soma dos numeros digitados é %i\n", soma); 
+    printf (" A quantidade de numeros digitados é %i\n", qtd);
+    printf (" A media dos numeros digitados é %.2f\n", media);
+    printf (" O maior numero digitado é %i\n", maior);
+    printf (" O menor numero digitado é %i\n", menor);
+    printf (" A media dos numeros pares é %.2f\n", media_par);
+    return 0;
+}
