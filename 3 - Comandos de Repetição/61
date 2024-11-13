@@ -1,0 +1,32 @@
+/* 61. Faca um programa que calcule o maior numero palındromo feito a partir do produto de
+dois numeros de 3 dıgitos. Ex: O maior palındromo feito a partir do produto de dois
+numeros de dois dıgitos e 9009 = 91*99. */
+#include <stdio.h>
+int eh_palindromo(int num) {
+    int original = num, reverso = 0;
+
+    while (num > 0) {
+        reverso = reverso * 10 + num % 10;
+        num /= 10;
+    }
+    return original == reverso;
+}
+
+int main () {
+    int palindromo=0, num1, num2;
+    
+    for (int i=999; i>=100; i--){
+        for (int j=999; j>=i; j--){
+            int produto = i*j;
+            
+            if (produto > palindromo && eh_palindromo(produto)){
+                palindromo = produto;
+                num1 = i;
+                num2 = j;
+            }
+        }
+    }
+    printf("O maior palíndromo feito a partir do produto de dois números de três dígitos é: %d = %d * %d\n", 
+            palindromo, num1, num2);
+    return 0;        
+}
