@@ -1,0 +1,31 @@
+/*24. Faca um programa que leia dez conjuntos de dois valores, o primeiro representando o
+numero do aluno e o segundo representando a sua altura em metros. Encontre o aluno 
+mais baixo e o mais alto. Mostre o numero do aluno mais baixo e do mais alto, juntamente
+com suas alturas. */
+#include <stdio.h>
+int main () {
+    int num_aluno[10], num_maior, num_menor;
+    float altura[10], altura_maior=0, altura_menor=-1;
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe o número do aluno : ", i+1);
+        scanf ("%i", &num_aluno[i]);
+        printf ("informe a altura dele : ");
+        scanf ("%f", &altura[i]);
+        
+        if (altura[i] > altura_maior){
+            altura_maior = altura[i];
+            num_maior = num_aluno[i];
+        }
+        if (altura[i] < altura_menor || altura_menor == -1){
+            altura_menor = altura[i];
+            num_menor = num_aluno[i];
+        }
+    }
+    printf ("\nO aluno mais alto é : %i\n", num_maior);
+    printf ("A altura dele é : %.2f\n\n", altura_maior);
+    
+    printf ("\nO aluno mais baixo é : %i\n", num_menor);
+    printf ("A altura dele é : %.2f\n\n", altura_menor);
+    
+    return 0;
+}
