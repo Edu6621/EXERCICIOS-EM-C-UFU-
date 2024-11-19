@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int tem_repetido(int n, int* interseccao, int qtd) {
+    for (int i = 0; i < qtd; i++) {
+        if (n == interseccao[i]) {
+            return 1; 
+        }
+    }
+    return 0; 
+}
+
+int uniao(int* vet1, int* vet2, int** resultado) {
+    int qtd = 0; 
+    *resultado = NULL; 
+    
+    for (int i = 0; i < 10; i++) {
+        if (!tem_repetido(vet1[i], *resultado, qtd)) {
+            *resultado = realloc(*resultado, (qtd + 1) * sizeof(int));
+            (*resultado)[qtd] = vet1[i];
+            qtd++;
+        }
+    }
+    
+    for (int i = 0; i < 10; i++) {
+        if (!tem_repetido(vet2[i], *resultado, qtd)) {
+            *resultado = realloc(*resultado, (qtd + 1) * sizeof(int)); 
+            (*resultado)[qtd] = vet2[i];
+            qtd++;
+        }
+    }
+
+    return qtd; 
+}
+
+int main() {
+    int *vet1 = malloc(10 * sizeof(int)); 
+    int *vet2 = malloc(10 * sizeof(int)); 
+    int *resultado; 
+
+    printf("VETOR 1\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%d) Informe um numero: ", i + 1);
+        scanf("%d", &vet1[i]);
+    }
+
+    printf("VETOR 2\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%d) Informe um numero: ", i + 1);
+        scanf("%d", &vet2[i]);
+    }
+
+    int qtd = uniao(vet1, vet2, &resultado);
+
+    printf("Uniao dos vetores:\n");
+    for (int i = 0; i < qtd; i++) {
+        printf("%d ", resultado[i]);
+    }
+    printf("\n");
+    
+    free(vet1);
+    free(vet2);
+    free(resultado);
+
+    return 0;
+}
