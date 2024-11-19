@@ -1,0 +1,44 @@
+/* 29. Faca um programa que receba 6 numeros inteiros e mostre: 
+• Os numeros pares digitados; 
+• A soma dos numeros pares digitados; 
+• Os numeros ımpares digitados;
+• A quantidade de numeros ımpares digitados; */
+#include <stdio.h>
+#include <stdlib.h>
+int main () {
+    int vet[6];
+    int qtd_par = 0, qtd_impar=0, somapar=0;
+    int *num_pares = NULL, *num_impares = NULL;
+    for (int i=0; i<6; i++){
+        printf ("%i ) Informe um numero : ", i+1);
+        scanf ("%i", &vet[i]);
+        if (vet[i] % 2 == 0){
+            qtd_par++;
+            num_pares = realloc(num_pares, qtd_par * sizeof(int));
+            num_pares[qtd_par-1] = vet[i];
+        }else{
+            qtd_impar++;
+            num_impares = realloc(num_impares, qtd_impar * sizeof(int));
+            num_impares[qtd_impar-1] = vet[i];
+        }
+    }
+    printf ("numeros pares digitados : ");
+    for (int i=0; i<qtd_par; i++){
+        printf ("%i ", num_pares[i]);
+        somapar+=num_pares[i];
+    }
+    printf ("\n");
+    printf ("a soma dos números pares : %i\n", somapar);
+    
+    printf ("numeros impares digitados : ");
+    for (int i=0; i<qtd_impar; i++){
+        printf ("%i ", num_impares[i]);
+    }
+    printf ("\n");
+    
+    printf ("quantidade de números impares digitados : %i\n", qtd_impar);
+    
+    free (num_pares);
+    free (num_impares);
+    return 0;
+}
