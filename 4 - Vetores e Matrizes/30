@@ -1,0 +1,61 @@
+/* 30. Faca um programa que leia dois vetores de 10 elementos. Crie um vetor que seja a
+interseccao entre os 2 vetores anteriores, ou seja, que contem apenas os numeros que
+estao em ambos os vetores. Nao deve conter numeros repetidos. */
+#include <stdio.h>
+#include <stdlib.h>
+int nao_tem (int* interseccao,int n, int qtd){
+    for (int i=0; i<qtd; i++){
+        if (n==interseccao[i]){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int numeros_ambos (int* vet, int* vet2, int* interseccao){
+    int qtd=1;
+    for (int i=0; i<10; i++){
+        for (int j=0; j<10; j++){
+            
+            if (vet[i] == vet2[j]){
+                
+                if (nao_tem (interseccao, vet[i], qtd)){
+                    interseccao = realloc (interseccao, qtd * sizeof(int));
+                    interseccao[qtd-1] = vet[i];
+                    qtd++;
+                }
+                
+            }
+            
+        }
+    }
+    return qtd;
+}
+
+int main () {
+    int *vet = malloc (10 * sizeof(int));
+    int *vet2 = malloc (10 * sizeof(int));
+    int *interseccao = malloc (sizeof(int));
+    
+    printf ("vetor 1 :\n");
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um valor : ", i+1);
+        scanf ("%i", &*(vet+i));
+    }
+    
+    printf ("vetor 2 :\n");
+    for (int i=0; i<10; i++){
+        printf ("%i ) informe um valor : ", i+1);
+        scanf ("%i", &*(vet2+i));
+    }
+    int qtd = numeros_ambos(vet, vet2, interseccao);
+    
+    for (int i=0; i<qtd-1; i++){
+        printf ("%i ", interseccao[i]);
+    }
+    
+    free (vet);
+    free (vet2);
+    free (interseccao);
+    return 0;
+}
