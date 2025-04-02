@@ -1,0 +1,50 @@
+/* 11. Crie um programa que declare uma estrutura (registro) para o cadastro de alunos.
+(a) Deverao ser armazenados, para cada aluno: matrıcula, sobrenome (apenas um) e
+ano de nascimento.
+(b) Ao in´ıcio do programa, o usuario devera informar o numero de alunos que serao
+armazenados
+(c) O programa devera alocar dinamicamente a quantidade necessaria de memoria
+para armazenar os registros dos alunos.
+(d) O programa devera pedir ao usuario que entre com as informacoes dos alunos.
+(e) Ao final, mostrar os dados armazenados e liberar a memoria alocada.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+    int matricula;
+    char sobrenome[20];
+    int nascimento;
+}Aluno;
+
+int main () {
+    int qtd;
+    printf ("informe  a quantidade de alunos : ");
+    scanf ("%d", &qtd);
+    
+    Aluno *alunos = (Aluno *) malloc(qtd * sizeof(Aluno));
+    
+    if (!alunos){
+        printf ("Erro na alocação !");
+        return 1;
+    }
+    
+    for (int i=0; i<qtd; i++){
+        printf ("Aluno %i\n", i+1);
+        printf ("Informe a Matrícula do aluno : ");
+        scanf ("%d", &alunos[i].matricula);
+        printf ("informe o sobrenome do aluno : ");
+        scanf ("%s", alunos[i].sobrenome);
+        printf ("Informe o ano de nascimento do aluno : ");
+        scanf ("%d", &alunos[i].nascimento);
+    }
+    
+    for (int i=0; i<qtd; i++){
+        printf ("Aluno %i\n", i+1);
+        printf ("Matricula : %i\n", alunos[i].matricula);
+        printf ("Sobrenome : %s\n", alunos[i].sobrenome);
+        printf ("Ano de Nascimento : %i\n\n\n", alunos[i].nascimento);
+    }
+    free (alunos);
+    return 0;
+}
