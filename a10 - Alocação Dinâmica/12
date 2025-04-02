@@ -1,0 +1,73 @@
+/* 12. Considere um cadastro de produtos de um estoque, com as seguintes informacoes para
+cada produto:
+
+• Codigo de identificacao do produto: representado por um valor inteiro
+• Nome do produto: com ate 50 caracteres
+• Quantidade disponıvel no estoque: representado por um numero inteiro
+• Preco de venda: representado por um valor real
+
+(a) Defina uma estrutura, denominada produto, que tenha os campos apropriados para
+guardar as informacoes de um produto
+(b) Crie um conjunto de N produtos (N e um valor fornecido pelo usuario) e peca ao
+usuario para entrar com as informacoes de cada produto
+(c) Encontre o produto com o maior preco de venda
+(d) Encontre o produto com a maior quantidade dispon´ıvel no estoque  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    int codigo;
+    char nome[50];
+    int qtd;
+    float preco;
+} Produto;
+
+int main () {
+    int n;
+    int indice_maior_preco, indice_maior_qtd;
+    printf ("informe a quantidade de produtos : ");
+    scanf ("%d", &n);
+    
+    Produto *produtos = (Produto *)malloc(n * sizeof(Produto));
+    
+    for (int i=0; i<n; i++){
+        printf ("\nProduto %i\n", i+1);
+        
+        printf ("Informe o código do produto : ");
+        scanf ("%d", &produtos[i].codigo);
+        getchar();
+        
+        printf ("Informe o nome do produto : ");
+        fgets (produtos[i].nome, sizeof(produtos[i].nome), stdin);
+        produtos[i].nome[strcspn(produtos[i].nome, "\n")] = '\0';
+        
+        printf ("Informe a quantidade : ");
+        scanf ("%d", &produtos[i].qtd);
+        
+        printf ("Informe o preço do produto : ");
+        scanf ("%f", &produtos[i].preco);
+        
+    }
+    
+    for (int i=0; i<n; i++){
+        printf ("Produto %i\n", i+1);
+        printf ("Código do produto : %i\n", produtos[i].codigo);
+        printf ("Nome do produto : %s\n", produtos[i].nome);
+        printf ("Quantidade disponível : %d\n", produtos[i].qtd);
+        printf ("Preço do produto : %.2f\n\n", produtos[i].preco);
+        
+        if (produtos[i].preco > indice_maior_preco){
+            indice_maior_preco = i;
+        }
+        if (produtos[i].qtd > indice_maior_qtd){
+            indice_maior_qtd = i;
+        }
+    }
+    printf ("O produto com maior preço é : %s\n", produtos[indice_maior_preco].nome);
+    printf ("O produto com maior quantidade é : %s\n", produtos[indice_maior_qtd].nome);
+    
+    free(produtos);
+    return 0;
+}
