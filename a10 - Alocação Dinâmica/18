@@ -1,0 +1,64 @@
+/*18. Escreva um programa para fazer a alocacao dinamica dos blocos de dados conforme 
+solicitado abaixo:
+(a) Vetor de 1024 Bytes (1 Kbyte).
+(b) Matriz de inteiros de dimensao 10 x 10
+(c) Vetor para armazenar 50 registros contendo: nome do produto (30 caracteres),
+codigo do produto (inteiro) e prec¸o em reais.
+(d) Texto de ate 100 linhas com ate 80 caracteres em cada linha.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct {
+    char nome[30];
+    int codigo;
+    float preco;
+}Produto;
+int main () {
+    
+    char *Kbyte1 = (char*)malloc (1024 * sizeof(char));
+    if (Kbyte1 == NULL){
+        printf ("Erro na alocação (a)\n");
+        return 1;
+    }
+    
+    int **matriz = (int **) malloc (10 * sizeof(int*));
+    if (matriz == NULL){
+        printf ("Erro na alocação (b)\n");
+        return 1;
+    }
+    
+    for (int i=0; i<10; i++){
+        matriz[i] = (int*) malloc (10 * sizeof(int));
+        if (matriz[i] == NULL){
+            printf ("Erro na alocação (b)(%d)\n", i);
+            return 1;
+        }
+    }
+    
+    Produto *produto = malloc (50 * sizeof(Produto));
+    if (produto == NULL){
+        printf ("Erro na alocação (c)\n");
+        return 1;
+    }
+    
+    char **texto = (char **)malloc(100 * sizeof(char *));
+    if (texto == NULL){
+        printf ("Erro na alocação (d)\n");
+        return 1;
+    }
+    for (int i = 0; i < 100; i++) {
+        texto[i] = (char *)malloc(80 * sizeof(char));
+        if (texto[i] == NULL){
+            printf ("Erro na alocação (d)(%d)", i);
+            return 1;
+        }
+    }    
+    free(Kbyte1);
+    for (int i = 0; i < 10; i++) free(matriz[i]);
+    free(matriz);
+    free(produto);
+    for (int i = 0; i < 100; i++) free(texto[i]);
+    free(texto);
+
+    return 0;
+}
