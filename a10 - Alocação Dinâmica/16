@@ -1,0 +1,58 @@
+/*16. Faca um programa que leia dois numeros N e M: 
+• Crie e leia uma matriz N x M de inteiros;
+• Crie e construa uma matriz transposta M x N de inteiros.
+• Mostre as duas matrizes */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main () {
+    
+    srand(time(NULL));
+    
+    int n, m;
+    
+    printf ("Informe as linhas : ");
+    scanf ("%d", &n);
+    printf ("Informe as colunas : ");
+    scanf ("%d", &m);
+    
+    int **matriz = (int **)malloc (n * sizeof(int *));
+    for (int i=0; i<n; i++){
+        matriz[i] = malloc (m * sizeof (int));
+    }
+    
+    int **matriz2 = (int **)malloc (m * sizeof(int *));
+    for (int i=0; i<m; i++){
+        matriz2[i] = malloc (n * sizeof(int));
+    }
+    
+    for (int i=0; i<n; i++){
+        for (int j=0; j<m; j++){
+            matriz[i][j] = rand() % 10;
+            matriz2[j][i] = matriz[i][j];
+            printf ("%4d", matriz[i][j]);
+        }
+        printf ("\n");
+    }
+    printf ("\n\n");
+    for (int i=0; i<m; i++){
+        for (int j=0; j<n; j++){
+            printf ("%4d", matriz2[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    for (int i = 0; i < n; i++) {
+        free(matriz[i]);
+    }
+    free(matriz);
+
+    for (int i = 0; i < m; i++) {
+        free(matriz2[i]);
+    }
+    free(matriz2);
+
+    return 0;
+}
