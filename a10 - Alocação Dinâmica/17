@@ -1,0 +1,44 @@
+/* 17. Faca um programa que leia numeros do teclado e os armazene em um vetor alocado
+dinamicamente. O usuario ira digitar uma sequencia de numeros, sem limite de quan-
+tidade. Os numeros serao digitados um a um e, sendo que caso ele deseje encerrar a
+entrada de dados, ele ira digitar o numero ZERO. Os dados devem ser armazenados na
+memoria deste modo
+• Inicie com um vetor de tamanho 10 alocado dinamicamente;
+• Apos, caso o vetor alocado esteja cheio, aloque um novo vetor do tamanho do vetor 
+anterior adicionado espac¸o para mais 10 valores (tamanho N+10, onde N inicia com
+10);
+• Copie os valores ja digitados da area inicial para esta area maior e libere a memoria
+da area inicial; 
+• Repita este procedimento de expandir dinamicamente com mais 10 valores o vetor
+alocado cada vez que o mesmo estiver cheio. Assim o vetor ira ser ’expandido’ de
+10 em 10 valores.     */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int tamanho = 0;
+    int numero;
+    
+    int *vet = (int *)malloc (10 * sizeof(int));
+    
+    while (1){
+        printf ("Informe um número para o vetor : ");
+        scanf ("%d", &numero);
+        
+        if (numero == 0){
+            break;
+        }
+        vet[tamanho] = numero;
+        tamanho++;
+        
+        if (tamanho %10 == 0){
+            int *novo_vetor = (int *)realloc(vet, (tamanho+10) * sizeof(int));
+        vet = novo_vetor;
+        }
+    }
+    for (int i=0; i<tamanho; i++){
+        printf ("%4d", vet[i]);
+    }
+    free (vet);
+}
