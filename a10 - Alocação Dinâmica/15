@@ -1,0 +1,67 @@
+/* 15. Faca um programa que leia dois numeros N e M e: 
+• Crie e leia uma matriz de inteiros N x M;
+• Localize os tres maiores n umeros de uma matriz e mostre a linha e a coluna onde 
+estao. */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct {
+    int numero;
+    int maior_linha;
+    int maior_coluna;
+} Local;
+
+int main () {
+    srand(time(NULL));
+    
+    int n, m;
+    
+    Local maiores[3] = {{-1, -1, -1}, {-1, -1, -1}, {-1, -1, -1}};
+    
+    printf ("Informe a quantidade de linhas da matriz : ");
+    scanf ("%d", &n);
+    printf ("Informe a quantidade de colunas da matriz : ");
+    scanf ("%d", &m);
+    
+    int **matriz = (int **)malloc (n * sizeof(int *));
+    
+    for (int i=0; i<n; i++){
+        matriz[i] = malloc (m * sizeof (int));
+    }
+    
+    for (int i=0; i<n; i++){
+        for (int j=0; j<m; j++){
+            
+            matriz[i][j] = rand() % 100;
+            printf("%3d ", matriz[i][j]);
+            
+                for (int k = 0; k < 3; k++) {
+                if (matriz[i][j] > maiores[k].numero) {
+                    
+                    for (int l = 2; l > k; l--) {
+                        maiores[l] = maiores[l - 1];
+                    }
+
+                    maiores[k].numero = matriz[i][j];
+                    maiores[k].maior_linha = i;
+                    maiores[k].maior_coluna = j;
+                    break;
+                }
+                
+            }
+        }
+        printf ("\n");
+    }
+    printf("\nOs três maiores números da matriz são:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%dº maior número: %d (Linha: %d, Coluna: %d)\n",
+               i + 1, maiores[i].numero, maiores[i].maior_linha, maiores[i].maior_coluna);
+    }
+    
+    for (int i=0; i<n; i++){
+        free (matriz[i]);
+    }
+    free (matriz);
+}
