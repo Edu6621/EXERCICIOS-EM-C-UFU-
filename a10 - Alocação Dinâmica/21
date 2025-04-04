@@ -1,0 +1,99 @@
+/* 21. Faca um programa que leia quatro numeros a, b, c e d, que serao as dimensoes de duas
+matrizes, e:
+• Crie e leia uma matriz, dadas as dimensoes dela;
+• Crie e construa uma matriz que seja o produto de duas matrizes. Na sua funcao
+main(), imprima as duas matrizes e o produto entre elas, se existir. */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int a, b, c, d;
+    
+    printf ("informe o valor de (a) : ");
+    scanf ("%d", &a);
+    printf ("informe o valor de (b) : ");
+    scanf ("%d", &b);
+    printf ("informe o valor de (c) : ");
+    scanf ("%d", &c);
+    printf ("informe o valor de (d) : ");
+    scanf ("%d", &d);
+    
+    int **matriz = (int **) malloc (a * sizeof(int *));
+    for (int i=0; i<a; i++){
+        matriz[i] = (int *) malloc (b * sizeof (int));
+    }
+    
+    int **matriz2 = (int **) malloc (c * sizeof(int *));
+    for (int i=0; i<c; i++){
+        matriz2[i] = (int *) malloc (d * sizeof (int));
+    }
+    
+    
+    printf ("MATRIZ 1 :\n");
+    for (int i=0; i<a; i++){
+        for (int j=0; j<b; j++){
+            printf ("[%d][%d] : ", i, j);
+            scanf ("%d", &matriz[i][j]);
+        }
+    }
+    
+    printf ("MATRIZ 2 :\n");
+    for (int i=0; i<c; i++){
+        for (int j=0; j<d; j++){
+            printf ("[%d][%d] : ", c, d);
+            scanf ("%d", &matriz2[i][j]);
+        }
+    }
+    if (b != c){
+        printf ("não é possivel fazer a multiplicação dessas matrizes !");
+        return 1;
+    }
+    
+    int **produto = malloc(a * sizeof(int *));
+    for (int i = 0; i < a; i++) {
+        produto[i] = malloc(d * sizeof(int));
+    }
+    
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < d; j++) {
+            produto[i][j] = 0;
+            for (int k = 0; k < b; k++) {
+                produto[i][j] += matriz[i][k] * matriz2[k][j];
+            }
+        }
+    }
+    
+    printf ("\nMATRIZ 1 :\n");
+    for (int i=0; i<a; i++){
+        for (int j=0; j<b; j++){
+            printf ("%4d", matriz[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("\nMATRIZ 2 :\n");
+    for (int i=0; i<a; i++){
+        for (int j=0; j<b; j++){
+            printf ("%4d", matriz2[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("\nPRODUTO :\n");
+    for (int i=0; i<a; i++){
+        for (int j=0; j<b; j++){
+            printf ("%4d", produto[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    for (int i = 0; i < a; i++) free(matriz1[i]);
+    free(matriz1);
+    for (int i = 0; i < c; i++) free(matriz2[i]);
+    free(matriz2);
+    for (int i = 0; i < a; i++) free(produto[i]);
+    free(produto);
+
+    return 0;
+}
