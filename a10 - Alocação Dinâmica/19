@@ -1,0 +1,158 @@
+/* 19. Faca um programa para associar nomes as linhas de uma matriz de caracteres. O
+usuario ira informar o numero maximo de nomes que poderao ser armazenados. Cada
+nome podera ter ate 30 caracteres com o ’\0’. O usuario podera usar 5 opcoes diferen-
+tes para manipular a matriz:
+(a) Gravar um nome em uma linha da matriz;
+(b) Apagar o nome contido em uma linha da matriz;
+(c) Informar um nome, procurar a linha onde ele se encontra e substituir por outro nome;
+(d) Informar um nome, procurar a linha onde ele se encontra e apagar;
+(e) Pedir para recuperar o nome contido em uma linha da matriz; */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void Gravar_Nome(char **matriz){
+    
+    int linha;
+    char nome[30];
+    
+    printf ("Informe a linha : ");
+    scanf ("%d", &linha);
+    
+    if (linha < 0 || linha > 10){
+        printf ("erro");
+        return;
+    }
+    
+    printf ("Informe o nome : ");
+    scanf(" %30[^\n]", nome);
+    
+    snprintf(matriz[linha], 31, "%s", nome);
+    
+    for (int i = 0; i < 10; i++) {
+        printf("[%d]: %s\n", i, matriz[i]);
+    }
+    printf ("\n");
+}
+
+void Apagar_Linha(char **matriz){
+    
+    int linha;
+    
+    printf ("Informe a linha : ");
+    scanf ("%d", &linha);
+    
+    matriz[linha][0] = '\0';
+    
+    for (int i = 0; i < 10; i++) {
+        printf("[%d]: %s\n", i, matriz[i]);
+    }
+    printf ("\n");
+}
+
+void Substituir_Nome(char **matriz){
+    char nome[30];
+    char nome_novo[30];
+    int nome_encontrado=0;
+    printf ("Informe o nome : ");
+    scanf(" %30[^\n]", nome);
+    
+    for (int i=0; i<10; i++){
+        if (strcmp(matriz[i], nome) == 0){
+            
+            printf ("Informe o nome novo : ");
+            scanf(" %30[^\n]", nome_novo);
+            snprintf(matriz[i], 31, "%s", nome_novo); 
+            nome_encontrado = 1;
+            break;
+        }
+    }
+    
+    if (nome_encontrado == 0){
+        printf ("Nome não encontrado\n");
+        return;
+    }
+    
+    for (int i = 0; i < 10; i++) {
+        printf("[%d]: %s\n", i, matriz[i]);
+    }
+    printf ("\n");
+}
+
+void Encontrar_Apagar(char **matriz){
+    char nome[30];
+    char nome_novo[30];
+    int nome_encontrado=0;
+    printf ("Informe o nome : ");
+    scanf(" %30[^\n]", nome);
+    
+    for (int i=0; i<10; i++){
+        if (strcmp(matriz[i], nome) == 0){
+            matriz[i][0] = '\0';
+            nome_encontrado = 1;
+            break;
+        }
+    }
+    if (nome_encontrado == 0){
+        printf ("Nome não encontrado\n");
+        return;
+    }
+    
+    for (int i = 0; i < 10; i++) {
+        printf("[%d]: %s\n", i, matriz[i]);
+    }
+    printf ("\n");
+}
+
+void Recuperar_Nome(char **matriz){
+    int linha;
+    
+    printf ("Informe a linha : ");
+    scanf ("%d", &linha);
+    
+    if (matriz[linha][0] == '\0'){
+        printf ("Nenhum nome encontrado !\n");
+    }else {
+        printf ("%s\n", matriz[linha]);
+    }
+}
+
+int main () {
+    
+    char opcao;
+    
+    char **matriz = (char**) malloc (10 * sizeof(char*));
+    for (int i=0; i<10; i++){
+        matriz[i] = (char *) malloc (30 * sizeof(char));
+    }
+    while (1){
+        printf ("Opções :\n");
+        printf ("(a) Gravar um nome em uma linha da matriz\n"
+                "(b) Apagar o nome contido em uma linha da matriz\n"
+                "(c) Informar um nome, procurar a linha onde ele se encontra e substituir por outro nome\n"
+                "(d) Informar um nome, procurar a linha onde ele se encontra e apagar\n"
+                "(e) Pedir para recuperar o nome contido em uma linha da matriz\n");
+        scanf (" %c", &opcao);        
+        
+        switch (opcao){
+            case 'a':
+                Gravar_Nome(matriz);
+                break;
+            case 'b':
+                Apagar_Linha(matriz);
+                break;
+            case 'c':
+                Substituir_Nome(matriz);
+                break;
+            case 'd':
+                Encontrar_Apagar(matriz);
+                break;
+            case 'e':
+                Recuperar_Nome(matriz);
+                break;
+            default:
+                return 1;
+        }        
+    }
+}
