@@ -1,0 +1,83 @@
+/*20. Faca um programa que:
+(a) Pec¸a para o usuario entrar com o nome e a posicao (coordenadas X e Y) de N
+cidades e as armazene em um vetor de estruturas (N e informado pelo usu ´ ario);
+(b) Crie uma matriz de distancias entre cidades de tamanho N x N; 
+(c) Calcule as distancia entre cada duas cidades e armazene na matriz; 
+(d) Exiba na tela a matriz de distancias obtida; 
+(e) Quando o usuario digitar o numero de duas cidades o programa devera retornar a
+distancia entre elas.  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct {
+    char nome[30];
+    int coordenada_x;
+    int coordenada_y;
+}Cidade;
+
+float calcular_distancia(Cidade a, Cidade b) {
+    return sqrt(pow(b.coordenada_x - a.coordenada_x, 2) + pow(b.coordenada_y - a.coordenada_y, 2));
+}
+
+int main () {
+    
+    int n;
+    
+    printf ("Informe a quantidade de cidades ");
+    scanf ("%d", &n);
+    getchar();
+    
+    Cidade *cidades = (Cidade *) malloc (n * sizeof(Cidade)); 
+    
+    for (int i=0; i<n; i++){
+        printf ("CIDADE %i:\n", i+1);
+        printf ("informe o nome da cidade : ");
+        getchar();
+        fgets(cidades[i].nome, sizeof(cidades[i].nome), stdin);
+        cidades[i].nome[strcspn(cidades[i].nome, "\n")] = '\0';
+        
+        printf ("Informe a coordenada x da cidade : ");
+        scanf ("%d", &cidades[i].coordenada_x);
+        
+        printf ("Informe a coordenada y da cidade : ");
+        scanf ("%d", &cidades[i].coordenada_y);
+        
+    }
+    float **matriz = (float **) malloc (n * sizeof(float *));
+    for (int i=0; i<n; i++){
+        matriz[i] = (float *) malloc (n * sizeof(float));
+    }
+    
+    for (int i=0; i<n; i++){
+        for (int j=0; j<n; j++){
+            matriz[i][j] = calcular_distancia(cidades[i], cidades[j]);
+        }
+    }
+    
+    for (int i=0; i<n; i++){
+        for (int j=0; j<n; j++){
+            printf ("%.2f\t", matriz[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    int a, b;
+    printf("\nDigite o número de duas cidades (índices de 0 a %d): ", n - 1);
+    scanf("%d %d", &a, &b);
+    if (a >= 0 && a < n && b >= 0 && b < n) {
+        printf("Distância entre %s e %s: %.2f\n", cidades[a].nome, cidades[b].nome, matriz[a][b]);
+    } else {
+        printf("Índices inválidos.\n");
+    }
+
+    for (int i = 0; i < n; i++) {
+        free(matriz[i]);
+    }
+    free(matriz);
+    free(cidades);
+
+    return 0;
+}
