@@ -1,0 +1,101 @@
+/* 32. Leia dois vetores de inteiros x e y, cada um com 5 elementos (assuma que o usuario nao
+informa elementos repetidos). Calcule e mostre os vetores resultantes em cada caso
+abaixo:
+• Soma entre x e y: soma de cada elemento de x com o elemento da mesma posic¸ao˜
+em y.
+• Produto entre x e y: multiplicac¸ao de cada elemento de x com o elemento da mesma
+posicao em y.
+• Diferenca entre x e y: todos os elementos de x que nao existam em y.
+• Intersecao entre x e y: apenas os elementos que aparecem nos dois vetores.
+• Uniao entre x e y: todos os elementos de x, e todos os elementos de y que nao
+estao em x. */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int x[5], y[5], m=0;
+    int soma[5], produto[5], diferenca[5];
+    int uniao[10], interseccao[5];
+    
+    printf ("VETOR 1:\n");
+    for (int i=0; i<5; i++){
+        printf ("(%d) Informe um valor : ", i+1);
+        scanf ("%d", &x[i]);
+    }
+    
+    printf ("VETOR 2:\n");
+    for (int i=0; i<5; i++){
+        printf ("(%d) Informe um valor : ", i+1);
+        scanf ("%d", &y[i]);
+        
+        soma[i] = x[i] + y[i];
+        produto[i] = x[i] * y[i];
+        
+        for (int j=0; j<5; j++){
+            if (y[i] == x[j]){
+                interseccao[m] = y[i];
+                m++;
+            }
+        }
+    }
+    int aux=0;
+    int n=0;
+    for (int i=0; i<5; i++){
+        for (int j=0; j<5; j++){
+            if (x[i] == y[i]){
+                aux = 1;
+            }    
+        }
+        if (aux == 0){
+            diferenca[n] = x[i];
+            n++;
+        } aux=0;
+    }
+    
+    int k=5;
+    
+    for (int i=0; i<5; i++){
+        uniao[i] = x[i];
+    }
+    
+    for (int i = 0; i < 5; i++) {
+    int auxx = 0;
+    for (int j = 0; j < 5; j++) {
+        if (y[i] == x[j]) {
+            auxx = 1;
+            break;
+        }
+    }
+    if (!auxx) {
+        uniao[k++] = y[i];
+    }
+}
+    
+    
+    printf ("\nSoma : ");
+    for (int i=0; i<5; i++){
+        printf ("%d ", soma[i]);
+    }
+    
+    printf ("\nProduto : ");
+    for (int i=0; i<5; i++){
+        printf ("%d ", produto[i]);
+    }
+    
+    printf ("\nDiferença : ");
+    for (int i=0; i<n; i++){
+        printf ("%d ", diferenca[i]);
+    }
+    
+    printf ("\nIntersecção : ");
+    for (int i=0; i<m; i++){
+        printf ("%d ", interseccao[i]);
+    }
+    
+    printf ("\nUnião : ");
+    for (int i=0; i<k; i++){
+        printf ("%d ", uniao[i]);
+    }
+    return 0;
+}
