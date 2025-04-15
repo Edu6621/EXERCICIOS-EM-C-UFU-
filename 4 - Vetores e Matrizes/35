@@ -1,0 +1,74 @@
+/* 35. Faca um programa que leia dois numeros a e b (positivos menores que 10000) e:
+• Crie um vetor onde cada posic¸ao˜ e um algarismo do numero. A primeira posicao e´
+o algarismo MAIS significativo;
+• Crie um vetor que seja a soma de a e b, mas fac¸a-o usando apenas os vetores
+construıdos anteriormente.
+Dica: some as posic¸oes correspondentes. Se a soma ultrapassar 10, subtraia 10 do
+resultado e some 1 a proxima posicao.  */
+
+#include <stdio.h>
+
+int main () {
+    int a, veta[4];
+    int b, vetb[4];
+    int vetsoma[4];
+    
+    printf ("Informe o valor de A : ");
+    scanf ("%d", &a);
+    
+    veta[3] = a%10;
+    a/=10;
+    veta[2] = a%10;
+    a/=10;
+    veta[1] = a%10;
+    a/=10;
+    veta[0] = a%10;
+    
+    
+    printf ("Informe o valor de B : ");
+    scanf ("%d", &b);
+    
+    vetb[3] = b%10;
+    b/=10;
+    vetb[2] = b%10;
+    b/=10;
+    vetb[1] = b%10;
+    b/=10;
+    vetb[0] = b%10;
+    
+    printf ("\n\n Vetor A :\n");
+    for (int i=0; i<4; i++){
+        printf ("%d ", veta[i]);
+    }
+    printf ("\n\n Vetor B :\n");
+    for (int i=0; i<4; i++){
+        printf ("%d ", vetb[i]);
+    }
+    
+    int maior=0;
+    
+    for (int i=3; i>=0; i--){
+        vetsoma[i] = veta[i] + vetb[i];
+        
+        if (vetsoma[0] > 10){
+            maior = 1;
+        }
+        
+        if (vetsoma[i] >= 10){
+            vetsoma[i] -= 10;
+            veta[i-1] ++;
+        }
+        
+    
+        
+    }
+    
+    printf ("\n\n Vetor SOMA :\n");
+    if (maior == 1){
+        printf ("1 ");
+    }
+    for (int i=0; i<4; i++){
+        printf ("%d ", vetsoma[i]);
+    }
+    return 0;
+}
