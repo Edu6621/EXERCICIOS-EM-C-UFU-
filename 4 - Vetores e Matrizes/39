@@ -1,0 +1,36 @@
+/* 39. Escreva um programa que leia um numero inteiro positivo n e em seguida imprima n
+linhas do chamado Triangulo de Pascal:
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+... */
+
+#include <stdio.h>
+int main () {
+    int n, i, j;
+    int long long coef;
+    
+    printf ("informe a quantidade de linhas : ");
+    scanf ("%d" , &n);
+    
+     for (i = 0; i < n; i++) {
+        coef = 1;
+
+        for (j = 0; j <= i; j++) {
+            if (j == 0) {
+                coef = 1;
+            } else {
+                coef = coef * (i - j + 1) / j;
+            }
+
+            printf("%4lld", coef);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
