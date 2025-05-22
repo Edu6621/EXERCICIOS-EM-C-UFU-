@@ -1,0 +1,35 @@
+/* 37. Considere um vetor A com 11 elementos onde A1 < A2 < · · · < A6 > A7 > A8 >
+· · · > A11, ou seja, esta ordenado em ordem crescente ate o sexto elemento, e a partir 
+desse elemento esta ordenado em ordem decrescente. Dado o vetor da questao anterior,
+proponha um algoritmo para ordenar os elementos. */
+
+#include <stdio.h>
+
+void ordenar(int a[]){
+    for (int i=0; i<10; i++){
+        for (int j=0; j<10; j++){
+            if (a[j] > a[j + 1]){
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main () {
+    int a[11];
+    printf ("Informe 11 valores (6 crescentes e 5 decrescentes)\n");
+    
+    for (int i=0; i<11; i++){
+        printf ("%i ) ", i+1);
+        scanf ("%d", &a[i]);
+    }
+    
+    ordenar (a);
+    
+    for (int i=0; i<11; i++){
+        printf ("%d ", a[i]);
+    }
+    return 0;
+}
