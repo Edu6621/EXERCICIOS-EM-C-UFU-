@@ -1,0 +1,54 @@
+/* 14. Faca um programa para gerar automaticamente numeros entre 0 e 99 de uma cartela de
+bingo. Sabendo que cada cartela devera conter 5 linhas de 5 numeros, gere estes dados
+de modo a nao ter numeros repetidos dentro das cartelas. O programa deve exibir na
+tela a cartela gerada. */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+int main () {
+    
+    
+    srand (time(NULL));
+    
+    int cartela[5][5];
+    int opcao, usado[100];
+    
+    while (1){
+        printf ("\nGerar cartela ? (0) Não - (1) Sim : ");
+        scanf ("%d", &opcao);
+        
+        if (opcao != 1){
+            return 0;
+        }
+        
+        for (int i=0; i<!00; i++){
+            usado[i] = 0;
+        }
+        
+        for (int i=0; i<5; i++){
+            for (int j=0; j<5; j++){
+                
+                int n;
+                
+                do {
+                    n = rand() % 100;
+                    }while (usado[n] == 1);
+                
+                usado[n] = 1; 
+                cartela[i][j] = n;
+            }
+        }
+        
+        printf ("\n");
+        for (int i=0; i<5; i++){
+            for (int j=0; j<5; j++){
+                printf ("%4d", cartela[i][j]);
+            }
+            printf ("\n");
+        }
+    }
+    return 0;
+}
