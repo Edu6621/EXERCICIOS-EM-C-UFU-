@@ -1,0 +1,57 @@
+/* 16. Faca um programa para corrigir uma prova com 10 questoes de multipla escolha (a, b,
+c, d ou e), em uma turma com 3 alunos. Cada questao vale 1 ponto. Leia o gabarito, e
+para cada aluno leia sua matricula (numero inteiro) e suas respostas. Calcule e escreva:
+Para cada aluno, escreva sua matr´ıcula, suas respostas, e sua nota. O percentual de
+aprovacao, assumindo media 7.0. */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
+
+typedef struct{
+    int matricula;
+    char respostas[10];
+    int nota;
+    int aprovado;
+}aluno;
+
+int main () {
+    srand(time(NULL));
+    
+    char gabarito[10] = {'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'b', 'a'};
+    aluno alunos[3];
+    for (int i=0; i<3; i++){
+        alunos[i].nota = 0;
+        printf ("Aluno %d\n", i+1);
+        printf ("Insira a Matrícula : ");
+        scanf ("%d", &alunos[i].matricula);
+        for (int j=0; j<10; j++){
+            alunos[i].respostas[j] = ('a' + ((int)rand() % 5));
+            if (alunos[i].respostas[j] == gabarito[j]){
+                alunos[i].nota++;
+            }
+        }
+    }
+    
+    printf ("\nGABARITO\n");
+    for (int i=0; i<10; i++){
+        printf ("%c ", gabarito[i]);
+    }
+    printf ("\n");
+    
+    for (int i=0; i<3; i++){
+        printf ("Aluno %d\n", i+1);
+        printf ("Matricula : %d\n", alunos[i].matricula);
+        printf ("Respostas : ");
+        for (int j=0; j<10; j++){
+            printf ("%c ", alunos[i].respostas[j]);
+        }
+        printf ("\nNota : %d\n", alunos[i].nota);
+        if (alunos[i].nota >= 7){
+            printf ("Aprovação : Aprovado\n\n");
+        }else{
+            printf ("Aprovação : Reprovado\n\n");
+        }
+    }
+    return 0;
+}
