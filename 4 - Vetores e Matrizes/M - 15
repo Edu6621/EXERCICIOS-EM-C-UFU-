@@ -1,0 +1,38 @@
+/* 15. Leia uma matriz 5 x 10 que se refere respostas de 10 questoes de multipla escolha,
+referentes a 5 alunos. Leia tambem um vetor de 10 posicoes contendo o gabarito de
+respostas que podem ser a, b, c ou d. Seu programa devera comparar as respostas
+de cada candidato com o gabarito e emitir um vetor denominado resultado, contendo a
+pontuac¸ao correspondente a cada aluno. */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+int main () {
+    srand(time(NULL));
+    char questoes[5][10], gabarito[10] = {'a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'b', 'a'};
+    int resultados[10];
+    int num_acertos=0;
+    
+    for (int i=0; i<5; i++){
+        printf ("Respostas do Aluno %d\n", i+1);
+        
+        for (int j=0; j<10; j++){
+            int n = rand() % 4 + 1;
+            questoes[i][j] = 'a' + n-1;
+            printf ("%c%4c", questoes[i][j], gabarito[j]);
+            if (gabarito[j] == questoes[i][j]){
+                printf (" ✔");
+                num_acertos++;
+            }else{
+                printf (" ❌");
+            }
+            printf ("\n");
+        }
+        resultados[i] = num_acertos;
+        printf ("Número de acertos : %d\n\n", resultados[i]);
+        num_acertos = 0;
+    }
+    return 0;
+}
