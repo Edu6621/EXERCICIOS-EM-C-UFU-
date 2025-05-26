@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    srand(time(NULL));
+    
+    int notas[10][3];
+    int pior_nota_1 = 0, pior_nota_2 = 0, pior_nota_3 = 0;
+    
+    for (int i = 0; i < 10; i++) {
+        printf("Aluno %02d : ", i + 1);
+        
+        for (int j = 0; j < 3; j++) {
+            notas[i][j] = rand() % 10 + 1;
+            printf("%02d ", notas[i][j]);
+        }
+
+        int min = notas[i][0];
+        int pos = 0;
+        for (int j = 1; j < 3; j++) {
+            if (notas[i][j] < min) {
+                min = notas[i][j];
+                pos = j;
+            }
+        }
+
+        if (pos == 0) pior_nota_1++;
+        else if (pos == 1) pior_nota_2++;
+        else pior_nota_3++;
+
+        printf("\n");
+    }
+
+    printf("Pior nota na prova 1 : %d\n", pior_nota_1);
+    printf("Pior nota na prova 2 : %d\n", pior_nota_2);
+    printf("Pior nota na prova 3 : %d\n", pior_nota_3);
+
+    return 0;
+}
