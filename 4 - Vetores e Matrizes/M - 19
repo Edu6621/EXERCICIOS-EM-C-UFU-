@@ -1,0 +1,48 @@
+/* 19. Faca um programa que leia uma matriz de 5 linhas e 4 colunas contendo as seguintes
+informac¸oes sobre alunos de uma disciplina, sendo todas as informacoes do tipo inteiro:
+
+• Primeira coluna: numero de matrıcula (use um inteiro)
+• Segunda coluna: media das provas
+• Terceira coluna: media dos trabalhos
+• Quarta coluna: nota final
+
+Elabore um programa que:
+(a) Leia as tres primeiras informacoes de cada aluno
+(b) Calcule a nota final como sendo a soma da media das provas e da media dos
+trabalhos
+(c) Imprima a matrıcula do aluno que obteve a maior nota final (assuma que so existe
+uma maior nota)
+(d) Imprima a media aritmetica das notas finais */
+
+#include <stdio.h>
+
+int main () {
+    int matriz[5][4];
+    int maior_nota_final = -1, matricula_maior_nota;
+    
+    for (int i=0; i<5; i++){
+        printf ("ALUNO %i :\n", i+1);
+        printf ("Informe sua matricula : ");
+        scanf ("%d", &matriz[i][0]);
+        printf ("Informe a media das provas : ");
+        scanf ("%d", &matriz[i][1]);
+        printf ("Informe a media dos trabalhos : ");
+        scanf ("%d", &matriz[i][2]);
+        matriz[i][3] = matriz[i][2] + matriz[i][1];
+        if (matriz[i][3] > maior_nota_final){
+            maior_nota_final = matriz[i][3];
+            matricula_maior_nota = matriz[i][0];
+        }
+    }
+    
+    for (int i=0; i<5; i++){
+        printf ("Aluno %d : ", i+1);
+        for (int j=0; j<4; j++){
+            printf ("%d ", matriz[i][j]);
+        }
+        printf ("\n");
+    }
+    printf ("A matricula do aluno com maior nota final é : %d\n", matricula_maior_nota);
+    printf ("A media aritmetica das notas finais é : %.2f\n", ((float)matriz[0][3] + matriz[1][3] + matriz[2][3] + matriz[3][3] + matriz[4][3]) / 5);
+    return 0;
+}
