@@ -1,0 +1,88 @@
+/* 21. Faca um programa que leia duas matrizes 2 x 2 com valores reais. Ofereca ao usuario
+um menu de opcoes:
+(a) somar as duas matrizes
+(b) subtrair a primeira matriz da segunda
+(c) adicionar uma constante as duas matrizes
+(d) imprimir as matrizes
+Nas duas primeiras opc¸oes uma terceira matriz 3 x 3 deve ser criada. Na terceira opcao
+o valor da constante deve ser lido e o resultado da adic¸ao da constante deve ser arma-
+zenado na propria matriz. */
+
+#include <stdio.h>
+
+int main () {
+    
+    float mat[2][2], mat2[2][2];
+    float soma[2][2], subtracao[2][2];
+    float constante;
+    
+    printf ("Matriz 1 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("[%d][%d] : Informe o valor : ", i, j);
+            scanf ("%f", &mat[i][j]);
+        }
+    }
+    
+    printf ("Matriz 2 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("[%d][%d] : Informe o valor : ", i, j);
+            scanf ("%f", &mat2[i][j]);
+            soma[i][j] = mat[i][j] + mat2[i][j];
+            subtracao[i][j] = mat[i][j] - mat2[i][j];
+        }
+    }
+    printf ("Informe uma constante : ");
+    scanf ("%f", &constante);
+    
+    printf ("\nSEM MODIFICAÇÃO\nMATRIZ 1 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("%.2f ", mat[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("MATRIZ 2 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("%.2f ", mat2[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("\nMODIFICADO\nMATRIZ 1 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            mat[i][j] += constante;
+            mat2[i][j] += constante;
+            printf ("%.2f ", mat[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("MATRIZ 2 :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("%.2f ", mat2[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("\nSOMA : \n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("%.2f ", soma[i][j]);
+        }
+        printf ("\n");
+    }
+    
+    printf ("SUBTRAÇÃO :\n");
+    for (int i=0; i<2; i++){
+        for (int j=0; j<2; j++){
+            printf ("%.2f ", subtracao[i][j]);
+        }
+        printf ("\n");
+    }
+}
