@@ -1,0 +1,134 @@
+/*25. Faca um programa para determinar a proxima jogada em um Jogo da Velha. Assumir que
+o tabuleiro e representado por uma matriz de 3 x 3, onde cada posicao representa uma
+das casas do tabuleiro. A matriz pode conter os seguintes valores -1, 0, 1 representando
+respectivamente uma casa contendo uma peca minha (-1), uma casa vazia do tabuleiro
+(0), e uma casa contendo uma peca do meu oponente (1).
+Exemplo:
+    -1  1 1
+    -1 -1 0
+     0  1 0   */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+
+typedef struct {
+    int posicao_x;
+    int posicao_y;
+}player;
+
+void mostrarJogo(int mat[3][3]){
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf ("[%d]", mat[i][j]);
+        }
+        printf ("\n");
+    }
+}
+
+int fimDeJogo(int mat[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        if (mat[i][0] == mat[i][1] && mat[i][1] == mat[i][2] && mat[i][0] != 0) {
+            if (mat[i][0] == -1) {
+                printf("\nFim de jogo\n");
+            } else {
+                printf("\nFim de jogo\n");
+            }
+            return mat[i][0];
+        }
+        if (mat[0][i] == mat[1][i] && mat[1][i] == mat[2][i] && mat[0][i] != 0) {
+            if (mat[0][i] == -1) {
+                printf("\nFim de jogo\n");
+            } else {
+                printf("\nFim de jogo\n");
+            }
+            return mat[0][i];
+        }
+    }
+    if (mat[0][0] == mat[1][1] && mat[1][1] == mat[2][2] && mat[0][0] != 0) {
+        if (mat[0][0] == -1) {
+            printf("\nFim de jogo\n");
+        } else {
+            printf("\nFim de jogo\n");
+        }
+        return mat[0][0];
+    }
+    if (mat[0][2] == mat[1][1] && mat[1][1] == mat[2][0] && mat[0][2] != 0) {
+        if (mat[0][2] == -1) {
+            printf("\nFim de jogo\n");
+        } else {
+            printf("\nFim de jogo\n");
+        }
+        return mat[0][2];
+    }
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (mat[i][j] == 0) {
+                return 0;
+            }
+        }
+    }
+    printf("\nFim de jogo\n");
+    return 2;
+}
+
+
+int main () {
+
+    srand(time(NULL));
+
+    int statusJogo;
+    int mat[3][3] = {0};
+    player jogador;
+    player bot;
+
+    mostrarJogo(mat);
+    while (1){
+        printf("Informe a posição que você deseja (linha e coluna, separadas por espaço): ");
+        if (scanf("%d %d", &jogador.posicao_x, &jogador.posicao_y) != 2) {
+            printf("Entrada inválida");
+            return 1;
+        }
+        if (jogador.posicao_x >= 0 && jogador.posicao_x < 3 && jogador.posicao_y >= 0 && jogador.posicao_y < 3 && mat[jogador.posicao_x][jogador.posicao_y] == 0) {
+            mat[jogador.posicao_x][jogador.posicao_y] = 1;
+        } else {
+            printf("Posição inválida. As coordenadas devem estar entre 0 e 2.\n");
+            return 1;
+        }
+        mostrarJogo(mat);
+        statusJogo = fimDeJogo(mat);
+        if (statusJogo != 0) {
+            break; 
+        }
+
+
+
+        sleep(1);
+
+        //turno do bot
+
+        int posicaoCorreta = 0;
+        while (!posicaoCorreta){
+            bot.posicao_x = rand () % 3; 
+            bot.posicao_y = rand () % 3;
+            
+            if (mat[bot.posicao_x][bot.posicao_y] == 0){
+                posicaoCorreta = 1;
+                mat[bot.posicao_x][bot.posicao_y] = -1;
+            }
+        }
+        mostrarJogo(mat);
+        statusJogo = fimDeJogo(mat);
+        if (statusJogo != 0) {
+            break;
+        }
+    }    
+
+}
