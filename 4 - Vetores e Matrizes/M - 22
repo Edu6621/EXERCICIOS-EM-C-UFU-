@@ -1,0 +1,34 @@
+//22. Faca um programa que leia duas matrizes A e B de tamanho 3 x 3 e calcule C = A ∗ B.
+#include <stdio.h>
+
+int main () {
+    int mat[3][3];
+    int mat2[3][3];
+    int mat3[3][3] = {0};
+
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf("Digite o elemento [%d][%d] da matriz A: ", i, j);
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf("Digite o elemento [%d][%d] da matriz B: ", i, j);
+            scanf("%d", &mat2[i][j]);
+        }
+    }
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            for (int k=0; k<3; k++){
+                mat3[i][j] += mat[i][k] * mat2[k][j];
+            }
+        }
+    }
+    for (int i=0; i<3; i++){
+        for (int j=0; j<3; j++){
+            printf ("[%d]", mat3[i][j]);
+        }
+        printf ("\n");
+    }
+}
