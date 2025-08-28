@@ -1,0 +1,30 @@
+// 21. Faca um programa que receba duas frases distintas e imprima de maneira invertida,
+// trocando as letras A por *.
+
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+
+    char frase[50];
+    char esarf[50];
+
+    printf ("Informe uma frase : ");
+    fgets (frase, sizeof(frase), stdin);
+    frase[strcspn(frase, "\n")] = 0;
+    
+    int tamanho = strlen(frase);
+
+    int aux = tamanho;
+    for (int i = 0; i < tamanho; i++){
+         esarf[i] = frase[tamanho - 1 - i];
+         if (esarf[i] == 'a' || esarf[i] == 'A'){
+            esarf[i] = '*';
+         }
+    }
+    esarf[tamanho] = '\0';
+
+    printf ("%s", esarf);
+    
+    return 0;
+}
