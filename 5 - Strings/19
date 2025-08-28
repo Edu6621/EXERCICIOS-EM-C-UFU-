@@ -1,0 +1,44 @@
+/*19. Escreva um programa que leia a idade e o primeiro nome de 10 pessoas. Seu programa
+deve terminar quando uma idade negativa for digitada. Ao terminar, seu programa deve
+escrever o nome e a idade das pessoas mais jovens e mais velhas. */
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    int idade;
+    char nome[50];
+}pessoa;
+
+int main () {
+    int maiorIdade = -1;
+    int posicaoMaior = 0;
+
+    int menorIdade = 900;
+    int posicaoMenor = 0;
+
+    pessoa Pessoa[10];
+    for (int i=0; i<10; i++){
+        printf ("[%d] Informe o nome da pessoa : ", i+1);
+        fgets (Pessoa[i].nome, sizeof(Pessoa[i].nome), stdin);
+        
+        printf ("[%d] Informe a idade da pessoa : ", i+1);
+        scanf ("%d", &Pessoa[i].idade);
+        getchar ();
+        if (Pessoa[i].idade < 0){
+            break;
+        }
+        if (Pessoa[i].idade >= maiorIdade){
+            maiorIdade = Pessoa[i].idade;
+            posicaoMaior = i;
+        }
+        if (Pessoa[i].idade <= menorIdade){
+            menorIdade = Pessoa[i].idade;
+            posicaoMenor = i;
+        }
+    }
+    printf ("A pessoa mais velha é : %s\n", Pessoa[posicaoMaior].nome);
+    printf ("Idade : %d\n", Pessoa[posicaoMaior].idade);
+    printf ("A pessoa mais nova é : %s\n", Pessoa[posicaoMenor].nome);
+    printf ("Idade : %d\n", Pessoa[posicaoMenor].idade);
+    return 0;
+}
