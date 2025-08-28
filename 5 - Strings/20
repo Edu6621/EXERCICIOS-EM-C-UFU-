@@ -1,0 +1,52 @@
+/*20. Faca um programa que preencha uma matriz de string com os modelos de cinco carros
+(exemplos de modelos: Fusca, Gol, Vectra, etc.). Em seguida, preencha um vetor com o
+consumo desses carros, isto e, quantos quilometros cada um deles faz com um litro de
+combustıvel. Calcule e mostre:
+
+(a) O modelo de carro mais economico;
+(b) Quantos litros de combustıvel cada
+um dos carros cadastrados consome para percorrer
+uma distancia de 1.000 quilometros. */
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char modelo[50];
+    float kmLitro;
+    float milKm; 
+}carro;
+
+int main () {
+
+    carro Carro[5];
+    int menorConsumo;
+    int menorPosicao;
+
+    for (int i=0; i<5; i++){
+        printf ("%d ) Informe o modelo do carro : ", i+1);   
+        fgets (Carro[i].modelo, sizeof(Carro[i].modelo), stdin);
+        Carro[i].modelo[strcspn(Carro[i].modelo, "\n")] = 0;
+
+        printf ("Seu carro faz quantos Km/L ? ");
+        scanf ("%f", &Carro[i].kmLitro);
+        getchar ();
+
+        if (i == 0){
+            menorConsumo = Carro[0].kmLitro;
+            menorPosicao = 0;
+        }
+
+        if (Carro[i].kmLitro < menorConsumo){
+            menorConsumo = Carro[0].kmLitro;
+            menorPosicao = i;
+        }
+
+        Carro[i].milKm = 1000.0 / Carro[i].kmLitro;
+    }
+    for (int i=0; i<5; i++){
+        printf ("Modelo : %s\nConsumo : %.2f\n Qtd/L em 1000 Km : %.2f\n", Carro[i].modelo, Carro[i].kmLitro, Carro[i].milKm);
+    }
+    printf ("o carro mais economico é : %s", Carro[menorPosicao].modelo);
+    return 0;
+}
