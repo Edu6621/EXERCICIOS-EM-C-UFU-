@@ -1,0 +1,44 @@
+/*// 23. Escreva um programa que recebe uma string S e inteiros nao-negativos I e J e imprima ˜
+// o segmento S[I..J].
+
+#include <stdio.h>
+
+int main () {
+
+    char S[100];
+    int I, J;
+
+    printf ("")
+} */
+#include <stdio.h>
+#include <string.h>
+
+void imprimirSegmento(char *S, int I, int J) {
+    if (I < 0 || J < 0 || J < I || I > strlen(S) || J > strlen(S)){
+        printf ("Inválido");
+        return;
+    }
+    for (int i=I; i<=J; i++){
+        printf ("%c", S[i]);
+    }
+}
+
+int main() {
+    char S[100];
+    int I, J;
+
+    printf("Digite uma string: ");
+    fgets(S, sizeof(S), stdin);
+    S[strcspn(S, "\n")] = 0;
+
+    printf("Digite o índice inicial (I): ");
+    scanf("%d", &I);
+
+    printf("Digite o índice final (J): ");
+    scanf("%d", &J);
+
+    printf("Segmento da string: ");
+    imprimirSegmento(S, I, J);
+
+    return 0;
+}
