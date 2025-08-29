@@ -1,0 +1,35 @@
+/* 22. Ler o nome e o valor de uma determinada mercadoria de uma loja. Sabendo que o
+desconto para pagamento a vista ` e de 10% sobre o valor total, calcular o valor a ser ´
+pago a vista. Escrever o nome da mercadoria, o valor total, o valor do desconto e o valor `
+a ser pago a vista. */
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nome[50];
+    float valorTotal;
+    float valorAVista;
+    float valorDesconto;
+}mercadoria;
+
+int main () {
+
+    mercadoria Mercadoria;
+
+    printf ("Insira o nome da mercadoria : ");
+    fgets (Mercadoria.nome, sizeof(Mercadoria.nome), stdin);
+    Mercadoria.nome[strcspn(Mercadoria.nome, "\n")] = 0;
+
+    printf ("Insira o valor da mercadoria : ");
+    scanf ("%f", &Mercadoria.valorTotal);
+
+    Mercadoria.valorDesconto = Mercadoria.valorTotal * 0.10;
+    Mercadoria.valorAVista = Mercadoria.valorTotal - Mercadoria.valorDesconto;
+
+    printf ("Nome : %s\n", Mercadoria.nome);
+    printf ("Valor Total : %.2f\n", Mercadoria.valorTotal);
+    printf ("Valor do desconto : %.2f\n", Mercadoria.valorDesconto);
+    printf ("Valor A Vista : %.2f\n", Mercadoria.valorAVista);
+
+}
