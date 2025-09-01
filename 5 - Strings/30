@@ -1,0 +1,35 @@
+// 30. Leia duas cadeias de caracteres A e B. Determine quantas vezes a cadeia A ocorre na
+// cadeia B.
+
+#include <stdio.h>
+#include <string.h>
+
+int qtdCaracteres(char *A, char *B) {
+    int contador = 0;
+    char *ponteiro_de_busca = B;
+
+    while ((ponteiro_de_busca = strstr(ponteiro_de_busca, A)) != NULL) {
+        contador++;
+        ponteiro_de_busca++;
+    }
+
+    return contador;
+}
+
+int main () {
+    char A[50];
+    char B[50];
+
+    printf ("Informe a string 1 : ");
+    fgets (A, sizeof(A), stdin);
+    A[strcspn(A, "\n")] = '\0';
+
+    printf ("Informe a string 2 : ");
+    fgets (B, sizeof(B), stdin);
+    B[strcspn(B, "\n")] = '\0';
+
+    int QTD = qtdCaracteres(A, B);
+
+    printf("\nA string \"%s\" ocorre %d vezes na string \"%s\".\n", A, QTD, B);
+    return 0;
+}
