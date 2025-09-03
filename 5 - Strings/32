@@ -1,0 +1,48 @@
+/* 32. Leia uma cadeia de caracteres no formato “DD/MM/AAAA” e copie o dia, mes e ano para ˆ
+3 variaveis inteiras. Antes disso, verifique se as barras est ´ ao no lugar certo, e se DD, MM ˜
+e AAAA sao num ˜ ericos.  */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int testePosicaoBarra(char *data){
+    if (data[2] != '/' || data[5] != '/'){
+        return 0;
+    }
+    return 1;
+}
+
+int testeTamanhoAno(char *data){
+    if (strlen(data) != 10){
+        return 0;
+    }
+    return 1;
+}
+
+int main () {
+    char data[11];
+    int dia, mes, ano;
+    char *local1, *local2;
+    
+    printf ("Informe uma data : ");
+    fgets (data, sizeof(data), stdin);
+    data[strcspn(data, "\n")] = '\0';
+    local1 = &data[2];
+    local2 = &data[5];
+
+    if (!testePosicaoBarra(data)){
+        printf ("Erro na localização das barras !");
+        return 0;
+    }
+    if (!testeTamanhoAno(data)){
+        printf ("Erro no tamanho do ano !");
+        return 0;
+    }
+
+    dia = atoi(data);
+    mes = atoi(local1 + 1);
+    ano = atoi(local2 + 1);
+    printf ("%d %d %d", dia, mes, ano);
+    return 0;
+}
