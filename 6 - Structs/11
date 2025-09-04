@@ -1,0 +1,61 @@
+/* 11. Faca um programa que leia os dados de 10 alunos (Nome, matricula, Media Final), arma- ´
+zenando em um vetor. Uma vez lidos os dados, divida estes dados em 2 novos vetores,
+o vetor dos aprovados e o vetor dos reprovados, considerando a media m ´ ´ınima para a
+aprovac¸ao como sendo 5.0. Exibir na tela os dados do vetor de aprovados, seguido dos ˜
+dados do vetor de reprovados */
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct{
+    char nome[50];
+    int matricula;
+    float mediaFinal;
+}aluno;
+
+int main () {
+    aluno alunos[10];
+    int cont = 0;
+
+    for (int i=0; i<10; i++){
+        printf ("%d ) Informe um nome : ", i+1);
+        fgets (alunos[i].nome, sizeof(alunos[i].nome), stdin);
+        alunos[i].nome[strcspn(alunos[i].nome, "\n")] = '\0';
+
+        printf ("Informe a matricula : ");
+        scanf ("%d", &alunos[i].matricula);
+
+        printf ("Informe a media final : ");
+        scanf ("%f", &alunos[i].mediaFinal);
+
+        if (alunos[i].mediaFinal >= 5){
+            cont++;
+        }
+        getchar();
+    }
+    aluno aprovados[cont];
+    aluno reprovados[10 - cont];
+
+    int qtd1 = 0, qtd2 = 0;
+    for (int i=0; i<10; i++){
+        if (alunos[i].mediaFinal >= 5){
+            aprovados[qtd1] = alunos[i];
+            qtd1++; 
+        }
+        else{
+            reprovados[qtd2] = alunos[i];
+            qtd2++;
+        }
+    }
+    printf ("Aprovados\n");
+    for (int i=0; i<qtd1; i++){
+        printf ("%s\n", aprovados[i].nome);
+    }
+    printf ("\n");
+    
+    printf ("Reprovados\n");
+    for (int i=0; i<qtd2; i++){
+        printf ("%s\n", reprovados[i].nome);
+    }
+    return 0;
+}
