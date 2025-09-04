@@ -1,0 +1,42 @@
+/* 33. Faca um programa para ler uma tabela contendo os nomes dos alunos de uma turma de
+5 alunos. O programa deve solicitar ao usuario os nomes do aluno, sempre perguntando
+se ele deseja inserir mais um nome na lista. Uma vez lidos todos os alunos, o usuario 
+ira indicar um nome que ele deseja verificar se esta presente na lista, onde o programa
+deve procurar pelo nome (ou parte deste nome) e se encontrar deve exibir na tela o nome
+completo e o ´ındice do vetor onde esta guardado este nome  */
+
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+
+    char nome[5][50];
+    char pesquisa[50];
+
+    for (int i=0; i<5; i++){
+        printf ("%d) Informe um nome : ", i+1);
+        fgets (nome[i], sizeof(nome[i]), stdin);
+        nome[i][strcspn(nome[i], "\n")] = '\0';
+
+        int opcao;
+        if (i<4){
+            printf ("Deseja adicionar mais um nome ?\n0 - nao\n1 - sim\n");
+            scanf ("%d", &opcao);
+            if (!opcao){
+                return 0;
+            }
+            getchar();
+        }
+    }
+    printf ("Digite o nome ou parte dele para pesquisar : ");
+    fgets (pesquisa, sizeof(pesquisa), stdin);
+    pesquisa[strcspn(pesquisa, "\n")] = '\0';
+
+    for (int i = 0; i < 5; i++) {
+        if (strstr(nome[i], pesquisa) != NULL) {
+            printf("Nome encontrado: %s\n", nome[i]);
+            printf("Indice do vetor: %d\n", i);
+        }
+    }
+    return 0;
+}
