@@ -1,0 +1,49 @@
+/* 16. Fac¸a um programa que seja uma agenda de compromissos e:
+• Crie e leia um vetor de 5 estruturas de dados com: compromisso (maximo 60 letras) ´
+e data. A data deve ser outra estrutura de dados contendo dia, mes e ano. ˆ
+• Leia dois inteiros M e A e mostre todos os compromissos do mesˆ M do ano A.
+Repita o procedimento ate ler M = 0. */
+
+#include <stdio.h> 
+#include <string.h>
+
+typedef struct{
+    int dia, mes, ano;
+}Data;
+
+typedef struct {
+    char compromisso[60];
+    Data data;
+}Agenda;
+
+int main () {
+    Agenda agenda[5];
+    int M, A;
+    for (int i=0; i<5; i++){
+        printf ("Informe o dia : ");
+        scanf ("%d", &agenda[i].data.dia);
+        
+        printf ("Informe o mês : ");
+        scanf ("%d", &agenda[i].data.mes);
+        
+        printf ("Informe o ano : ");
+        scanf ("%d", &agenda[i].data.ano);
+        getchar();
+        
+        printf ("Informe o compromisso : ");
+        fgets (agenda[i].compromisso, sizeof(agenda[i].compromisso), stdin);
+        agenda[i].compromisso[strcspn(agenda[i].compromisso, "\n")] = '\0';
+    }
+    do {
+        printf ("Informe um mês para ver os compromissos : ");
+        scanf ("%d", &M);
+        printf ("Informe um ano para ver os compromissos : ");
+        scanf ("%d", &A);
+        
+        for (int i=0; i<5; i++){
+            if (agenda[i].data.mes == M && agenda[i].data.ano == A){
+                printf ("Compromisso : %s dia %d\n", agenda[i].compromisso, agenda[i].data.dia);
+            }
+        }
+    }while (M != 0);
+}
