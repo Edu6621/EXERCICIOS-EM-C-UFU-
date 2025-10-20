@@ -1,0 +1,70 @@
+/* 17. Faca um programa que controla o consumo de energia dos eletrodomesticos de uma casa e:
+• Crie e leia 5 eletrodomesticos que contem nome (maximo 15 letras), potencia (real, em kW) e tempo ativo por dia (real, em horas).
+• Leia um tempo t (em dias), calcule e mostre o consumo total na casa e o consumo
+relativo de cada eletrodomestico (consumo/consumo total) nesse perıodo de tempo.
+Apresente este ultimo dado em porcentagem.  */
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nome[16]; 
+    float potencia;
+    float tempoAtivo;
+} Eletro;
+
+#define NUM_ELETROS 5
+
+int main() {
+    Eletro eletro[NUM_ELETROS];
+    float tempo_total_dias;
+    float consumo_total_casa = 0.0;
+    float consumos_individuais[NUM_ELETROS];
+    int c;
+
+    for (int i = 0; i < NUM_ELETROS; i++) {
+        printf ("\nEletrodoméstico %d:\n", i + 1);
+
+        if (i > 0) {
+            while ((c = getchar()) != '\n' && c != EOF);
+        }
+
+        printf("Informe o nome (máx. 15 letras): ");
+        fgets(eletro[i].nome, sizeof(eletro[i].nome), stdin);
+        eletro[i].nome[strcspn(eletro[i].nome, "\n")] = '\0';
+
+        printf("Informe a potencia (em kW): ");
+        scanf("%f", &eletro[i].potencia);
+
+        printf("Informe o tempo ativo por dia (em Horas): ");
+        scanf("%f", &eletro[i].tempoAtivo);
+    }
+    
+    while ((c = getchar()) != '\n' && c != EOF);
+    
+    printf("\nInforme o período de tempo (em dias): ");
+    scanf("%f", &tempo_total_dias);
+
+    for (int i = 0; i < NUM_ELETROS; i++) {
+        consumos_individuais[i] = eletro[i].potencia * eletro[i].tempoAtivo * tempo_total_dias;
+        consumo_total_casa += consumos_individuais[i];
+    }
+
+    printf("\nConsumo Total da Casa no período (%.1f dias): %.2f kWh\n", tempo_total_dias, consumo_total_casa);
+    printf("\nConsumo Relativo (Porcentagem):\n");
+
+    if (consumo_total_casa > 0.0) {
+        for (int i = 0; i < NUM_ELETROS; i++) {
+            float consumo_relativo_percentual = (consumos_individuais[i] / consumo_total_casa) * 100.0;
+
+            printf("  - %s: %.2f kWh (%.2f%%)\n", 
+                   eletro[i].nome, 
+                   consumos_individuais[i], 
+                   consumo_relativo_percentual);
+        }
+    } else {
+        printf("O consumo total da casa é zero.\n");
+    }
+
+    return 0;
+}
