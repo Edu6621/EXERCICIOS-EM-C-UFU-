@@ -1,0 +1,85 @@
+/* 19. Faca um programa que controle o fluxo de voos nos aeroportos de um paıs. Com V = 5
+(voos) e A = 5 (aeroportos) e:
+• Crie e leia um vetor de voos, sendo que cada voo contem um codigo de aeroporto 
+de origem e um de destino.
+• Crie um vetor de aeroportos, sendo que cada aeroporto contem seu codigo, quanti-
+dade de voos que saem e quantidade de voos que chegam.
+Nota: Cada aeroporto e identificado por um codigo inteiro entre 0 e (A-1). Nao aceite
+aeroportos de codigo inexistente. */
+
+#include <stdio.h>
+
+#define V 5
+#define A 5
+
+typedef struct {
+    int origem;
+    int destino;
+} Voo;
+
+typedef struct {
+    int codigo;
+    int qtd_saem;
+    int qtd_chegam;
+} Aeroporto;
+
+int main() {
+    Voo voos[V];
+    Aeroporto aeroportos[A];
+    
+    int i; 
+
+    for (i = 0; i < A; i++) {
+        aeroportos[i].codigo = i;
+        aeroportos[i].qtd_saem = 0;
+        aeroportos[i].qtd_chegam = 0;
+    }
+
+    printf("--- Cadastro de Voos ---\n");
+    printf("Os codigos de aeroporto validos sao de 0 a %d.\n\n", A - 1);
+
+    for (i = 0; i < V; i++) {
+        printf("--- Voo %d ---\n", i + 1);
+        
+        int cod_origem_temp;
+        int cod_destino_temp;
+
+        do {
+            printf("Informe o codigo do aeroporto de ORIGEM: ");
+            scanf("%d", &cod_origem_temp);
+            
+            if (cod_origem_temp < 0 || cod_origem_temp >= A) {
+                printf("Erro: Codigo invalido! Tente novamente.\n");
+            }
+        } while (cod_origem_temp < 0 || cod_origem_temp >= A);
+        
+        do {
+            printf("Informe o codigo do aeroporto de DESTINO: ");
+            scanf("%d", &cod_destino_temp);
+            
+            if (cod_destino_temp < 0 || cod_destino_temp >= A) {
+                printf("Erro: Codigo invalido! Tente novamente.\n");
+            }
+        } while (cod_destino_temp < 0 || cod_destino_temp >= A);
+
+
+        voos[i].origem = cod_origem_temp;
+        voos[i].destino = cod_destino_temp;
+        
+        aeroportos[voos[i].origem].qtd_saem++;
+        aeroportos[voos[i].destino].qtd_chegam++;
+        
+        printf("Voo (Origem: %d -> Destino: %d) registrado.\n\n", voos[i].origem, voos[i].destino);
+    }
+
+    printf("\n\n--- Relatorio de Fluxo dos Aeroportos ---\n");
+    for (i = 0; i < A; i++) {
+        printf("--------------------------------------\n");
+        printf("Aeroporto Codigo: %d\n", aeroportos[i].codigo);
+        printf("  Voos que SAEM:   %d\n", aeroportos[i].qtd_saem);
+        printf("  Voos que CHEGAM: %d\n", aeroportos[i].chegam);
+    }
+    printf("--------------------------------------\n");
+
+    return 0;
+}
