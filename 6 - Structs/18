@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+#define QTD 5
+
+typedef struct {
+    int cod;
+    char nome[16];
+    float preco;
+    int qtd;
+} Produto;
+
+typedef struct {
+    int cod;
+    int qtd;
+} Pedido;
+
+
+int main () {
+    Produto produto[QTD];
+
+    for (int i=0; i<QTD; i++){
+        printf ("%d) Informe o código do produto : ", i+1);
+        scanf ("%d", &produto[i].cod);
+        getchar();
+
+        printf ("Informe o nome do produto : ");
+        fgets (produto[i].nome, sizeof(produto[i].nome), stdin);
+        produto[i].nome[strcspn(produto[i].nome, "\n")] = '\0';
+
+        printf ("Informe o preço do produto : ");
+        scanf ("%f", &produto[i].preco);
+
+        printf ("Informe a quantidade do produto : ");
+        scanf ("%d", &produto[i].qtd);
+    }
+    
+    Pedido pedido;
+    int encontrado; 
+
+    while (1) {
+        printf ("\n--- Novo Pedido ---\n");
+        printf ("Faça o pedido:\nCodigo (0 para sair): ");
+        scanf ("%d", &pedido.cod);
+
+        if (pedido.cod == 0) {
+            printf("Encerrando pedidos.\n");
+            break; 
+        }
+
+        printf ("Quantidade : ");
+        scanf ("%d", &pedido.qtd);
+
+        encontrado = 0;
+
+        for (int i=0; i<QTD; i++){
+            if (pedido.cod == produto[i].cod){
+                encontrado = 1; 
+
+                if (pedido.qtd > produto[i].qtd){
+                    printf ("Erro: Quantidade insuficiente em estoque. (Disponivel: %d)\n", produto[i].qtd);
+                }
+                else {
+                    produto[i].qtd -= pedido.qtd;
+                    printf ("Pedido atendido! Estoque atualizado:\n");
+                    printf ("  código : %d\n", produto[i].cod);
+                    printf ("  nome : %s\n", produto[i].nome);
+                    printf ("  preço : %.2f\n", produto[i].preco);
+                    printf ("  quantidade restante : %d\n", produto[i].qtd);
+                }
+                
+                break; 
+            }
+        }
+        if (encontrado == 0) {
+            printf ("Erro: Codigo de produto nao encontrado.\n");
+        }
+    } 
+
+    return 0;
+}
